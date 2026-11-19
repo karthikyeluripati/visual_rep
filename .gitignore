@@ -8,3 +8,8 @@ data/*/images/
 experiments/*/raw/
 *.safetensors
 *.bin
+
+# secrets
+.env
+.env.*
+pod_results/
