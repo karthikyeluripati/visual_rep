@@ -63,6 +63,8 @@ def target_text(arm: str, ex: dict, scene) -> str:
         d["path"] = [[int(round(1000 * p[0] / W)), int(round(1000 * p[1] / H))] for p in c.points][:6]
     else:
         d["entity_box"] = _box1000(scene.entity(ex["query_ref"]).bbox, W, H)
+    if arm == "M2R":  # rationale-first: boxes/path are generated BEFORE the answer, so they can condition it
+        d = {k: d[k] for k in d if k != "answer"} | {"answer": d["answer"]}
     return json.dumps(d, ensure_ascii=False)
 
 
@@ -188,11 +190,11 @@ def trainable_state(model, head):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--arm", required=True, choices=["M1", "M2", "M3"])
+    ap.add_argument("--arm", required=True, choices=["M1", "M2", "M2R", "M3"])
     ap.add_argument("--data", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--train-split", default="train")
-    ap.add_argument("--eval-splits", nargs="+", default=["val", "test_unseen_topology", "test_id"])
+    ap.add_argument("--eval-splits", nargs="+", default=["val", "test_unseen_topology", "test_id"])  # transfer run passes its own
     ap.add_argument("--max-steps", type=int, default=None)
     ap.add_argument("--accum", type=int, default=2)
     ap.add_argument("--lr", type=float, default=1e-4)
@@ -345,7 +347,7 @@ def evaluate(model, head, proc, enc, data, splits, out, img_tok, pad_id, bs=24, 
                 msgs.append([{"role": "user", "content": [{"type": "image", "image": p.image}, {"type": "text", "text": p.text}]}])
             inp = proc.apply_chat_template(msgs, tokenize=True, add_generation_prompt=True, return_dict=True,
                                            return_tensors="pt", padding=True).to("cuda")
-            gen = model.generate(**inp, max_new_tokens=160, do_sample=False)
+            gen = model.generate(**inp, max_new_tokens=320, do_sample=False)  # 320: M2R emits ~150 digit tokens before the answer
             texts = proc.batch_decode(gen[:, inp["input_ids"].shape[1]:], skip_special_tokens=True)
             head_preds = {}
             if head is not None:

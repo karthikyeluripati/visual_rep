@@ -1,0 +1,199 @@
+{
+  "name": "relbind-strict-v3-transfer",
+  "seed": 20261121,
+  "render_scale": 1.0,
+  "notes": "Template/family transfer test (approved 2026-11-19). Same seed as strict_v2: train/val/test_id/test_unseen_topology are regenerated from identical per-split seed streams (verified by examples hash per split on the pod). Added held-out splits: test_unseen_template (schematic/plan, flowchart/lr) and test_unseen_family (circuit/ladder, circuit/grid), straight/elbow routes, strict swaps only. Crossing cells balanced over cells feasible under strict swaps (local probe 2026-11-19, 16 groups each: plan none/leader_leader, lr leader_leader only, ladder/grid none/leader_leader).",
+  "splits": {
+    "train": {
+      "n_groups": 600,
+      "strict_only": true,
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
+    },
+    "val": {
+      "n_groups": 90,
+      "strict_only": true,
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
+    },
+    "test_id": {
+      "n_groups": 300,
+      "strict_only": true,
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
+    },
+    "test_unseen_topology": {
+      "n_groups": 150,
+      "strict_only": true,
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "zigzag"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
+    },
+    "test_unseen_template": {
+      "n_groups": 150,
+      "strict_only": true,
+      "crossing_cells": {
+        "schematic": [
+          "none",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "plan"
+        ],
+        "flowchart": [
+          "lr"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
+    },
+    "test_unseen_family": {
+      "n_groups": 150,
+      "strict_only": true,
+      "crossing_cells": {
+        "circuit": [
+          "none",
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "circuit"
+      ],
+      "templates": {
+        "circuit": [
+          "ladder",
+          "grid"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
+    }
+  }
+}

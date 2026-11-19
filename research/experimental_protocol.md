@@ -241,3 +241,21 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   test_unseen_topology). However, M1 (answer-only SFT) beats M3 by 18.7 pp, so the rule's implicit assumption M1 ≤ M2 failed.
   Recommendation: no 3-seed run of this design without PI review. Logging defect found and fixed after the run: train logs recorded
   rel/pair from the last micro-batch of each accumulation step only; the losses themselves were correct.
+- 2026-11-19: **Template/family transfer run approved by the PI** ("go ahead"). Pre-registered before any output exists:
+  - **Data:** `configs/strict_v3.json`. It uses the same seed as strict_v2. The train, val, test_id and test_unseen_topology splits
+    must hash-identically match a strict_v2 rebuild on the pod, otherwise the run aborts.
+  - **New splits:** test_unseen_template (schematic/plan, flowchart/lr) and test_unseen_family (circuit/ladder, circuit/grid).
+    Each has 150 groups, strict swaps only, straight/elbow routes, and crossing cells balanced over the feasible cells
+    (local probe: plan and circuit give none/leader_leader; lr gives leader_leader only).
+  - **Arms (1 seed each, training identical to the pilot):** M1 answer-only; M2R rationale-first (same target as M2, but
+    annotation_box, entity_box and path are emitted BEFORE the answer); M3 as in the pilot. M2 is not rerun.
+  - **Eval:** orig/cf on val and all three unseen splits. test_id is not evaluated (the pilot measured it).
+    Generation cap raised from 160 to 320 tokens for every arm, because M2R emits about 150 digit tokens before its answer.
+    Greedy decoding stops at EOS, so the higher cap does not change M1's outputs.
+  - **Decision rule:** `src/relbind/transfer_analysis.py` (module docstring). In short:
+    - M1 drop = M1(val) − M1(held-out split). Verdicts: transfers if ≤ 15 pp, collapses if ≥ 30 pp, otherwise partial.
+    - Method helps if M3 or M2R beats M1 by ≥ +3 pp with CI lower bound > 0.
+    - Recommendation:
+      - method_comparison_warranted: some split is partial or collapses AND the method helps on that split;
+      - drop_or_reframe_method_claim: both splits transfer AND the method helps on neither;
+      - otherwise no_method_advantage.
