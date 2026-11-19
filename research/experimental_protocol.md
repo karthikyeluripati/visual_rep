@@ -259,3 +259,17 @@ scale); contamination of the base model with similar public diagrams; prompts tu
       - method_comparison_warranted: some split is partial or collapses AND the method helps on that split;
       - drop_or_reframe_method_claim: both splits transfer AND the method helps on neither;
       - otherwise no_method_advantage.
+- 2026-11-19 (transfer run, before any transfer evaluation output): **M1 diverged under pure-bf16 training.**
+  - **What happened:** same code (apart from logging), data and seed as the pilot. Loss went 0.70 → 2.56 → 3.14 → ~12.5 by step 31
+    (uniform over the vocabulary). The pilot M1 run did not diverge, so the pilot recipe was unstable and its runs succeeded by chance
+    under GPU nondeterminism.
+  - **Fix, for ALL arms:**
+    - fp32 master weights for the trainable LoRA and merger tensors;
+    - bf16 autocast for compute;
+    - weights cast back to bf16 before saving and eval, so the eval path is unchanged;
+    - a divergence guard: abort if the mean sft over the last 20 steps exceeds 4.0 after step 40.
+  - **How it was applied:** hot-swapped on the running pod. Diverged logs preserved in `experiments/transfer/diverged_bf16_M1/`.
+    The pod's COMMIT file reads a590af5, but the training code is the next commit.
+  - **Consequence:** transfer-run arms are not trained with the exact pilot recipe. Comparisons inside the transfer run
+    (M1 vs M2R vs M3) are unaffected. Comparisons between the pilot and the transfer run on the shared splits (val,
+    test_unseen_topology) now also test robustness to this change.

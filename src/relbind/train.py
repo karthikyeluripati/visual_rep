@@ -226,6 +226,11 @@ def main(argv=None):
     if args.max_steps:
         steps_total = min(steps_total, args.max_steps)
         batches = batches[: steps_total * args.accum]
+    # fp32 master weights for every trainable tensor (pure-bf16 AdamW diverged in the transfer run, 2026-11-19);
+    # compute stays bf16 via autocast; weights are cast back to bf16 before saving/eval (= pilot eval path).
+    for p in model.parameters():
+        if p.requires_grad:
+            p.data = p.data.float()
     params = [p for p in model.parameters() if p.requires_grad] + (list(head.parameters()) if head else [])
     n_train = sum(p.numel() for p in params)
     opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0)
@@ -235,11 +240,13 @@ def main(argv=None):
     log = open(out / "train_log.jsonl", "w", encoding="utf-8")
     model.train()
     t0, step = time.time(), 0
+    recent = []
     acc = defaultdict(float)  # per-optimizer-step means over micro-batches (pilot logged only the last micro-batch)
     for bi, batch in enumerate(batches):
         items = [enc.train_item(args.arm, e) for e in batch]
         inp = {k: v.cuda() for k, v in collate(items, pad_id).items()}
-        outp = model(**inp, output_hidden_states=(head is not None))
+        with torch.autocast("cuda", dtype=torch.bfloat16):
+            outp = model(**inp, output_hidden_states=(head is not None))
         loss_sft = outp.loss
         loss = loss_sft
         l_rel = l_pair = torch.zeros((), device="cuda")
@@ -294,9 +301,15 @@ def main(argv=None):
                 print(rec, flush=True)
             if not math.isfinite(rec["loss"]) or not math.isfinite(rec["grad_norm"]):
                 raise RuntimeError(f"non-finite loss/grad at step {step}")
+            recent.append(rec["sft"])
+            if step >= 40 and sum(recent[-20:]) / 20 > 4.0:  # divergence guard (pilot sft never exceeded ~2.6)
+                raise RuntimeError(f"diverged: mean sft over last 20 steps > 4.0 at step {step}")
         if step >= steps_total:
             break
     log.close()
+    for p in model.parameters():
+        if p.requires_grad:
+            p.data = p.data.to(torch.bfloat16)
     sd = trainable_state(model, head)
     torch.save(sd, out / "trainable_state.pt")
     sha = hashlib.sha256((out / "trainable_state.pt").read_bytes()).hexdigest()
