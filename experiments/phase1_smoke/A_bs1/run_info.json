@@ -1,0 +1,55 @@
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/prototype_v0",
+    "--splits",
+    "test_id",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--revision",
+    "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "--max-groups",
+    "2",
+    "--batch-size",
+    "1",
+    "--out",
+    "experiments/phase1_smoke/A_bs1"
+  ],
+  "args": {
+    "data": "/workspace/data/prototype_v0",
+    "splits": [
+      "test_id"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "Qwen/Qwen3-VL-4B-Instruct",
+    "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": null,
+    "max_groups": 2,
+    "batch_size": 1,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "out": "experiments/phase1_smoke/A_bs1"
+  },
+  "n_examples": 40,
+  "seconds": 8.3,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "qwen",
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}

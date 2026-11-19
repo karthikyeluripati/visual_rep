@@ -1,0 +1,18 @@
+[train] groups=120 examples=2400 (94s)
+[val] groups=30 examples=600 (118s)
+[test_id] groups=40 examples=800 (149s)
+[test_unseen_template] groups=40 examples=800 (195s)
+[test_unseen_topology] groups=40 examples=800 (224s)
+[test_unseen_font] groups=20 examples=400 (239s)
+[test_cross_domain] groups=40 examples=800 (280s)
+{
+  "stats": {
+    "groups": 330,
+    "attach_fixed=False": 81,
+    "base_attempts": 457,
+    "attach_fixed=True": 249
+  },
+  "n_examples": 6600,
+  "leakage_ok": true,
+  "build_seconds": 280.1
+}

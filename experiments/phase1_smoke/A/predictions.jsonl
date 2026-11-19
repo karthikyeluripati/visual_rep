@@ -1,0 +1,40 @@
+{"example_id": "test_id-00000-a2e-a1-orig", "prediction": "S3", "raw_answer": "S3", "parsed_json": true, "raw_text": "{\"answer\": \"S3\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a2-orig", "prediction": "S4", "raw_answer": "S4", "parsed_json": true, "raw_text": "{\"answer\": \"S4\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S5-orig", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S4-orig", "prediction": "> 5", "raw_answer": "> 5", "parsed_json": true, "raw_text": "{\"answer\": \"> 5\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S3-orig", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a1-cf", "prediction": "S3", "raw_answer": "S3", "parsed_json": true, "raw_text": "{\"answer\": \"S3\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a2-cf", "prediction": "S5", "raw_answer": "S5", "parsed_json": true, "raw_text": "{\"answer\": \"S5\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S5-cf", "prediction": "> 5", "raw_answer": "> 5", "parsed_json": true, "raw_text": "{\"answer\": \"> 5\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S4-cf", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S3-cf", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a1-reroute", "prediction": "S3", "raw_answer": "S3", "parsed_json": true, "raw_text": "{\"answer\": \"S3\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a2-reroute", "prediction": "S4", "raw_answer": "S4", "parsed_json": true, "raw_text": "{\"answer\": \"S4\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S5-reroute", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S4-reroute", "prediction": "> 5", "raw_answer": "> 5", "parsed_json": true, "raw_text": "{\"answer\": \"> 5\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S3-reroute", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a1-style", "prediction": "S3", "raw_answer": "S3", "parsed_json": true, "raw_text": "{\"answer\": \"S3\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a2-style", "prediction": "S4", "raw_answer": "S4", "parsed_json": true, "raw_text": "{\"answer\": \"S4\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S5-style", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S4-style", "prediction": "> 5", "raw_answer": "> 5", "parsed_json": true, "raw_text": "{\"answer\": \"> 5\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S3-style", "prediction": "invalid", "raw_answer": "invalid", "parsed_json": true, "raw_text": "{\"answer\": \"invalid\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a0-orig", "prediction": "S1", "raw_answer": "S1", "parsed_json": true, "raw_text": "{\"answer\": \"S1\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a2-orig", "prediction": "S3", "raw_answer": "S3", "parsed_json": true, "raw_text": "{\"answer\": \"S3\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S1-orig", "prediction": "retry", "raw_answer": "retry", "parsed_json": true, "raw_text": "{\"answer\": \"retry\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S2-orig", "prediction": "timeout", "raw_answer": "timeout", "parsed_json": true, "raw_text": "{\"answer\": \"timeout\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S5-orig", "prediction": "NONE", "raw_answer": "NONE", "parsed_json": true, "raw_text": "{\"answer\": \"NONE\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a0-cf", "prediction": "S1", "raw_answer": "S1", "parsed_json": true, "raw_text": "{\"answer\": \"S1\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a2-cf", "prediction": "S5", "raw_answer": "S5", "parsed_json": true, "raw_text": "{\"answer\": \"S5\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S1-cf", "prediction": "retry", "raw_answer": "retry", "parsed_json": true, "raw_text": "{\"answer\": \"retry\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S2-cf", "prediction": "retry", "raw_answer": "retry", "parsed_json": true, "raw_text": "{\"answer\": \"retry\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S5-cf", "prediction": "NONE", "raw_answer": "NONE", "parsed_json": true, "raw_text": "{\"answer\": \"NONE\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a0-reroute", "prediction": "S1", "raw_answer": "S1", "parsed_json": true, "raw_text": "{\"answer\": \"S1\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a2-reroute", "prediction": "S2", "raw_answer": "S2", "parsed_json": true, "raw_text": "{\"answer\": \"S2\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S1-reroute", "prediction": "retry", "raw_answer": "retry", "parsed_json": true, "raw_text": "{\"answer\": \"retry\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S2-reroute", "prediction": "valid?", "raw_answer": "valid?", "parsed_json": true, "raw_text": "{\"answer\": \"valid?\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S5-reroute", "prediction": "NONE", "raw_answer": "NONE", "parsed_json": true, "raw_text": "{\"answer\": \"NONE\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a0-style", "prediction": "S1", "raw_answer": "S1", "parsed_json": true, "raw_text": "{\"answer\": \"S1\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-a2e-a2-style", "prediction": "S3", "raw_answer": "S3", "parsed_json": true, "raw_text": "{\"answer\": \"S3\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S1-style", "prediction": "retry", "raw_answer": "retry", "parsed_json": true, "raw_text": "{\"answer\": \"retry\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S2-style", "prediction": "timeout", "raw_answer": "timeout", "parsed_json": true, "raw_text": "{\"answer\": \"timeout\"}", "condition": "A_direct"}
+{"example_id": "test_id-00001-e2a-S5-style", "prediction": "NONE", "raw_answer": "NONE", "parsed_json": true, "raw_text": "{\"answer\": \"NONE\"}", "condition": "A_direct"}

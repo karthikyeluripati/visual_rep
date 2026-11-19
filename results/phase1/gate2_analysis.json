@@ -1,0 +1,2656 @@
+{
+  "split": "test_id",
+  "data": "/workspace/data/diag_v1",
+  "recognition": {
+    "probe_accuracy": {
+      "test_cross_domain/read_ann_box": 0.7083,
+      "test_cross_domain/read_ann_crop": 0.9667,
+      "test_cross_domain/read_ent_box": 0.1167,
+      "test_cross_domain/read_ent_crop": 0.9917,
+      "test_id/read_ann_box": 0.454,
+      "test_id/read_ann_crop": 0.954,
+      "test_id/read_ent_box": 0.232,
+      "test_id/read_ent_crop": 1.0,
+      "test_unseen_template/read_ann_box": 0.5667,
+      "test_unseen_template/read_ann_crop": 0.9667,
+      "test_unseen_template/read_ent_box": 0.1917,
+      "test_unseen_template/read_ent_crop": 1.0,
+      "test_unseen_topology/read_ann_box": 0.5167,
+      "test_unseen_topology/read_ann_crop": 0.975,
+      "test_unseen_topology/read_ent_box": 0.2833,
+      "test_unseen_topology/read_ent_crop": 1.0
+    },
+    "groups_recog_ok": {
+      "test_cross_domain": "55/60",
+      "test_id": "228/250",
+      "test_unseen_template": "56/60",
+      "test_unseen_topology": "57/60"
+    }
+  },
+  "categories": {
+    "A_direct": {
+      "a2e_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 457,
+        "primary": {
+          "connector_interpretation": {
+            "n": 270,
+            "frac_of_wrong": 0.591
+          },
+          "unsupported_relation": {
+            "n": 150,
+            "frac_of_wrong": 0.328
+          },
+          "recognition": {
+            "n": 34,
+            "frac_of_wrong": 0.074
+          },
+          "invalid_output": {
+            "n": 3,
+            "frac_of_wrong": 0.007
+          }
+        },
+        "tags": {
+          "stuck_on_old_target": 88,
+          "target_of_other_connector": 270,
+          "crossed_by_gold_connector": 146,
+          "proximity_nearest": 241
+        }
+      },
+      "e2a_unanswerable": {
+        "n_examples": 500,
+        "n_wrong": 302,
+        "primary": {
+          "unsupported_relation": {
+            "n": 302,
+            "frac_of_wrong": 1.0
+          }
+        },
+        "tags": {
+          "named_other_annotation": 248,
+          "named_non_annotation_text": 54
+        }
+      },
+      "e2a_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 467,
+        "primary": {
+          "proximity_binding": {
+            "n": 166,
+            "frac_of_wrong": 0.355
+          },
+          "connector_interpretation": {
+            "n": 153,
+            "frac_of_wrong": 0.328
+          },
+          "unsupported_relation": {
+            "n": 100,
+            "frac_of_wrong": 0.214
+          },
+          "recognition": {
+            "n": 35,
+            "frac_of_wrong": 0.075
+          },
+          "missed_relation": {
+            "n": 13,
+            "frac_of_wrong": 0.028
+          }
+        },
+        "tags": {
+          "stuck_on_old_answer": 105,
+          "annotation_of_other_connector": 319,
+          "proximity_nearest": 250,
+          "named_non_annotation_text": 100
+        }
+      }
+    },
+    "B_reasoning": {
+      "a2e_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 392,
+        "primary": {
+          "connector_interpretation": {
+            "n": 266,
+            "frac_of_wrong": 0.679
+          },
+          "unsupported_relation": {
+            "n": 78,
+            "frac_of_wrong": 0.199
+          },
+          "recognition": {
+            "n": 24,
+            "frac_of_wrong": 0.061
+          },
+          "invalid_output": {
+            "n": 24,
+            "frac_of_wrong": 0.061
+          }
+        },
+        "tags": {
+          "stuck_on_old_target": 99,
+          "target_of_other_connector": 266,
+          "crossed_by_gold_connector": 72,
+          "proximity_nearest": 171
+        }
+      },
+      "e2a_unanswerable": {
+        "n_examples": 500,
+        "n_wrong": 248,
+        "primary": {
+          "unsupported_relation": {
+            "n": 248,
+            "frac_of_wrong": 1.0
+          }
+        },
+        "tags": {
+          "named_non_annotation_text": 39,
+          "named_other_annotation": 209
+        }
+      },
+      "e2a_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 498,
+        "primary": {
+          "connector_interpretation": {
+            "n": 147,
+            "frac_of_wrong": 0.295
+          },
+          "proximity_binding": {
+            "n": 134,
+            "frac_of_wrong": 0.269
+          },
+          "unsupported_relation": {
+            "n": 103,
+            "frac_of_wrong": 0.207
+          },
+          "missed_relation": {
+            "n": 84,
+            "frac_of_wrong": 0.169
+          },
+          "recognition": {
+            "n": 30,
+            "frac_of_wrong": 0.06
+          }
+        },
+        "tags": {
+          "named_non_annotation_text": 103,
+          "annotation_of_other_connector": 281,
+          "proximity_nearest": 204,
+          "stuck_on_old_answer": 92
+        }
+      }
+    },
+    "C_oracle_crop": {
+      "a2e_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 444,
+        "primary": {
+          "connector_interpretation": {
+            "n": 283,
+            "frac_of_wrong": 0.637
+          },
+          "unsupported_relation": {
+            "n": 125,
+            "frac_of_wrong": 0.282
+          },
+          "recognition": {
+            "n": 32,
+            "frac_of_wrong": 0.072
+          },
+          "invalid_output": {
+            "n": 4,
+            "frac_of_wrong": 0.009
+          }
+        },
+        "tags": {
+          "stuck_on_old_target": 111,
+          "target_of_other_connector": 283,
+          "crossed_by_gold_connector": 133,
+          "proximity_nearest": 269
+        }
+      },
+      "e2a_unanswerable": {
+        "n_examples": 500,
+        "n_wrong": 277,
+        "primary": {
+          "unsupported_relation": {
+            "n": 277,
+            "frac_of_wrong": 1.0
+          }
+        },
+        "tags": {
+          "named_non_annotation_text": 48,
+          "named_other_annotation": 229
+        }
+      },
+      "e2a_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 450,
+        "primary": {
+          "connector_interpretation": {
+            "n": 175,
+            "frac_of_wrong": 0.389
+          },
+          "proximity_binding": {
+            "n": 154,
+            "frac_of_wrong": 0.342
+          },
+          "unsupported_relation": {
+            "n": 62,
+            "frac_of_wrong": 0.138
+          },
+          "recognition": {
+            "n": 35,
+            "frac_of_wrong": 0.078
+          },
+          "missed_relation": {
+            "n": 24,
+            "frac_of_wrong": 0.053
+          }
+        },
+        "tags": {
+          "stuck_on_old_answer": 112,
+          "annotation_of_other_connector": 329,
+          "proximity_nearest": 240,
+          "named_non_annotation_text": 62
+        }
+      }
+    },
+    "E_oracle_box": {
+      "a2e_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 450,
+        "primary": {
+          "connector_interpretation": {
+            "n": 266,
+            "frac_of_wrong": 0.591
+          },
+          "unsupported_relation": {
+            "n": 148,
+            "frac_of_wrong": 0.329
+          },
+          "recognition": {
+            "n": 35,
+            "frac_of_wrong": 0.078
+          },
+          "invalid_output": {
+            "n": 1,
+            "frac_of_wrong": 0.002
+          }
+        },
+        "tags": {
+          "crossed_by_gold_connector": 127,
+          "proximity_nearest": 243,
+          "stuck_on_old_target": 86,
+          "target_of_other_connector": 266
+        }
+      },
+      "e2a_unanswerable": {
+        "n_examples": 500,
+        "n_wrong": 271,
+        "primary": {
+          "unsupported_relation": {
+            "n": 271,
+            "frac_of_wrong": 1.0
+          }
+        },
+        "tags": {
+          "named_other_annotation": 247,
+          "named_non_annotation_text": 24
+        }
+      },
+      "e2a_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 405,
+        "primary": {
+          "connector_interpretation": {
+            "n": 167,
+            "frac_of_wrong": 0.412
+          },
+          "proximity_binding": {
+            "n": 167,
+            "frac_of_wrong": 0.412
+          },
+          "unsupported_relation": {
+            "n": 30,
+            "frac_of_wrong": 0.074
+          },
+          "recognition": {
+            "n": 29,
+            "frac_of_wrong": 0.072
+          },
+          "missed_relation": {
+            "n": 12,
+            "frac_of_wrong": 0.03
+          }
+        },
+        "tags": {
+          "stuck_on_old_answer": 117,
+          "annotation_of_other_connector": 334,
+          "proximity_nearest": 259,
+          "named_non_annotation_text": 30
+        }
+      }
+    },
+    "F_oracle_graph": {
+      "a2e_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 99,
+        "primary": {
+          "connector_interpretation": {
+            "n": 48,
+            "frac_of_wrong": 0.485
+          },
+          "unsupported_relation": {
+            "n": 37,
+            "frac_of_wrong": 0.374
+          },
+          "recognition": {
+            "n": 14,
+            "frac_of_wrong": 0.141
+          }
+        },
+        "tags": {
+          "stuck_on_old_target": 24,
+          "target_of_other_connector": 48,
+          "crossed_by_gold_connector": 63,
+          "proximity_nearest": 62
+        }
+      },
+      "e2a_unanswerable": {
+        "n_examples": 500,
+        "n_wrong": 153,
+        "primary": {
+          "unsupported_relation": {
+            "n": 153,
+            "frac_of_wrong": 1.0
+          }
+        },
+        "tags": {
+          "named_non_annotation_text": 86,
+          "named_other_annotation": 67
+        }
+      },
+      "e2a_answerable": {
+        "n_examples": 1000,
+        "n_wrong": 315,
+        "primary": {
+          "unsupported_relation": {
+            "n": 138,
+            "frac_of_wrong": 0.438
+          },
+          "proximity_binding": {
+            "n": 74,
+            "frac_of_wrong": 0.235
+          },
+          "connector_interpretation": {
+            "n": 60,
+            "frac_of_wrong": 0.19
+          },
+          "recognition": {
+            "n": 26,
+            "frac_of_wrong": 0.083
+          },
+          "missed_relation": {
+            "n": 17,
+            "frac_of_wrong": 0.054
+          }
+        },
+        "tags": {
+          "named_non_annotation_text": 138,
+          "stuck_on_old_answer": 45,
+          "annotation_of_other_connector": 134,
+          "proximity_nearest": 112
+        }
+      }
+    }
+  },
+  "recog_ok_subset": {
+    "A_direct": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.2357,
+          "ci95": [
+            0.2018,
+            0.2708
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.5866,
+          "ci95": [
+            0.5417,
+            0.6305
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.4781,
+          "ci95": [
+            0.432,
+            0.5252
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.5241,
+          "ci95": [
+            0.4846,
+            0.5647
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.2955,
+          "ci95": [
+            0.2045,
+            0.3977
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.6705,
+          "ci95": [
+            0.5455,
+            0.7841
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    },
+    "B_reasoning": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.2599,
+          "ci95": [
+            0.227,
+            0.2917
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.6009,
+          "ci95": [
+            0.557,
+            0.6425
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.4956,
+          "ci95": [
+            0.4518,
+            0.5373
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.443,
+          "ci95": [
+            0.4057,
+            0.4825
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.375,
+          "ci95": [
+            0.2727,
+            0.4773
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.7273,
+          "ci95": [
+            0.625,
+            0.8295
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    },
+    "C_oracle_crop": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.2533,
+          "ci95": [
+            0.2149,
+            0.2895
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.5965,
+          "ci95": [
+            0.5493,
+            0.6414
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.5011,
+          "ci95": [
+            0.4539,
+            0.545
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.5636,
+          "ci95": [
+            0.5219,
+            0.6086
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.3182,
+          "ci95": [
+            0.2045,
+            0.4432
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.6591,
+          "ci95": [
+            0.5114,
+            0.7955
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    },
+    "D_oracle_ocr": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.2401,
+          "ci95": [
+            0.205,
+            0.2763
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.5844,
+          "ci95": [
+            0.5384,
+            0.6294
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.4814,
+          "ci95": [
+            0.4353,
+            0.5263
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.5482,
+          "ci95": [
+            0.5044,
+            0.5899
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.3182,
+          "ci95": [
+            0.2159,
+            0.4318
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.625,
+          "ci95": [
+            0.5,
+            0.7614
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    },
+    "E_oracle_box": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.2752,
+          "ci95": [
+            0.2357,
+            0.3136
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.6173,
+          "ci95": [
+            0.5702,
+            0.6623
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.5164,
+          "ci95": [
+            0.4693,
+            0.5636
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.534,
+          "ci95": [
+            0.4912,
+            0.5779
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.3636,
+          "ci95": [
+            0.2614,
+            0.4773
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.6932,
+          "ci95": [
+            0.5682,
+            0.8182
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    },
+    "F_oracle_graph": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.6711,
+          "ci95": [
+            0.6338,
+            0.7072
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.8432,
+          "ci95": [
+            0.8147,
+            0.8684
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.7533,
+          "ci95": [
+            0.716,
+            0.7895
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.182,
+          "ci95": [
+            0.1535,
+            0.2116
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.5341,
+          "ci95": [
+            0.4091,
+            0.6591
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.8068,
+          "ci95": [
+            0.7045,
+            0.8977
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    },
+    "F_text_only": {
+      "recog_ok": {
+        "paired_cf_accuracy": {
+          "value": 0.727,
+          "ci95": [
+            0.6952,
+            0.7588
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_orig": {
+          "value": 0.761,
+          "ci95": [
+            0.7303,
+            0.7906
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "acc_cf": {
+          "value": 0.7522,
+          "ci95": [
+            0.7226,
+            0.7829
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        },
+        "cf_stuck_rate": {
+          "value": 0.216,
+          "ci95": [
+            0.1864,
+            0.2467
+          ],
+          "n_queries": 1140,
+          "n_groups": 228
+        }
+      },
+      "recog_failed": {
+        "paired_cf_accuracy": {
+          "value": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        },
+        "acc_orig": {
+          "value": 0.5227,
+          "ci95": [
+            0.5,
+            0.5568
+          ],
+          "n_queries": 110,
+          "n_groups": 22
+        }
+      }
+    }
+  },
+  "pair_strata": {
+    "A_direct": {
+      "proximity_change": {
+        "nearest_is_target orig=False cf=False": {
+          "value": 0.1314,
+          "ci95": [
+            0.0882,
+            0.1784
+          ],
+          "n_queries": 236,
+          "n_groups": 178,
+          "stuck": 0.4661
+        },
+        "nearest_is_target orig=False cf=True": {
+          "value": 0.3962,
+          "ci95": [
+            0.299,
+            0.5094
+          ],
+          "n_queries": 106,
+          "n_groups": 90,
+          "stuck": 0.4623
+        },
+        "nearest_is_target orig=True cf=False": {
+          "value": 0.3861,
+          "ci95": [
+            0.3066,
+            0.4634
+          ],
+          "n_queries": 158,
+          "n_groups": 132,
+          "stuck": 0.4937
+        }
+      },
+      "crossing_change": {
+        "cf adds crossings": {
+          "value": 0.2131,
+          "ci95": [
+            0.16,
+            0.2678
+          ],
+          "n_queries": 244,
+          "n_groups": 158,
+          "stuck": 0.4713
+        },
+        "cf removes crossings": {
+          "value": 0.227,
+          "ci95": [
+            0.1702,
+            0.2928
+          ],
+          "n_queries": 185,
+          "n_groups": 121,
+          "stuck": 0.5676
+        },
+        "same crossings": {
+          "value": 0.5634,
+          "ci95": [
+            0.4429,
+            0.68
+          ],
+          "n_queries": 71,
+          "n_groups": 62,
+          "stuck": 0.2394
+        }
+      },
+      "max_crossings_in_pair": {
+        "0": {
+          "value": 0.7674,
+          "ci95": [
+            0.6444,
+            0.881
+          ],
+          "n_queries": 43,
+          "n_groups": 36,
+          "stuck": 0.2093
+        },
+        "1": {
+          "value": 0.2764,
+          "ci95": [
+            0.2198,
+            0.3345
+          ],
+          "n_queries": 275,
+          "n_groups": 188,
+          "stuck": 0.4655
+        },
+        "2+": {
+          "value": 0.1374,
+          "ci95": [
+            0.0879,
+            0.1882
+          ],
+          "n_queries": 182,
+          "n_groups": 137,
+          "stuck": 0.5495
+        }
+      },
+      "attach_fixed": {
+        "False": {
+          "value": 0.5,
+          "ci95": [
+            0.4217,
+            0.5785
+          ],
+          "n_queries": 166,
+          "n_groups": 83,
+          "stuck": 0.2711
+        },
+        "True": {
+          "value": 0.1527,
+          "ci95": [
+            0.1168,
+            0.1916
+          ],
+          "n_queries": 334,
+          "n_groups": 167,
+          "stuck": 0.5749
+        }
+      },
+      "family": {
+        "flowchart": {
+          "value": 0.1524,
+          "ci95": [
+            0.1048,
+            0.2
+          ],
+          "n_queries": 210,
+          "n_groups": 105,
+          "stuck": 0.6048
+        },
+        "schematic": {
+          "value": 0.3517,
+          "ci95": [
+            0.2931,
+            0.4104
+          ],
+          "n_queries": 290,
+          "n_groups": 145,
+          "stuck": 0.3793
+        }
+      }
+    },
+    "B_reasoning": {
+      "proximity_change": {
+        "nearest_is_target orig=False cf=False": {
+          "value": 0.2373,
+          "ci95": [
+            0.1764,
+            0.2967
+          ],
+          "n_queries": 236,
+          "n_groups": 178,
+          "stuck": 0.4364
+        },
+        "nearest_is_target orig=False cf=True": {
+          "value": 0.4434,
+          "ci95": [
+            0.3425,
+            0.55
+          ],
+          "n_queries": 106,
+          "n_groups": 90,
+          "stuck": 0.3868
+        },
+        "nearest_is_target orig=True cf=False": {
+          "value": 0.443,
+          "ci95": [
+            0.3636,
+            0.5226
+          ],
+          "n_queries": 158,
+          "n_groups": 132,
+          "stuck": 0.4747
+        }
+      },
+      "crossing_change": {
+        "cf adds crossings": {
+          "value": 0.3361,
+          "ci95": [
+            0.2764,
+            0.3952
+          ],
+          "n_queries": 244,
+          "n_groups": 158,
+          "stuck": 0.4549
+        },
+        "cf removes crossings": {
+          "value": 0.2973,
+          "ci95": [
+            0.2332,
+            0.3706
+          ],
+          "n_queries": 185,
+          "n_groups": 121,
+          "stuck": 0.4703
+        },
+        "same crossings": {
+          "value": 0.507,
+          "ci95": [
+            0.3944,
+            0.633
+          ],
+          "n_queries": 71,
+          "n_groups": 62,
+          "stuck": 0.2958
+        }
+      },
+      "max_crossings_in_pair": {
+        "0": {
+          "value": 0.6047,
+          "ci95": [
+            0.4545,
+            0.75
+          ],
+          "n_queries": 43,
+          "n_groups": 36,
+          "stuck": 0.3023
+        },
+        "1": {
+          "value": 0.3455,
+          "ci95": [
+            0.2826,
+            0.4105
+          ],
+          "n_queries": 275,
+          "n_groups": 188,
+          "stuck": 0.4473
+        },
+        "2+": {
+          "value": 0.2857,
+          "ci95": [
+            0.2191,
+            0.353
+          ],
+          "n_queries": 182,
+          "n_groups": 137,
+          "stuck": 0.456
+        }
+      },
+      "attach_fixed": {
+        "False": {
+          "value": 0.6566,
+          "ci95": [
+            0.5843,
+            0.7229
+          ],
+          "n_queries": 166,
+          "n_groups": 83,
+          "stuck": 0.2229
+        },
+        "True": {
+          "value": 0.1916,
+          "ci95": [
+            0.1526,
+            0.2365
+          ],
+          "n_queries": 334,
+          "n_groups": 167,
+          "stuck": 0.5449
+        }
+      },
+      "family": {
+        "flowchart": {
+          "value": 0.1619,
+          "ci95": [
+            0.119,
+            0.2095
+          ],
+          "n_queries": 210,
+          "n_groups": 105,
+          "stuck": 0.5714
+        },
+        "schematic": {
+          "value": 0.4793,
+          "ci95": [
+            0.4137,
+            0.5379
+          ],
+          "n_queries": 290,
+          "n_groups": 145,
+          "stuck": 0.3414
+        }
+      }
+    },
+    "C_oracle_crop": {
+      "proximity_change": {
+        "nearest_is_target orig=False cf=False": {
+          "value": 0.1441,
+          "ci95": [
+            0.1,
+            0.1941
+          ],
+          "n_queries": 236,
+          "n_groups": 178,
+          "stuck": 0.5339
+        },
+        "nearest_is_target orig=False cf=True": {
+          "value": 0.3774,
+          "ci95": [
+            0.2793,
+            0.4808
+          ],
+          "n_queries": 106,
+          "n_groups": 90,
+          "stuck": 0.5849
+        },
+        "nearest_is_target orig=True cf=False": {
+          "value": 0.4051,
+          "ci95": [
+            0.3266,
+            0.4841
+          ],
+          "n_queries": 158,
+          "n_groups": 132,
+          "stuck": 0.5886
+        }
+      },
+      "crossing_change": {
+        "cf adds crossings": {
+          "value": 0.2336,
+          "ci95": [
+            0.1796,
+            0.2881
+          ],
+          "n_queries": 244,
+          "n_groups": 158,
+          "stuck": 0.5902
+        },
+        "cf removes crossings": {
+          "value": 0.227,
+          "ci95": [
+            0.1667,
+            0.2945
+          ],
+          "n_queries": 185,
+          "n_groups": 121,
+          "stuck": 0.6595
+        },
+        "same crossings": {
+          "value": 0.5493,
+          "ci95": [
+            0.4225,
+            0.6715
+          ],
+          "n_queries": 71,
+          "n_groups": 62,
+          "stuck": 0.2113
+        }
+      },
+      "max_crossings_in_pair": {
+        "0": {
+          "value": 0.7907,
+          "ci95": [
+            0.6512,
+            0.9149
+          ],
+          "n_queries": 43,
+          "n_groups": 36,
+          "stuck": 0.186
+        },
+        "1": {
+          "value": 0.2764,
+          "ci95": [
+            0.2177,
+            0.3372
+          ],
+          "n_queries": 275,
+          "n_groups": 188,
+          "stuck": 0.5709
+        },
+        "2+": {
+          "value": 0.1538,
+          "ci95": [
+            0.1017,
+            0.2088
+          ],
+          "n_queries": 182,
+          "n_groups": 137,
+          "stuck": 0.6374
+        }
+      },
+      "attach_fixed": {
+        "False": {
+          "value": 0.5602,
+          "ci95": [
+            0.4819,
+            0.6446
+          ],
+          "n_queries": 166,
+          "n_groups": 83,
+          "stuck": 0.3193
+        },
+        "True": {
+          "value": 0.1347,
+          "ci95": [
+            0.0988,
+            0.1737
+          ],
+          "n_queries": 334,
+          "n_groups": 167,
+          "stuck": 0.6826
+        }
+      },
+      "family": {
+        "flowchart": {
+          "value": 0.1238,
+          "ci95": [
+            0.0857,
+            0.1667
+          ],
+          "n_queries": 210,
+          "n_groups": 105,
+          "stuck": 0.7762
+        },
+        "schematic": {
+          "value": 0.3862,
+          "ci95": [
+            0.3241,
+            0.4448
+          ],
+          "n_queries": 290,
+          "n_groups": 145,
+          "stuck": 0.4069
+        }
+      }
+    },
+    "E_oracle_box": {
+      "proximity_change": {
+        "nearest_is_target orig=False cf=False": {
+          "value": 0.1229,
+          "ci95": [
+            0.0779,
+            0.1703
+          ],
+          "n_queries": 236,
+          "n_groups": 178,
+          "stuck": 0.5212
+        },
+        "nearest_is_target orig=False cf=True": {
+          "value": 0.3868,
+          "ci95": [
+            0.2913,
+            0.4951
+          ],
+          "n_queries": 106,
+          "n_groups": 90,
+          "stuck": 0.5094
+        },
+        "nearest_is_target orig=True cf=False": {
+          "value": 0.4304,
+          "ci95": [
+            0.3585,
+            0.5097
+          ],
+          "n_queries": 158,
+          "n_groups": 132,
+          "stuck": 0.4747
+        }
+      },
+      "crossing_change": {
+        "cf adds crossings": {
+          "value": 0.2172,
+          "ci95": [
+            0.1687,
+            0.2675
+          ],
+          "n_queries": 244,
+          "n_groups": 158,
+          "stuck": 0.5082
+        },
+        "cf removes crossings": {
+          "value": 0.227,
+          "ci95": [
+            0.172,
+            0.2942
+          ],
+          "n_queries": 185,
+          "n_groups": 121,
+          "stuck": 0.6216
+        },
+        "same crossings": {
+          "value": 0.6056,
+          "ci95": [
+            0.4789,
+            0.7184
+          ],
+          "n_queries": 71,
+          "n_groups": 62,
+          "stuck": 0.1831
+        }
+      },
+      "max_crossings_in_pair": {
+        "0": {
+          "value": 0.8372,
+          "ci95": [
+            0.7273,
+            0.9333
+          ],
+          "n_queries": 43,
+          "n_groups": 36,
+          "stuck": 0.1395
+        },
+        "1": {
+          "value": 0.2691,
+          "ci95": [
+            0.2153,
+            0.3258
+          ],
+          "n_queries": 275,
+          "n_groups": 188,
+          "stuck": 0.5091
+        },
+        "2+": {
+          "value": 0.1538,
+          "ci95": [
+            0.1006,
+            0.2077
+          ],
+          "n_queries": 182,
+          "n_groups": 137,
+          "stuck": 0.5824
+        }
+      },
+      "attach_fixed": {
+        "False": {
+          "value": 0.512,
+          "ci95": [
+            0.4336,
+            0.5845
+          ],
+          "n_queries": 166,
+          "n_groups": 83,
+          "stuck": 0.259
+        },
+        "True": {
+          "value": 0.1587,
+          "ci95": [
+            0.1257,
+            0.1947
+          ],
+          "n_queries": 334,
+          "n_groups": 167,
+          "stuck": 0.6257
+        }
+      },
+      "family": {
+        "flowchart": {
+          "value": 0.1667,
+          "ci95": [
+            0.119,
+            0.2143
+          ],
+          "n_queries": 210,
+          "n_groups": 105,
+          "stuck": 0.6667
+        },
+        "schematic": {
+          "value": 0.3552,
+          "ci95": [
+            0.2966,
+            0.4138
+          ],
+          "n_queries": 290,
+          "n_groups": 145,
+          "stuck": 0.3862
+        }
+      }
+    }
+  },
+  "split_comparison_A": {
+    "test_id": {
+      "value": 0.241,
+      "ci95": [
+        0.208,
+        0.274
+      ],
+      "n_queries": 1250,
+      "n_groups": 250
+    },
+    "test_unseen_topology": {
+      "value": 0.0958,
+      "ci95": [
+        0.05,
+        0.1458
+      ],
+      "n_queries": 300,
+      "n_groups": 60
+    },
+    "test_unseen_template": {
+      "value": 0.2375,
+      "ci95": [
+        0.1708,
+        0.3083
+      ],
+      "n_queries": 300,
+      "n_groups": 60
+    },
+    "test_cross_domain": {
+      "value": 0.2125,
+      "ci95": [
+        0.1542,
+        0.2708
+      ],
+      "n_queries": 300,
+      "n_groups": 60
+    }
+  },
+  "unlinked_queries": {
+    "A_direct": {
+      "named an annotation linked elsewhere": 492,
+      "NONE (correct)": 392,
+      "named unlinked text (note)": 87,
+      "other text": 26,
+      "named unlinked text (level_text)": 2,
+      "named unlinked text (decision_text)": 1
+    },
+    "B_reasoning": {
+      "NONE (correct)": 502,
+      "named an annotation linked elsewhere": 421,
+      "named unlinked text (note)": 39,
+      "other text": 31,
+      "named unlinked text (level_text)": 6,
+      "named unlinked text (decision_text)": 1
+    },
+    "C_oracle_crop": {
+      "named an annotation linked elsewhere": 462,
+      "NONE (correct)": 440,
+      "named unlinked text (note)": 64,
+      "other text": 32,
+      "named unlinked text (decision_text)": 2
+    },
+    "D_oracle_ocr": {
+      "NONE (correct)": 503,
+      "named an annotation linked elsewhere": 417,
+      "named unlinked text (note)": 60,
+      "other text": 20
+    },
+    "E_oracle_box": {
+      "named an annotation linked elsewhere": 490,
+      "NONE (correct)": 462,
+      "named unlinked text (note)": 38,
+      "other text": 10
+    },
+    "F_oracle_graph": {
+      "NONE (correct)": 697,
+      "named an annotation linked elsewhere": 130,
+      "named unlinked text (note)": 107,
+      "other text": 29,
+      "named unlinked text (decision_text)": 29,
+      "named unlinked text (level_text)": 8
+    },
+    "F_text_only": {
+      "NONE (correct)": 815,
+      "named an annotation linked elsewhere": 162,
+      "other text": 23
+    }
+  },
+  "ci_checks": {
+    "A_direct": {
+      "group_bootstrap": [
+        0.208,
+        0.274
+      ],
+      "template_stratified_bootstrap": [
+        0.209,
+        0.273
+      ],
+      "naive_iid_ci_halfwidth": 0.0265,
+      "group_bootstrap_halfwidth": 0.033,
+      "per_template": {
+        "elevation": {
+          "value": 0.2948,
+          "ci95": [
+            0.2466,
+            0.3414
+          ],
+          "n_queries": 725,
+          "n_groups": 145
+        },
+        "tb": {
+          "value": 0.1667,
+          "ci95": [
+            0.1238,
+            0.2071
+          ],
+          "n_queries": 525,
+          "n_groups": 105
+        }
+      },
+      "within_group_icc": {
+        "icc": 0.2122,
+        "mean_cluster_size": 4.0,
+        "design_effect": 1.637,
+        "n_groups": 250,
+        "n_obs": 1000
+      }
+    },
+    "C_oracle_crop": {
+      "group_bootstrap": [
+        0.223,
+        0.293
+      ],
+      "template_stratified_bootstrap": [
+        0.226,
+        0.292
+      ],
+      "naive_iid_ci_halfwidth": 0.0272,
+      "group_bootstrap_halfwidth": 0.035,
+      "per_template": {
+        "elevation": {
+          "value": 0.3603,
+          "ci95": [
+            0.3086,
+            0.4086
+          ],
+          "n_queries": 725,
+          "n_groups": 145
+        },
+        "tb": {
+          "value": 0.119,
+          "ci95": [
+            0.0857,
+            0.1548
+          ],
+          "n_queries": 525,
+          "n_groups": 105
+        }
+      },
+      "within_group_icc": {
+        "icc": 0.2458,
+        "mean_cluster_size": 4.0,
+        "design_effect": 1.737,
+        "n_groups": 250,
+        "n_obs": 1000
+      }
+    },
+    "E_oracle_box": {
+      "group_bootstrap": [
+        0.247,
+        0.322
+      ],
+      "template_stratified_bootstrap": [
+        0.248,
+        0.318
+      ],
+      "naive_iid_ci_halfwidth": 0.0279,
+      "group_bootstrap_halfwidth": 0.0375,
+      "per_template": {
+        "elevation": {
+          "value": 0.3638,
+          "ci95": [
+            0.3103,
+            0.4172
+          ],
+          "n_queries": 725,
+          "n_groups": 145
+        },
+        "tb": {
+          "value": 0.1714,
+          "ci95": [
+            0.1286,
+            0.2143
+          ],
+          "n_queries": 525,
+          "n_groups": 105
+        }
+      },
+      "within_group_icc": {
+        "icc": 0.267,
+        "mean_cluster_size": 4.0,
+        "design_effect": 1.801,
+        "n_groups": 250,
+        "n_obs": 1000
+      }
+    },
+    "F_oracle_graph": {
+      "group_bootstrap": [
+        0.622,
+        0.694
+      ],
+      "template_stratified_bootstrap": [
+        0.622,
+        0.692
+      ],
+      "naive_iid_ci_halfwidth": 0.0294,
+      "group_bootstrap_halfwidth": 0.036,
+      "per_template": {
+        "elevation": {
+          "value": 0.6069,
+          "ci95": [
+            0.5552,
+            0.6569
+          ],
+          "n_queries": 725,
+          "n_groups": 145
+        },
+        "tb": {
+          "value": 0.731,
+          "ci95": [
+            0.6881,
+            0.7715
+          ],
+          "n_queries": 525,
+          "n_groups": 105
+        }
+      },
+      "within_group_icc": {
+        "icc": 0.1513,
+        "mean_cluster_size": 4.0,
+        "design_effect": 1.454,
+        "n_groups": 250,
+        "n_obs": 1000
+      }
+    },
+    "B_reasoning": {
+      "group_bootstrap": [
+        0.237,
+        0.303
+      ],
+      "template_stratified_bootstrap": [
+        0.241,
+        0.3
+      ],
+      "naive_iid_ci_halfwidth": 0.0275,
+      "group_bootstrap_halfwidth": 0.033,
+      "per_template": {
+        "elevation": {
+          "value": 0.3569,
+          "ci95": [
+            0.3121,
+            0.3983
+          ],
+          "n_queries": 725,
+          "n_groups": 145
+        },
+        "tb": {
+          "value": 0.15,
+          "ci95": [
+            0.1119,
+            0.1881
+          ],
+          "n_queries": 525,
+          "n_groups": 105
+        }
+      },
+      "within_group_icc": {
+        "icc": 0.1286,
+        "mean_cluster_size": 4.0,
+        "design_effect": 1.386,
+        "n_groups": 250,
+        "n_obs": 1000
+      }
+    },
+    "_sampling_design": {
+      "resampling_unit": "group = one base scene + its cf/reroute/style variants and all 5 queries",
+      "n_groups_test_id": 250,
+      "templates_test_id": {
+        "elevation": 290,
+        "tb": 210
+      },
+      "pairs_split_by_resampling": 0,
+      "note": "Groups are generated from distinct derived seeds (manifest) and are independent draws. Only two templates exist in test_id (each tied to one family), so template-level resampling cannot support claims about new templates; that is what test_unseen_template measures."
+    }
+  },
+  "f_audit": {
+    "F_vs_textonly_correctness": {
+      "F=wrong, text_only=wrong": 411,
+      "F=wrong, text_only=ok": 655,
+      "F=ok, text_only=wrong": 823,
+      "F=ok, text_only=ok": 3111
+    },
+    "F_textonly_metrics": {
+      "paired_cf_accuracy": {
+        "value": 0.707,
+        "ci95": [
+          0.676,
+          0.737
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.74,
+        "ci95": [
+          0.709,
+          0.769
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "F_error_breakdown": {
+      "wrong both ways, different answers | e2a: pred not a listed value": 227,
+      "image-dependent: matches the model's no-oracle answer (consistent with visual-text conflict) | gold NONE (entity not in list)": 164,
+      "image-dependent: matches the model's no-oracle answer (consistent with visual-text conflict) | e2a: pred is a listed value": 159,
+      "image-dependent: matches the model's no-oracle answer (consistent with visual-text conflict) | a2e: pred is a listed target": 95,
+      "wrong both ways, different answers | e2a: pred is a listed value": 93,
+      "image-dependent: matches the model's no-oracle answer (consistent with visual-text conflict) | a2e: pred not a listed target": 71,
+      "image-dependent: differs from no-oracle answer | gold NONE (entity not in list)": 70,
+      "wrong both ways, different answers | gold NONE (entity not in list)": 57,
+      "image-dependent: differs from no-oracle answer | e2a: pred not a listed value": 40,
+      "image-dependent: matches the model's no-oracle answer (consistent with visual-text conflict) | e2a: pred not a listed value": 27,
+      "same error without image (task/format misunderstanding) | e2a: pred not a listed value": 19,
+      "image-dependent: differs from no-oracle answer | e2a: pred is a listed value": 16,
+      "same error without image (task/format misunderstanding) | gold NONE (entity not in list)": 12,
+      "image-dependent: differs from no-oracle answer | a2e: pred not a listed target": 7,
+      "image-dependent: differs from no-oracle answer | a2e: pred is a listed target": 6,
+      "same error without image (task/format misunderstanding) | e2a: pred is a listed value": 3
+    },
+    "examples": {
+      "wrong both ways, different answers": [
+        {
+          "example_id": "test_id-00000-e2a-G4-orig",
+          "question": "Which annotation is attached to column G4 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "11'-0\"",
+          "F": "N.T.S.",
+          "F_text_only": "NONE",
+          "A": "11'-0\""
+        },
+        {
+          "example_id": "test_id-00000-e2a-G1-cf",
+          "question": "Which annotation is attached to column G1 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "11'-0\"",
+          "F": "13'-10\"",
+          "F_text_only": "NONE",
+          "A": "13'-10\""
+        },
+        {
+          "example_id": "test_id-00000-e2a-G4-cf",
+          "question": "Which annotation is attached to column G4 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "13'-10\"",
+          "F": "11'-0\"",
+          "F_text_only": "NONE",
+          "A": "11'-0\""
+        },
+        {
+          "example_id": "test_id-00000-e2a-G4-reroute",
+          "question": "Which annotation is attached to column G4 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "11'-0\"",
+          "F": "N.T.S.",
+          "F_text_only": "NONE",
+          "A": "11'-0\""
+        }
+      ],
+      "image-dependent: differs from no-oracle answer": [
+        {
+          "example_id": "test_id-00000-e2a-G3-orig",
+          "question": "Which annotation is attached to column G3 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "NONE",
+          "F": "N.T.S.",
+          "F_text_only": "NONE",
+          "A": "NONE"
+        },
+        {
+          "example_id": "test_id-00000-e2a-G3-cf",
+          "question": "Which annotation is attached to column G3 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "NONE",
+          "F": "N.T.S.",
+          "F_text_only": "NONE",
+          "A": "11'-0\""
+        },
+        {
+          "example_id": "test_id-00000-e2a-G3-reroute",
+          "question": "Which annotation is attached to column G3 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "NONE",
+          "F": "N.T.S.",
+          "F_text_only": "NONE",
+          "A": "NONE"
+        },
+        {
+          "example_id": "test_id-00000-e2a-G3-style",
+          "question": "Which annotation is attached to column G3 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "NONE",
+          "F": "N.T.S.",
+          "F_text_only": "NONE",
+          "A": "NONE"
+        }
+      ],
+      "image-dependent: matches the model's no-oracle answer (consistent with visual-text conflict)": [
+        {
+          "example_id": "test_id-00000-a2e-a0-cf",
+          "question": "Which column does the annotation \"13'-10\"\" point to? Answer with the column label.",
+          "gold": "G4",
+          "F": "G1",
+          "F_text_only": "G4",
+          "A": "G1"
+        },
+        {
+          "example_id": "test_id-00000-a2e-a1-cf",
+          "question": "Which column does the annotation \"11'-0\"\" point to? Answer with the column label.",
+          "gold": "G1",
+          "F": "G4",
+          "F_text_only": "G1",
+          "A": "G4"
+        },
+        {
+          "example_id": "test_id-00001-e2a-S6-orig",
+          "question": "Which branch label is on the arrow that leads into step S6? Answer with the label text, or NONE if no labeled branch leads into it.",
+          "gold": "fail",
+          "F": "low",
+          "F_text_only": "fail",
+          "A": "low"
+        },
+        {
+          "example_id": "test_id-00001-e2a-S6-style",
+          "question": "Which branch label is on the arrow that leads into step S6? Answer with the label text, or NONE if no labeled branch leads into it.",
+          "gold": "fail",
+          "F": "low",
+          "F_text_only": "fail",
+          "A": "low"
+        }
+      ],
+      "same error without image (task/format misunderstanding)": [
+        {
+          "example_id": "test_id-00005-e2a-E-cf",
+          "question": "Which annotation is attached to column E by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "2'-4\"",
+          "F": "NONE",
+          "F_text_only": "NONE",
+          "A": "NONE"
+        },
+        {
+          "example_id": "test_id-00009-e2a-A-cf",
+          "question": "Which annotation is attached to column A by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "14'-5\"",
+          "F": "NONE",
+          "F_text_only": "NONE",
+          "A": "EL. 118'-9\""
+        },
+        {
+          "example_id": "test_id-00018-e2a-D-style",
+          "question": "Which annotation is attached to column D by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "8'-7\"",
+          "F": "NONE",
+          "F_text_only": "NONE",
+          "A": "3'-1\""
+        },
+        {
+          "example_id": "test_id-00026-e2a-G1-cf",
+          "question": "Which annotation is attached to column G1 by a leader line? Answer with the annotation text, or NONE if no annotation is attached.",
+          "gold": "4'-3\"",
+          "F": "NONE",
+          "F_text_only": "NONE",
+          "A": "EL. 139' - 11\""
+        }
+      ]
+    }
+  },
+  "heuristics": {
+    "proximity": {
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.285,
+        "ci95": [
+          0.246,
+          0.327
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "text_prior": {
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.062,
+        "ci95": [
+          0.048,
+          0.077
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "cc_tracer": {
+      "paired_cf_accuracy": {
+        "value": 0.079,
+        "ci95": [
+          0.056,
+          0.104
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.401,
+        "ci95": [
+          0.355,
+          0.445
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.741,
+        "ci95": [
+          0.692,
+          0.784
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "ray_tracer": {
+      "paired_cf_accuracy": {
+        "value": 0.694,
+        "ci95": [
+          0.643,
+          0.747
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.768,
+        "ci95": [
+          0.721,
+          0.813
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.158,
+        "ci95": [
+          0.121,
+          0.198
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    }
+  },
+  "vlm_vs_heuristics": {
+    "A_direct": {
+      "proximity": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 24.1,
+        "ci95_pp": [
+          20.8,
+          27.4
+        ],
+        "mcnemar_b": 241,
+        "mcnemar_c": 0,
+        "mcnemar_p": 5.659799424266695e-73,
+        "n_common_queries": 1250
+      },
+      "text_prior": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 24.1,
+        "ci95_pp": [
+          20.8,
+          27.4
+        ],
+        "mcnemar_b": 241,
+        "mcnemar_c": 0,
+        "mcnemar_p": 5.659799424266695e-73,
+        "n_common_queries": 1250
+      },
+      "cc_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 16.2,
+        "ci95_pp": [
+          12.7,
+          19.6
+        ],
+        "mcnemar_b": 194,
+        "mcnemar_c": 32,
+        "mcnemar_p": 1.8030472218508064e-29,
+        "n_common_queries": 1250
+      },
+      "ray_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": -45.3,
+        "ci95_pp": [
+          -51.1,
+          -39.5
+        ],
+        "mcnemar_b": 58,
+        "mcnemar_c": 511,
+        "mcnemar_p": 1.5343631103633777e-91,
+        "n_common_queries": 1250
+      }
+    },
+    "B_reasoning": {
+      "proximity": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 27.0,
+        "ci95_pp": [
+          23.7,
+          30.3
+        ],
+        "mcnemar_b": 270,
+        "mcnemar_c": 0,
+        "mcnemar_p": 1.0542197943230523e-81,
+        "n_common_queries": 1250
+      },
+      "text_prior": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 27.0,
+        "ci95_pp": [
+          23.7,
+          30.3
+        ],
+        "mcnemar_b": 270,
+        "mcnemar_c": 0,
+        "mcnemar_p": 1.0542197943230523e-81,
+        "n_common_queries": 1250
+      },
+      "cc_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 19.1,
+        "ci95_pp": [
+          15.4,
+          22.5
+        ],
+        "mcnemar_b": 233,
+        "mcnemar_c": 42,
+        "mcnemar_p": 2.975801182892889e-33,
+        "n_common_queries": 1250
+      },
+      "ray_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": -42.4,
+        "ci95_pp": [
+          -47.8,
+          -37.4
+        ],
+        "mcnemar_b": 51,
+        "mcnemar_c": 475,
+        "mcnemar_p": 3.1611681353894863e-87,
+        "n_common_queries": 1250
+      }
+    },
+    "C_oracle_crop": {
+      "proximity": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 25.9,
+        "ci95_pp": [
+          22.3,
+          29.3
+        ],
+        "mcnemar_b": 259,
+        "mcnemar_c": 0,
+        "mcnemar_p": 2.1590421387736112e-78,
+        "n_common_queries": 1250
+      },
+      "text_prior": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 25.9,
+        "ci95_pp": [
+          22.3,
+          29.3
+        ],
+        "mcnemar_b": 259,
+        "mcnemar_c": 0,
+        "mcnemar_p": 2.1590421387736112e-78,
+        "n_common_queries": 1250
+      },
+      "cc_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 18.0,
+        "ci95_pp": [
+          14.5,
+          21.5
+        ],
+        "mcnemar_b": 208,
+        "mcnemar_c": 28,
+        "mcnemar_p": 3.573410204911961e-35,
+        "n_common_queries": 1250
+      },
+      "ray_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": -43.5,
+        "ci95_pp": [
+          -49.0,
+          -38.3
+        ],
+        "mcnemar_b": 44,
+        "mcnemar_c": 479,
+        "mcnemar_p": 1.9283270305970865e-93,
+        "n_common_queries": 1250
+      }
+    },
+    "E_oracle_box": {
+      "proximity": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 28.3,
+        "ci95_pp": [
+          24.7,
+          32.2
+        ],
+        "mcnemar_b": 283,
+        "mcnemar_c": 0,
+        "mcnemar_p": 1.2868893973670072e-85,
+        "n_common_queries": 1250
+      },
+      "text_prior": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 28.3,
+        "ci95_pp": [
+          24.7,
+          32.2
+        ],
+        "mcnemar_b": 283,
+        "mcnemar_c": 0,
+        "mcnemar_p": 1.2868893973670072e-85,
+        "n_common_queries": 1250
+      },
+      "cc_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": 20.4,
+        "ci95_pp": [
+          16.5,
+          24.2
+        ],
+        "mcnemar_b": 233,
+        "mcnemar_c": 29,
+        "mcnemar_p": 9.412126204380439e-41,
+        "n_common_queries": 1250
+      },
+      "ray_tracer": {
+        "metric": "paired_cf_accuracy",
+        "diff_A_minus_B_pp": -41.1,
+        "ci95_pp": [
+          -47.1,
+          -35.3
+        ],
+        "mcnemar_b": 64,
+        "mcnemar_c": 475,
+        "mcnemar_p": 1.3628330952431852e-78,
+        "n_common_queries": 1250
+      }
+    }
+  },
+  "headline": {
+    "A_direct": {
+      "paired_cf_accuracy": {
+        "value": 0.241,
+        "ci95": [
+          0.208,
+          0.274
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.594,
+        "ci95": [
+          0.55,
+          0.637
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.482,
+        "ci95": [
+          0.439,
+          0.524
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.512,
+        "ci95": [
+          0.473,
+          0.551
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.8792,
+        "ci95": [
+          0.8584,
+          0.8992
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.8656,
+        "ci95": [
+          0.8432,
+          0.8856
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.392,
+        "ci95": [
+          0.339,
+          0.446
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "B_reasoning": {
+      "paired_cf_accuracy": {
+        "value": 0.27,
+        "ci95": [
+          0.237,
+          0.303
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.612,
+        "ci95": [
+          0.569,
+          0.654
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.498,
+        "ci95": [
+          0.456,
+          0.536
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.434,
+        "ci95": [
+          0.395,
+          0.472
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.7232,
+        "ci95": [
+          0.6936,
+          0.7528
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.7352,
+        "ci95": [
+          0.7104,
+          0.76
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.502,
+        "ci95": [
+          0.455,
+          0.553
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "C_oracle_crop": {
+      "paired_cf_accuracy": {
+        "value": 0.259,
+        "ci95": [
+          0.223,
+          0.293
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.602,
+        "ci95": [
+          0.557,
+          0.646
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.504,
+        "ci95": [
+          0.459,
+          0.547
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.56,
+        "ci95": [
+          0.518,
+          0.601
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.8928,
+        "ci95": [
+          0.8744,
+          0.9112
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.8856,
+        "ci95": [
+          0.8664,
+          0.9048
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.44,
+        "ci95": [
+          0.387,
+          0.492
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "D_oracle_ocr": {
+      "paired_cf_accuracy": {
+        "value": 0.247,
+        "ci95": [
+          0.212,
+          0.282
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.588,
+        "ci95": [
+          0.544,
+          0.631
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.487,
+        "ci95": [
+          0.444,
+          0.528
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.534,
+        "ci95": [
+          0.496,
+          0.574
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.8944,
+        "ci95": [
+          0.8744,
+          0.9136
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.8632,
+        "ci95": [
+          0.84,
+          0.8856
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.503,
+        "ci95": [
+          0.446,
+          0.56
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "E_oracle_box": {
+      "paired_cf_accuracy": {
+        "value": 0.283,
+        "ci95": [
+          0.247,
+          0.322
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.624,
+        "ci95": [
+          0.579,
+          0.669
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.521,
+        "ci95": [
+          0.478,
+          0.564
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.526,
+        "ci95": [
+          0.485,
+          0.567
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.8896,
+        "ci95": [
+          0.8696,
+          0.908
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.876,
+        "ci95": [
+          0.8536,
+          0.8976
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.462,
+        "ci95": [
+          0.407,
+          0.517
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "F_oracle_graph": {
+      "paired_cf_accuracy": {
+        "value": 0.659,
+        "ci95": [
+          0.622,
+          0.694
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.84,
+        "ci95": [
+          0.811,
+          0.865
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.746,
+        "ci95": [
+          0.711,
+          0.781
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.181,
+        "ci95": [
+          0.154,
+          0.209
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.9104,
+        "ci95": [
+          0.8944,
+          0.9264
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.924,
+        "ci95": [
+          0.908,
+          0.9392
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.697,
+        "ci95": [
+          0.645,
+          0.747
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    },
+    "F_text_only": {
+      "paired_cf_accuracy": {
+        "value": 0.707,
+        "ci95": [
+          0.676,
+          0.737
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_orig": {
+        "value": 0.74,
+        "ci95": [
+          0.709,
+          0.769
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "acc_cf": {
+        "value": 0.733,
+        "ci95": [
+          0.702,
+          0.762
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "cf_stuck_rate": {
+        "value": 0.236,
+        "ci95": [
+          0.206,
+          0.267
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_style": {
+        "value": 0.9984,
+        "ci95": [
+          0.996,
+          1.0
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "invariance_reroute": {
+        "value": 0.9992,
+        "ci95": [
+          0.9976,
+          1.0
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      },
+      "abstention_accuracy": {
+        "value": 0.815,
+        "ci95": [
+          0.768,
+          0.862
+        ],
+        "n_queries": 1250,
+        "n_groups": 250
+      }
+    }
+  }
+}

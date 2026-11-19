@@ -1,0 +1,121 @@
+skip A_direct (exists)
+2026-11-19T13:11:08+00:00 done P_read
+skip C_oracle_crop (exists)
+skip D_oracle_ocr (exists)
+skip E_oracle_box (exists)
+skip F_oracle_graph (exists)
+skip B_reasoning (exists)
+2026-11-19T13:11:08+00:00 ALL DONE
+{
+  "gate2": {
+    "decision": "GO_pending_human_audit",
+    "inputs": {
+      "PCA_A": 0.241,
+      "PCA_C": 0.259,
+      "read_acc": 0.977,
+      "stuck_A": 0.512,
+      "non_connector_heuristic_PCA": {
+        "text_prior": 0.0,
+        "proximity": 0.0
+      }
+    },
+    "note": "human audit not yet performed; GO is provisional"
+  },
+  "read_accuracy": {
+    "test_cross_domain": 0.9792,
+    "test_id": 0.977,
+    "test_unseen_template": 0.9833,
+    "test_unseen_topology": 0.9875
+  },
+  "read_by_kind": {
+    "ann_box": 0.514,
+    "ann_crop": 0.9605,
+    "ent_box": 0.2174,
+    "ent_crop": 0.9988
+  },
+  "taxonomy_test_id": {
+    "A_direct": {
+      "orig": {
+        "n": 500,
+        "correct": 300,
+        "other": 67,
+        "proximity": 107,
+        "crossing": 16,
+        "perception": 8,
+        "parse": 2
+      },
+      "cf": {
+        "n": 500,
+        "stuck": 93,
+        "proximity": 96,
+        "correct": 243,
+        "other": 40,
+        "crossing": 18,
+        "perception": 9,
+        "parse": 1
+      }
+    },
+    "B_reasoning": {
+      "orig": {
+        "n": 500,
+        "correct": 327,
+        "other": 69,
+        "proximity": 78,
+        "perception": 4,
+        "crossing": 9,
+        "parse": 13
+      },
+      "cf": {
+        "n": 500,
+        "stuck": 103,
+        "proximity": 55,
+        "correct": 281,
+        "other": 35,
+        "crossing": 8,
+        "parse": 11,
+        "perception": 7
+      }
+    },
+    "C_oracle_crop": {
+      "orig": {
+        "n": 500,
+        "correct": 301,
+        "proximity": 118,
+        "other": 55,
+        "crossing": 14,
+        "perception": 8,
+        "parse": 4
+      },
+      "cf": {
+        "n": 500,
+        "stuck": 116,
+        "proximity": 96,
+        "correct": 255,
+        "crossing": 9,
+        "other": 16,
+        "perception": 8
+      }
+    },
+    "E_oracle_box": {
+      "orig": {
+        "n": 500,
+        "correct": 301,
+        "other": 69,
+        "proximity": 108,
+        "crossing": 12,
+        "perception": 9,
+        "parse": 1
+      },
+      "cf": {
+        "n": 500,
+        "proximity": 102,
+        "stuck": 91,
+        "other": 42,
+        "correct": 249,
+        "crossing": 8,
+        "perception": 8
+      }
+    }
+  }
+}
+FOLLOWUP_DONE

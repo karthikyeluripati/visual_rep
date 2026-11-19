@@ -1,0 +1,577 @@
+{
+  "pred_file": "experiments/phase1_diag/E_oracle_box/predictions.jsonl",
+  "n_examples_scored": 5000,
+  "n_examples_total": 5000,
+  "splits": {
+    "test_id": {
+      "n_queries": 1250,
+      "n_groups": 250,
+      "n_flipping_queries": 1000,
+      "paired_cf_accuracy": {
+        "value": 0.283,
+        "ci95": [
+          0.247,
+          0.322
+        ]
+      },
+      "acc_orig": {
+        "value": 0.624,
+        "ci95": [
+          0.579,
+          0.669
+        ]
+      },
+      "acc_cf": {
+        "value": 0.521,
+        "ci95": [
+          0.478,
+          0.564
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.65,
+        "ci95": [
+          0.605,
+          0.695
+        ]
+      },
+      "acc_style": {
+        "value": 0.579,
+        "ci95": [
+          0.534,
+          0.624
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.5672,
+        "ci95": [
+          0.539,
+          0.595
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.4535,
+        "ci95": [
+          0.4032,
+          0.5027
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 0.526,
+        "ci95": [
+          0.485,
+          0.567
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.222,
+        "ci95": [
+          0.187,
+          0.257
+        ]
+      },
+      "invariance_style": {
+        "value": 0.8896,
+        "ci95": [
+          0.8696,
+          0.908
+        ]
+      },
+      "invariance_reroute": {
+        "value": 0.876,
+        "ci95": [
+          0.8536,
+          0.8976
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.557,
+        "ci95": [
+          0.512,
+          0.601
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.592,
+        "ci95": [
+          0.548,
+          0.638
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.462,
+        "ci95": [
+          0.407,
+          0.517
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.0065,
+        "ci95": [
+          0.003,
+          0.0105
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 525,
+            "paired_cf_accuracy": {
+              "value": 0.1714,
+              "ci95": [
+                0.1286,
+                0.2143
+              ]
+            },
+            "acc_orig": {
+              "value": 0.481,
+              "ci95": [
+                0.4083,
+                0.55
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.6762,
+              "ci95": [
+                0.6202,
+                0.7322
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 725,
+            "paired_cf_accuracy": {
+              "value": 0.3638,
+              "ci95": [
+                0.3103,
+                0.413
+              ]
+            },
+            "acc_orig": {
+              "value": 0.7276,
+              "ci95": [
+                0.6828,
+                0.7707
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.4172,
+              "ci95": [
+                0.3672,
+                0.4681
+              ]
+            }
+          }
+        },
+        "template": {
+          "elevation": {
+            "n_queries": 725,
+            "paired_cf_accuracy": {
+              "value": 0.3638,
+              "ci95": [
+                0.3103,
+                0.413
+              ]
+            },
+            "acc_orig": {
+              "value": 0.7276,
+              "ci95": [
+                0.6828,
+                0.7707
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.4172,
+              "ci95": [
+                0.3672,
+                0.4681
+              ]
+            }
+          },
+          "tb": {
+            "n_queries": 525,
+            "paired_cf_accuracy": {
+              "value": 0.1714,
+              "ci95": [
+                0.1286,
+                0.2143
+              ]
+            },
+            "acc_orig": {
+              "value": 0.481,
+              "ci95": [
+                0.4083,
+                0.55
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.6762,
+              "ci95": [
+                0.6202,
+                0.7322
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 500,
+            "paired_cf_accuracy": {
+              "value": 0.276,
+              "ci95": [
+                0.2349,
+                0.318
+              ]
+            },
+            "acc_orig": {
+              "value": 0.602,
+              "ci95": [
+                0.558,
+                0.6531
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.504,
+              "ci95": [
+                0.458,
+                0.55
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 750,
+            "paired_cf_accuracy": {
+              "value": 0.29,
+              "ci95": [
+                0.246,
+                0.33
+              ]
+            },
+            "acc_orig": {
+              "value": 0.646,
+              "ci95": [
+                0.598,
+                0.698
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.548,
+              "ci95": [
+                0.506,
+                0.598
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 468,
+            "paired_cf_accuracy": {
+              "value": 0.3248,
+              "ci95": [
+                0.268,
+                0.3786
+              ]
+            },
+            "acc_orig": {
+              "value": 0.891,
+              "ci95": [
+                0.8588,
+                0.9246
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5,
+              "ci95": [
+                0.4441,
+                0.5608
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 398,
+            "paired_cf_accuracy": {
+              "value": 0.2789,
+              "ci95": [
+                0.2317,
+                0.3338
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4422,
+              "ci95": [
+                0.3842,
+                0.5053
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5151,
+              "ci95": [
+                0.4507,
+                0.5732
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 134,
+            "paired_cf_accuracy": {
+              "value": 0.1493,
+              "ci95": [
+                0.0821,
+                0.2181
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2313,
+              "ci95": [
+                0.1449,
+                0.3165
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.6493,
+              "ci95": [
+                0.5697,
+                0.7409
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 684,
+            "paired_cf_accuracy": {
+              "value": 0.2412,
+              "ci95": [
+                0.2042,
+                0.2851
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5161,
+              "ci95": [
+                0.468,
+                0.5682
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5336,
+              "ci95": [
+                0.4805,
+                0.581
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 316,
+            "paired_cf_accuracy": {
+              "value": 0.3734,
+              "ci95": [
+                0.3139,
+                0.4362
+              ]
+            },
+            "acc_orig": {
+              "value": 0.8576,
+              "ci95": [
+                0.8155,
+                0.8988
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5095,
+              "ci95": [
+                0.4452,
+                0.5748
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 420,
+            "paired_cf_accuracy": {
+              "value": 0.1524,
+              "ci95": [
+                0.1126,
+                0.1922
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4167,
+              "ci95": [
+                0.3552,
+                0.4892
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.6619,
+              "ci95": [
+                0.6022,
+                0.7128
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 274,
+            "paired_cf_accuracy": {
+              "value": 0.3832,
+              "ci95": [
+                0.3178,
+                0.4495
+              ]
+            },
+            "acc_orig": {
+              "value": 0.6642,
+              "ci95": [
+                0.5898,
+                0.7324
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.3759,
+              "ci95": [
+                0.3132,
+                0.4449
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 306,
+            "paired_cf_accuracy": {
+              "value": 0.3725,
+              "ci95": [
+                0.302,
+                0.4464
+              ]
+            },
+            "acc_orig": {
+              "value": 0.8725,
+              "ci95": [
+                0.829,
+                0.9177
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.4739,
+              "ci95": [
+                0.4029,
+                0.5526
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 768,
+            "paired_cf_accuracy": {
+              "value": 0.306,
+              "ci95": [
+                0.2636,
+                0.3522
+              ]
+            },
+            "acc_orig": {
+              "value": 0.6667,
+              "ci95": [
+                0.6217,
+                0.7161
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5052,
+              "ci95": [
+                0.4576,
+                0.5521
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 232,
+            "paired_cf_accuracy": {
+              "value": 0.2069,
+              "ci95": [
+                0.1422,
+                0.2802
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4828,
+              "ci95": [
+                0.3922,
+                0.5669
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5948,
+              "ci95": [
+                0.5086,
+                0.6638
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 460,
+            "paired_cf_accuracy": {
+              "value": 0.2109,
+              "ci95": [
+                0.1641,
+                0.25
+              ]
+            },
+            "acc_orig": {
+              "value": 0.513,
+              "ci95": [
+                0.4543,
+                0.5805
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.5891,
+              "ci95": [
+                0.5304,
+                0.6478
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 540,
+            "paired_cf_accuracy": {
+              "value": 0.3444,
+              "ci95": [
+                0.2926,
+                0.4019
+              ]
+            },
+            "acc_orig": {
+              "value": 0.7185,
+              "ci95": [
+                0.6593,
+                0.7778
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 0.4722,
+              "ci95": [
+                0.4111,
+                0.5325
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

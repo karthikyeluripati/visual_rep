@@ -1,4 +1,9 @@
-# Failure Analysis — Phase 1 diagnostic (DRAFT, in progress)
+# Failure Analysis — Phase 1 diagnostic (DRAFT, SUPERSEDED)
+
+> **Superseded on 2026-11-19 by `gate2_final_report.md` and `error_taxonomy_final.md`.** Kept unchanged
+> below as a record. One claim in this draft was later **revised**: "the visual prior overrides a verified
+> textual graph" (§2.3). The F_text_only control shows it holds for a2e questions only (−17.6 pp vs a blank
+> image, paired). e2a errors in F are mainly task/format misunderstanding.
 
 Model: Qwen/Qwen3-VL-4B-Instruct @ ebb281ec, bf16, greedy, native resolution (1024×700 → 704 visual
 tokens), transformers 5.23.0. Data: `diag_v1` (configs/diag_v1.json): test_id 250 groups (5,000

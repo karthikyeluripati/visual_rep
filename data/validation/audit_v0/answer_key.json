@@ -1,0 +1,562 @@
+[
+ {
+  "item": 0,
+  "example_id": "test_cross_domain-00037-e2a-R4-style",
+  "answer": "NONE",
+  "split": "test_cross_domain",
+  "variant": "style",
+  "family": "circuit"
+ },
+ {
+  "item": 1,
+  "example_id": "test_cross_domain-00034-e2a-R2-style",
+  "answer": "2.2kΩ",
+  "split": "test_cross_domain",
+  "variant": "style",
+  "family": "circuit"
+ },
+ {
+  "item": 2,
+  "example_id": "test_cross_domain-00000-e2a-R2-orig",
+  "answer": "4.7kΩ",
+  "split": "test_cross_domain",
+  "variant": "orig",
+  "family": "circuit"
+ },
+ {
+  "item": 3,
+  "example_id": "test_cross_domain-00005-a2e-a1-cf",
+  "answer": "R5",
+  "split": "test_cross_domain",
+  "variant": "cf",
+  "family": "circuit"
+ },
+ {
+  "item": 4,
+  "example_id": "test_cross_domain-00033-e2a-R3-reroute",
+  "answer": "1kΩ",
+  "split": "test_cross_domain",
+  "variant": "reroute",
+  "family": "circuit"
+ },
+ {
+  "item": 5,
+  "example_id": "test_cross_domain-00031-a2e-a0-orig",
+  "answer": "R1",
+  "split": "test_cross_domain",
+  "variant": "orig",
+  "family": "circuit"
+ },
+ {
+  "item": 6,
+  "example_id": "test_cross_domain-00010-a2e-a2-orig",
+  "answer": "R1",
+  "split": "test_cross_domain",
+  "variant": "orig",
+  "family": "circuit"
+ },
+ {
+  "item": 7,
+  "example_id": "test_cross_domain-00035-a2e-a2-reroute",
+  "answer": "R1",
+  "split": "test_cross_domain",
+  "variant": "reroute",
+  "family": "circuit"
+ },
+ {
+  "item": 8,
+  "example_id": "test_cross_domain-00034-a2e-a1-style",
+  "answer": "R3",
+  "split": "test_cross_domain",
+  "variant": "style",
+  "family": "circuit"
+ },
+ {
+  "item": 9,
+  "example_id": "test_cross_domain-00022-e2a-R3-cf",
+  "answer": "NONE",
+  "split": "test_cross_domain",
+  "variant": "cf",
+  "family": "circuit"
+ },
+ {
+  "item": 10,
+  "example_id": "test_id-00017-e2a-D-reroute",
+  "answer": "14'-4\"",
+  "split": "test_id",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 11,
+  "example_id": "test_id-00002-e2a-G5-reroute",
+  "answer": "12'-11\"",
+  "split": "test_id",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 12,
+  "example_id": "test_id-00012-e2a-S1-style",
+  "answer": "NONE",
+  "split": "test_id",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 13,
+  "example_id": "test_id-00026-e2a-G5-cf",
+  "answer": "4'-5\"",
+  "split": "test_id",
+  "variant": "cf",
+  "family": "schematic"
+ },
+ {
+  "item": 14,
+  "example_id": "test_id-00017-e2a-D-cf",
+  "answer": "7'-6\"",
+  "split": "test_id",
+  "variant": "cf",
+  "family": "schematic"
+ },
+ {
+  "item": 15,
+  "example_id": "test_id-00016-a2e-a1-orig",
+  "answer": "S4",
+  "split": "test_id",
+  "variant": "orig",
+  "family": "flowchart"
+ },
+ {
+  "item": 16,
+  "example_id": "test_id-00036-e2a-S4-style",
+  "answer": "new",
+  "split": "test_id",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 17,
+  "example_id": "test_id-00036-a2e-a2-orig",
+  "answer": "S2",
+  "split": "test_id",
+  "variant": "orig",
+  "family": "flowchart"
+ },
+ {
+  "item": 18,
+  "example_id": "test_id-00014-e2a-S1-style",
+  "answer": "miss",
+  "split": "test_id",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 19,
+  "example_id": "test_id-00032-e2a-S4-reroute",
+  "answer": "NONE",
+  "split": "test_id",
+  "variant": "reroute",
+  "family": "flowchart"
+ },
+ {
+  "item": 20,
+  "example_id": "test_unseen_font-00010-e2a-S4-orig",
+  "answer": "invalid",
+  "split": "test_unseen_font",
+  "variant": "orig",
+  "family": "flowchart"
+ },
+ {
+  "item": 21,
+  "example_id": "test_unseen_font-00017-a2e-a0-orig",
+  "answer": "G1",
+  "split": "test_unseen_font",
+  "variant": "orig",
+  "family": "schematic"
+ },
+ {
+  "item": 22,
+  "example_id": "test_unseen_font-00013-e2a-A-orig",
+  "answer": "9'-3\"",
+  "split": "test_unseen_font",
+  "variant": "orig",
+  "family": "schematic"
+ },
+ {
+  "item": 23,
+  "example_id": "test_unseen_font-00004-e2a-S4-style",
+  "answer": "fail",
+  "split": "test_unseen_font",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 24,
+  "example_id": "test_unseen_font-00018-e2a-A-style",
+  "answer": "9'-3\"",
+  "split": "test_unseen_font",
+  "variant": "style",
+  "family": "schematic"
+ },
+ {
+  "item": 25,
+  "example_id": "test_unseen_font-00000-e2a-S2-style",
+  "answer": "new",
+  "split": "test_unseen_font",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 26,
+  "example_id": "test_unseen_font-00000-e2a-S6-cf",
+  "answer": "NONE",
+  "split": "test_unseen_font",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 27,
+  "example_id": "test_unseen_font-00015-a2e-a3-reroute",
+  "answer": "D",
+  "split": "test_unseen_font",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 28,
+  "example_id": "test_unseen_font-00005-e2a-C3-reroute",
+  "answer": "12'-2\"",
+  "split": "test_unseen_font",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 29,
+  "example_id": "test_unseen_font-00011-a2e-a2-style",
+  "answer": "S3",
+  "split": "test_unseen_font",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 30,
+  "example_id": "test_unseen_template-00009-e2a-S3-cf",
+  "answer": "NONE",
+  "split": "test_unseen_template",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 31,
+  "example_id": "test_unseen_template-00018-a2e-a2-cf",
+  "answer": "S2",
+  "split": "test_unseen_template",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 32,
+  "example_id": "test_unseen_template-00020-a2e-a1-cf",
+  "answer": "S4",
+  "split": "test_unseen_template",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 33,
+  "example_id": "test_unseen_template-00020-a2e-a1-reroute",
+  "answer": "S3",
+  "split": "test_unseen_template",
+  "variant": "reroute",
+  "family": "flowchart"
+ },
+ {
+  "item": 34,
+  "example_id": "test_unseen_template-00010-a2e-a1-cf",
+  "answer": "S6",
+  "split": "test_unseen_template",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 35,
+  "example_id": "test_unseen_template-00022-a2e-a1-reroute",
+  "answer": "C2",
+  "split": "test_unseen_template",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 36,
+  "example_id": "test_unseen_template-00026-a2e-a0-style",
+  "answer": "C1",
+  "split": "test_unseen_template",
+  "variant": "style",
+  "family": "schematic"
+ },
+ {
+  "item": 37,
+  "example_id": "test_unseen_template-00029-e2a-S3-style",
+  "answer": "new",
+  "split": "test_unseen_template",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 38,
+  "example_id": "test_unseen_template-00015-a2e-a1-cf",
+  "answer": "S6",
+  "split": "test_unseen_template",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 39,
+  "example_id": "test_unseen_template-00004-a2e-a1-cf",
+  "answer": "S3",
+  "split": "test_unseen_template",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 40,
+  "example_id": "test_unseen_topology-00001-a2e-a0-reroute",
+  "answer": "S2",
+  "split": "test_unseen_topology",
+  "variant": "reroute",
+  "family": "flowchart"
+ },
+ {
+  "item": 41,
+  "example_id": "test_unseen_topology-00024-a2e-a3-orig",
+  "answer": "S4",
+  "split": "test_unseen_topology",
+  "variant": "orig",
+  "family": "flowchart"
+ },
+ {
+  "item": 42,
+  "example_id": "test_unseen_topology-00013-a2e-a3-cf",
+  "answer": "S5",
+  "split": "test_unseen_topology",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 43,
+  "example_id": "test_unseen_topology-00012-e2a-S3-style",
+  "answer": "seen",
+  "split": "test_unseen_topology",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 44,
+  "example_id": "test_unseen_topology-00009-e2a-C3-cf",
+  "answer": "5'-0\"",
+  "split": "test_unseen_topology",
+  "variant": "cf",
+  "family": "schematic"
+ },
+ {
+  "item": 45,
+  "example_id": "test_unseen_topology-00019-e2a-C4-reroute",
+  "answer": "13'-7\"",
+  "split": "test_unseen_topology",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 46,
+  "example_id": "test_unseen_topology-00022-e2a-S1-orig",
+  "answer": "NONE",
+  "split": "test_unseen_topology",
+  "variant": "orig",
+  "family": "flowchart"
+ },
+ {
+  "item": 47,
+  "example_id": "test_unseen_topology-00011-e2a-S3-cf",
+  "answer": "x ≥ 0",
+  "split": "test_unseen_topology",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 48,
+  "example_id": "test_unseen_topology-00031-e2a-S5-cf",
+  "answer": "valid",
+  "split": "test_unseen_topology",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 49,
+  "example_id": "test_unseen_topology-00020-a2e-a0-reroute",
+  "answer": "D",
+  "split": "test_unseen_topology",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 50,
+  "example_id": "train-00086-a2e-a3-style",
+  "answer": "C3",
+  "split": "train",
+  "variant": "style",
+  "family": "schematic"
+ },
+ {
+  "item": 51,
+  "example_id": "train-00046-e2a-S3-cf",
+  "answer": "x < 0",
+  "split": "train",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 52,
+  "example_id": "train-00106-e2a-S3-cf",
+  "answer": "fail",
+  "split": "train",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 53,
+  "example_id": "train-00057-a2e-a0-reroute",
+  "answer": "S1",
+  "split": "train",
+  "variant": "reroute",
+  "family": "flowchart"
+ },
+ {
+  "item": 54,
+  "example_id": "train-00103-a2e-a2-reroute",
+  "answer": "B",
+  "split": "train",
+  "variant": "reroute",
+  "family": "schematic"
+ },
+ {
+  "item": 55,
+  "example_id": "train-00102-e2a-S4-cf",
+  "answer": "ok",
+  "split": "train",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 56,
+  "example_id": "train-00025-a2e-a0-style",
+  "answer": "G2",
+  "split": "train",
+  "variant": "style",
+  "family": "schematic"
+ },
+ {
+  "item": 57,
+  "example_id": "train-00057-e2a-S1-cf",
+  "answer": "miss",
+  "split": "train",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 58,
+  "example_id": "train-00057-a2e-a0-cf",
+  "answer": "S2",
+  "split": "train",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 59,
+  "example_id": "train-00066-a2e-a0-reroute",
+  "answer": "S1",
+  "split": "train",
+  "variant": "reroute",
+  "family": "flowchart"
+ },
+ {
+  "item": 60,
+  "example_id": "val-00009-e2a-C-orig",
+  "answer": "12'-4\"",
+  "split": "val",
+  "variant": "orig",
+  "family": "schematic"
+ },
+ {
+  "item": 61,
+  "example_id": "val-00018-a2e-a2-cf",
+  "answer": "S2",
+  "split": "val",
+  "variant": "cf",
+  "family": "flowchart"
+ },
+ {
+  "item": 62,
+  "example_id": "val-00027-e2a-S6-orig",
+  "answer": "valid",
+  "split": "val",
+  "variant": "orig",
+  "family": "flowchart"
+ },
+ {
+  "item": 63,
+  "example_id": "val-00013-a2e-a2-style",
+  "answer": "S1",
+  "split": "val",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 64,
+  "example_id": "val-00015-a2e-a3-style",
+  "answer": "S4",
+  "split": "val",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 65,
+  "example_id": "val-00019-e2a-S4-style",
+  "answer": "NONE",
+  "split": "val",
+  "variant": "style",
+  "family": "flowchart"
+ },
+ {
+  "item": 66,
+  "example_id": "val-00028-a2e-a2-style",
+  "answer": "G1",
+  "split": "val",
+  "variant": "style",
+  "family": "schematic"
+ },
+ {
+  "item": 67,
+  "example_id": "val-00002-e2a-C4-cf",
+  "answer": "NONE",
+  "split": "val",
+  "variant": "cf",
+  "family": "schematic"
+ },
+ {
+  "item": 68,
+  "example_id": "val-00008-e2a-G3-orig",
+  "answer": "8'-1\"",
+  "split": "val",
+  "variant": "orig",
+  "family": "schematic"
+ },
+ {
+  "item": 69,
+  "example_id": "val-00022-a2e-a0-reroute",
+  "answer": "S2",
+  "split": "val",
+  "variant": "reroute",
+  "family": "flowchart"
+ }
+]

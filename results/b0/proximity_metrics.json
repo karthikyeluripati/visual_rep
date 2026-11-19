@@ -1,0 +1,3949 @@
+{
+  "pred_file": "results/b0/proximity.jsonl",
+  "n_examples_scored": 6600,
+  "n_examples_total": 6600,
+  "splits": {
+    "test_cross_domain": {
+      "n_queries": 200,
+      "n_groups": 40,
+      "n_flipping_queries": 160,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.1812,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "acc_cf": {
+        "value": 0.3187,
+        "ci95": [
+          0.2125,
+          0.425
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.1812,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "acc_style": {
+        "value": 0.1812,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.2825,
+        "ci95": [
+          0.2188,
+          0.3488
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.1812,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.1812,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.1812,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.55,
+        "ci95": [
+          0.4,
+          0.7
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.2375,
+        "ci95": [
+          0.1875,
+          0.2875
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "circuit": {
+            "n_queries": 200,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1812,
+              "ci95": [
+                0.1,
+                0.2562
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "grid": {
+            "n_queries": 105,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0833,
+              "ci95": [
+                0.0238,
+                0.1548
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "ladder": {
+            "n_queries": 95,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2895,
+              "ci95": [
+                0.1579,
+                0.4474
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2125,
+              "ci95": [
+                0.125,
+                0.3
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.15,
+              "ci95": [
+                0.075,
+                0.225
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 112,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.1574,
+                0.3492
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 44,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0227,
+              "ci95": [
+                0.0,
+                0.0682
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 4,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 126,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 34,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.8529,
+              "ci95": [
+                0.75,
+                0.9444
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 48,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 72,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.125,
+              "ci95": [
+                0.027,
+                0.25
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5,
+              "ci95": [
+                0.2945,
+                0.6944
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 64,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3438,
+              "ci95": [
+                0.2188,
+                0.4844
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 96,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0729,
+              "ci95": [
+                0.0208,
+                0.1354
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "low(<0.006)": {
+            "n_queries": 160,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1812,
+              "ci95": [
+                0.1,
+                0.2562
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "test_id": {
+      "n_queries": 200,
+      "n_groups": 40,
+      "n_flipping_queries": 160,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.225,
+        "ci95": [
+          0.1437,
+          0.3063
+        ]
+      },
+      "acc_cf": {
+        "value": 0.25,
+        "ci95": [
+          0.175,
+          0.3375
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.225,
+        "ci95": [
+          0.1437,
+          0.3063
+        ]
+      },
+      "acc_style": {
+        "value": 0.225,
+        "ci95": [
+          0.1437,
+          0.3063
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.29,
+        "ci95": [
+          0.2375,
+          0.3475
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.225,
+        "ci95": [
+          0.1437,
+          0.3063
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.225,
+        "ci95": [
+          0.1437,
+          0.3063
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.225,
+        "ci95": [
+          0.1437,
+          0.3063
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.525,
+        "ci95": [
+          0.375,
+          0.675
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.2062,
+        "ci95": [
+          0.1625,
+          0.2437
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 95,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.151,
+                0.3684
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 105,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2024,
+              "ci95": [
+                0.0952,
+                0.3158
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "elevation": {
+            "n_queries": 105,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2024,
+              "ci95": [
+                0.0952,
+                0.3158
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "tb": {
+            "n_queries": 95,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.151,
+                0.3684
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.1625,
+                0.3375
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2,
+              "ci95": [
+                0.125,
+                0.2875
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 56,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4643,
+              "ci95": [
+                0.3148,
+                0.625
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 66,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1212,
+              "ci95": [
+                0.0303,
+                0.2286
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 38,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0526,
+              "ci95": [
+                0.0,
+                0.15
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.9,
+              "ci95": [
+                0.8158,
+                0.9762
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 90,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1444,
+              "ci95": [
+                0.0595,
+                0.237
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.15,
+              "ci95": [
+                0.0,
+                0.3158
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 30,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5667,
+              "ci95": [
+                0.3494,
+                0.8225
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.225,
+              "ci95": [
+                0.1333,
+                0.3333
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.225,
+              "ci95": [
+                0.075,
+                0.3631
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 72,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1944,
+              "ci95": [
+                0.1111,
+                0.3056
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 88,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.1477,
+                0.3636
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "test_unseen_font": {
+      "n_queries": 100,
+      "n_groups": 20,
+      "n_flipping_queries": 80,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.3125,
+        "ci95": [
+          0.15,
+          0.4878
+        ]
+      },
+      "acc_cf": {
+        "value": 0.2125,
+        "ci95": [
+          0.075,
+          0.3625
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.3125,
+        "ci95": [
+          0.15,
+          0.4878
+        ]
+      },
+      "acc_style": {
+        "value": 0.3125,
+        "ci95": [
+          0.15,
+          0.4878
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.36,
+        "ci95": [
+          0.2549,
+          0.465
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.3125,
+        "ci95": [
+          0.15,
+          0.4878
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.3125,
+        "ci95": [
+          0.15,
+          0.4878
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.3125,
+        "ci95": [
+          0.15,
+          0.4878
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.65,
+        "ci95": [
+          0.45,
+          0.85
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.175,
+        "ci95": [
+          0.1,
+          0.2625
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3125,
+              "ci95": [
+                0.0625,
+                0.625
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 60,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3125,
+              "ci95": [
+                0.125,
+                0.5318
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "elevation": {
+            "n_queries": 60,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3125,
+              "ci95": [
+                0.125,
+                0.5318
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "tb": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3125,
+              "ci95": [
+                0.0625,
+                0.625
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.325,
+              "ci95": [
+                0.15,
+                0.5
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 60,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3,
+              "ci95": [
+                0.1369,
+                0.4881
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 32,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5312,
+              "ci95": [
+                0.25,
+                0.7941
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 38,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2105,
+              "ci95": [
+                0.0198,
+                0.4211
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 10,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 54,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 26,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.9615,
+              "ci95": [
+                0.8636,
+                1.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 34,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2941,
+              "ci95": [
+                0.0571,
+                0.5882
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 24,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 22,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.6818,
+              "ci95": [
+                0.35,
+                0.9131
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 52,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4038,
+              "ci95": [
+                0.2115,
+                0.6062
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 28,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1429,
+              "ci95": [
+                0.0,
+                0.4286
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 28,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2857,
+              "ci95": [
+                0.0714,
+                0.5714
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 52,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3269,
+              "ci95": [
+                0.1245,
+                0.5577
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "test_unseen_template": {
+      "n_queries": 200,
+      "n_groups": 40,
+      "n_flipping_queries": 160,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.3187,
+        "ci95": [
+          0.2,
+          0.4377
+        ]
+      },
+      "acc_cf": {
+        "value": 0.2125,
+        "ci95": [
+          0.1125,
+          0.3187
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.3187,
+        "ci95": [
+          0.2,
+          0.4377
+        ]
+      },
+      "acc_style": {
+        "value": 0.3187,
+        "ci95": [
+          0.2,
+          0.4377
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.3538,
+        "ci95": [
+          0.2875,
+          0.4188
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.3187,
+        "ci95": [
+          0.2,
+          0.4377
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.3187,
+        "ci95": [
+          0.2,
+          0.4377
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.3187,
+        "ci95": [
+          0.2,
+          0.4377
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.6,
+        "ci95": [
+          0.45,
+          0.75
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.225,
+        "ci95": [
+          0.1688,
+          0.2875
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3438,
+              "ci95": [
+                0.2083,
+                0.5208
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2812,
+              "ci95": [
+                0.125,
+                0.4375
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "lr": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3438,
+              "ci95": [
+                0.2083,
+                0.5208
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "plan": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2812,
+              "ci95": [
+                0.125,
+                0.4375
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3375,
+              "ci95": [
+                0.2125,
+                0.4566
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3,
+              "ci95": [
+                0.1875,
+                0.425
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 92,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4457,
+              "ci95": [
+                0.2772,
+                0.6042
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 60,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1333,
+              "ci95": [
+                0.0333,
+                0.2635
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 8,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.0,
+                0.4525
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 106,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 54,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.9444,
+              "ci95": [
+                0.8696,
+                1.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 98,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2959,
+              "ci95": [
+                0.1429,
+                0.4604
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 42,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1667,
+              "ci95": [
+                0.0425,
+                0.3421
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 20,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.75,
+              "ci95": [
+                0.5198,
+                0.9784
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 20,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.35,
+              "ci95": [
+                0.15,
+                0.5
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 140,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3143,
+              "ci95": [
+                0.1857,
+                0.4429
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 72,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3889,
+              "ci95": [
+                0.1944,
+                0.5979
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 88,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2614,
+              "ci95": [
+                0.1364,
+                0.3864
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "test_unseen_topology": {
+      "n_queries": 200,
+      "n_groups": 40,
+      "n_flipping_queries": 160,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.2313,
+        "ci95": [
+          0.1375,
+          0.3312
+        ]
+      },
+      "acc_cf": {
+        "value": 0.1875,
+        "ci95": [
+          0.1125,
+          0.2812
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.2313,
+        "ci95": [
+          0.1375,
+          0.3312
+        ]
+      },
+      "acc_style": {
+        "value": 0.2313,
+        "ci95": [
+          0.1375,
+          0.3312
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.2863,
+        "ci95": [
+          0.2162,
+          0.355
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.2313,
+        "ci95": [
+          0.1375,
+          0.3312
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.2313,
+        "ci95": [
+          0.1375,
+          0.3312
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.2313,
+        "ci95": [
+          0.1375,
+          0.3312
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.55,
+        "ci95": [
+          0.4,
+          0.7
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.2375,
+        "ci95": [
+          0.1875,
+          0.2875
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 85,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1912,
+              "ci95": [
+                0.0735,
+                0.3382
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 115,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2609,
+              "ci95": [
+                0.1304,
+                0.3913
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "elevation": {
+            "n_queries": 115,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2609,
+              "ci95": [
+                0.1304,
+                0.3913
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "tb": {
+            "n_queries": 85,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1912,
+              "ci95": [
+                0.0735,
+                0.3382
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.275,
+              "ci95": [
+                0.175,
+                0.4
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 120,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1875,
+              "ci95": [
+                0.0875,
+                0.2875
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 58,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5172,
+              "ci95": [
+                0.3473,
+                0.6786
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 52,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0962,
+              "ci95": [
+                0.0,
+                0.2083
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 50,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.04,
+              "ci95": [
+                0.0,
+                0.125
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 116,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 44,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.8409,
+              "ci95": [
+                0.7368,
+                0.9334
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 90,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1444,
+              "ci95": [
+                0.0476,
+                0.264
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 52,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1346,
+              "ci95": [
+                0.0417,
+                0.25
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 18,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.9444,
+              "ci95": [
+                0.8125,
+                1.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 112,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2054,
+              "ci95": [
+                0.0893,
+                0.335
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 48,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2917,
+              "ci95": [
+                0.125,
+                0.4583
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 68,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2059,
+              "ci95": [
+                0.0588,
+                0.3824
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 92,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.1413,
+                0.3587
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "train": {
+      "n_queries": 600,
+      "n_groups": 120,
+      "n_flipping_queries": 480,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.2938,
+        "ci95": [
+          0.2354,
+          0.3542
+        ]
+      },
+      "acc_cf": {
+        "value": 0.1958,
+        "ci95": [
+          0.1458,
+          0.2458
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.2938,
+        "ci95": [
+          0.2354,
+          0.3542
+        ]
+      },
+      "acc_style": {
+        "value": 0.2938,
+        "ci95": [
+          0.2354,
+          0.3542
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.3121,
+        "ci95": [
+          0.2729,
+          0.3517
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.2938,
+        "ci95": [
+          0.2354,
+          0.3542
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.2938,
+        "ci95": [
+          0.2354,
+          0.3542
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.2938,
+        "ci95": [
+          0.2354,
+          0.3542
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.4833,
+        "ci95": [
+          0.3917,
+          0.575
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.1958,
+        "ci95": [
+          0.1688,
+          0.2229
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 340,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3272,
+              "ci95": [
+                0.2426,
+                0.4081
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 260,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.1731,
+                0.3439
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "elevation": {
+            "n_queries": 260,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.25,
+              "ci95": [
+                0.1731,
+                0.3439
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "tb": {
+            "n_queries": 340,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3272,
+              "ci95": [
+                0.2426,
+                0.4081
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 240,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3125,
+              "ci95": [
+                0.2561,
+                0.3772
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 360,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.275,
+              "ci95": [
+                0.2228,
+                0.3375
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 204,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5147,
+              "ci95": [
+                0.42,
+                0.6106
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 190,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1895,
+              "ci95": [
+                0.1205,
+                0.2676
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 86,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 330,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 150,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.94,
+              "ci95": [
+                0.8993,
+                0.9735
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 262,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1947,
+              "ci95": [
+                0.1346,
+                0.2586
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 126,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3413,
+              "ci95": [
+                0.2344,
+                0.4559
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 92,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5109,
+              "ci95": [
+                0.3778,
+                0.6429
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 332,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3042,
+              "ci95": [
+                0.2319,
+                0.3705
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 148,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2703,
+              "ci95": [
+                0.1757,
+                0.3784
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 272,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2868,
+              "ci95": [
+                0.2132,
+                0.364
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 208,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3029,
+              "ci95": [
+                0.2163,
+                0.4038
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    },
+    "val": {
+      "n_queries": 150,
+      "n_groups": 30,
+      "n_flipping_queries": 120,
+      "paired_cf_accuracy": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "acc_orig": {
+        "value": 0.325,
+        "ci95": [
+          0.2083,
+          0.4417
+        ]
+      },
+      "acc_cf": {
+        "value": 0.1583,
+        "ci95": [
+          0.0667,
+          0.2667
+        ]
+      },
+      "acc_reroute": {
+        "value": 0.325,
+        "ci95": [
+          0.2083,
+          0.4417
+        ]
+      },
+      "acc_style": {
+        "value": 0.325,
+        "ci95": [
+          0.2083,
+          0.4417
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.3533,
+        "ci95": [
+          0.2717,
+          0.4317
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.325,
+        "ci95": [
+          0.2083,
+          0.4417
+        ]
+      },
+      "invariance_style": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariance_reroute": {
+        "value": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "invariant_correct_style": {
+        "value": 0.325,
+        "ci95": [
+          0.2083,
+          0.4417
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": 0.325,
+        "ci95": [
+          0.2083,
+          0.4417
+        ]
+      },
+      "abstention_accuracy": {
+        "value": 0.6333,
+        "ci95": [
+          0.4667,
+          0.8
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.1917,
+        "ci95": [
+          0.1333,
+          0.25
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      },
+      "strata": {
+        "family": {
+          "flowchart": {
+            "n_queries": 70,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2321,
+              "ci95": [
+                0.1071,
+                0.3393
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "schematic": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4062,
+              "ci95": [
+                0.2188,
+                0.5938
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "template": {
+          "elevation": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4062,
+              "ci95": [
+                0.2188,
+                0.5938
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "tb": {
+            "n_queries": 70,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.2321,
+              "ci95": [
+                0.1071,
+                0.3393
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "query_type": {
+          "a2e": {
+            "n_queries": 60,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3333,
+              "ci95": [
+                0.2167,
+                0.45
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "e2a": {
+            "n_queries": 90,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3167,
+              "ci95": [
+                0.2,
+                0.4333
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "crossings": {
+          "0": {
+            "n_queries": 54,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.5185,
+              "ci95": [
+                0.2857,
+                0.761
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "1": {
+            "n_queries": 50,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.22,
+              "ci95": [
+                0.0833,
+                0.375
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "2+": {
+            "n_queries": 16,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "nearest_is_target": {
+          "False": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "True": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.975,
+              "ci95": [
+                0.9148,
+                1.0
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "connector_length": {
+          "long(>=300)": {
+            "n_queries": 52,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1346,
+              "ci95": [
+                0.0239,
+                0.2407
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "mid(150-300)": {
+            "n_queries": 32,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.1875,
+              "ci95": [
+                0.0,
+                0.375
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "short(<150)": {
+            "n_queries": 36,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.7222,
+              "ci95": [
+                0.4375,
+                0.9474
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "n_entities": {
+          "<=5": {
+            "n_queries": 80,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.4125,
+              "ci95": [
+                0.25,
+                0.575
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          ">5": {
+            "n_queries": 40,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.15,
+              "ci95": [
+                0.05,
+                0.3
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "text_density": {
+          "high": {
+            "n_queries": 64,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3281,
+              "ci95": [
+                0.1875,
+                0.5
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "low(<0.006)": {
+            "n_queries": 56,
+            "paired_cf_accuracy": {
+              "value": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "acc_orig": {
+              "value": 0.3214,
+              "ci95": [
+                0.1429,
+                0.5
+              ]
+            },
+            "cf_stuck_rate": {
+              "value": 1.0,
+              "ci95": [
+                1.0,
+                1.0
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

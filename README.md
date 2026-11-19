@@ -3,9 +3,14 @@
 **Do vision-language models bind annotations by connectivity or by prior?**
 A counterfactual benchmark and study of annotation→entity relational grounding in diagrams.
 
-Status: Phase 0 done (literature audit, pre-registration, CPU benchmark prototype, baselines).
-Phase 1 (inference-only diagnostic of Qwen3-VL-4B) is in progress. No training has been run.
-See `research/` for the novelty audit, hypotheses, the pre-registered protocol and gates, and the failure analysis.
+Status (2026-11-19): Phase 0 and the Phase-1 diagnostic (inference only) are complete.
+**Gate 2 = REVISE** (`research/gate2_final_report.md`). The human audit is pending, so benchmark validity is
+pending. No training has been run, and Phase 2 is not authorised.
+
+Start here: `research/gate2_final_report.md`, `research/error_taxonomy_final.md`, `research/tracer_vs_vlm.md`,
+`research/phase2_go_no_go.md`, `research/phase2_experimental_design.md`, `research/phase2_compute_budget.md`.
+Reproduce the final numbers from preserved artifacts with
+`python -m relbind.final_analysis --bundle <pulled bundle> --out results/phase1/final_analysis.json`.
 
 ## Core idea
 

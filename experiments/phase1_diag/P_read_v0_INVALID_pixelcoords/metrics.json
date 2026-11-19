@@ -1,0 +1,6 @@
+{
+  "pred_file": "experiments/phase1_diag/P_read/predictions.jsonl",
+  "n_examples_scored": 0,
+  "n_examples_total": 8600,
+  "splits": {}
+}

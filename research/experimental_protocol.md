@@ -163,7 +163,11 @@ the paper.
 - Final test sets are generated once from a held seed, hashed in the manifest, and evaluated only for
   the pre-registered comparisons. Development uses `val` only.
 
-## 8. Compute plan and budget (H100 80GB; price assumed $2.5/GPU-h until the provider rate is confirmed)
+## 8. Compute plan and budget (H100 80GB)
+
+Measured provider rate (RunPod API, 2026-11-19): **$4.39/h** for this pod (container disk only, no
+persistent volume, so results must be pulled before the pod stops). Dollar figures below were
+drafted at an assumed $2.5/h; multiply them by 1.76.
 
 | step | estimate | gate |
 |---|---|---|
@@ -192,3 +196,17 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   Read criterion) and `box` (locate-and-read on the full image, reported). The invalid run is kept as
   `experiments/phase1_diag/P_read_v0_INVALID_pixelcoords` (read acc 0.539) and is not used.
   Conditions A, B, C and F contain no coordinates and are unaffected.
+- 2026-11-19 (Phase 1b, after Phase-1 runs, before the Gate-2 decision; requested by the PI):
+  (a) added **F_text_only** (F prompt with a blank image) to audit condition F;
+  (b) added the **ray tracer** (`baselines/tracer.py`). A first version had a bug (visited-cell blocking on
+  diagonal steps → mostly "no entity reached"). It was fixed before running on diag_v1, and the prototype
+  numbers in this repo are post-fix;
+  (c) text prior on diag_v1 re-fitted on the prototype train split (diag_v1 has no train split). The run
+  without a train split is kept as `results/b0_diag/text_prior_NO_TRAIN_SPLIT*`;
+  (d) added template-stratified bootstrap, ICC/design effect, and the final decomposition
+  (`relbind.final_analysis`). A bug that counted *missing* predictions (conditions not run on a split) as
+  errors was found and fixed before any number was reported in the final documents;
+  (e) observed post hoc and **not pre-registered**: the strict vs non-strict swap regimes and crossing
+  type strongly moderate accuracy. Future test sets will be strict-only with crossing type as a balanced,
+  pre-registered factor (see `phase2_go_no_go.md`).
+- 2026-11-19: Gate 2 decision = **REVISE** (`gate2_final_report.md`). Phase-2 training is not authorised.

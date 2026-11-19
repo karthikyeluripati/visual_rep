@@ -1,0 +1,17 @@
+2026-11-19T13:17:53+00:00 done F_text_only
+wrote 8600 predictions -> results/b0_diag/ray_tracer.jsonl
+test_cross_domain        PCA=0.9708 [0.9333, 1.0]  acc_orig=0.9792  stuck=0.0083  inv_style=0.7133  abst=1.0
+test_id                  PCA=0.694 [0.643, 0.747]  acc_orig=0.768  stuck=0.158  inv_style=0.7656  abst=0.992
+test_unseen_template     PCA=0.7083 [0.6, 0.8043]  acc_orig=0.7792  stuck=0.1542  inv_style=0.77  abst=1.0
+test_unseen_topology     PCA=0.5667 [0.4917, 0.6458]  acc_orig=0.6875  stuck=0.075  inv_style=0.7967  abst=0.9625
+wrote 8600 predictions -> results/b0_diag/text_prior.jsonl
+test_cross_domain        PCA=0.0 [0.0, 0.0]  acc_orig=0.0  stuck=1.0  inv_style=1.0  abst=1.0
+test_id                  PCA=0.0 [0.0, 0.0]  acc_orig=0.062  stuck=1.0  inv_style=1.0  abst=0.928
+test_unseen_template     PCA=0.0 [0.0, 0.0]  acc_orig=0.025  stuck=1.0  inv_style=1.0  abst=0.9833
+test_unseen_topology     PCA=0.0 [0.0, 0.0]  acc_orig=0.0625  stuck=1.0  inv_style=1.0  abst=0.9
+2026-11-19T13:18:49+00:00 done heuristics
+wrote 172 items (71 orig/cf pairs + 30 extra) -> data/validation/audit_diag_v1; key -> data/validation/audit_diag_v1_ANSWER_KEY_DO_NOT_SHARE
+wrote results/figures/diag_A_test_id.png
+wrote results/figures/diag_A_test_unseen_topology.png
+wrote results/phase1/gate2_analysis.json
+2026-11-19T13:20:23+00:00 PHASE1B_DONE

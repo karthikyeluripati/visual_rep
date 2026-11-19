@@ -1,0 +1,8 @@
+{
+  "errors": [],
+  "warnings": [],
+  "near_duplicate_pairs": 0,
+  "min_cross_split_dhash_distance": 6,
+  "shared_relation_signatures": 0,
+  "ok": true
+}

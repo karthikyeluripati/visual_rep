@@ -1,0 +1,15 @@
+[test_id] groups=250 examples=5000 (194s)
+[test_unseen_template] groups=60 examples=1200 (266s)
+[test_unseen_topology] groups=60 examples=1200 (311s)
+[test_cross_domain] groups=60 examples=1200 (366s)
+{
+  "stats": {
+    "groups": 430,
+    "attach_fixed=False": 132,
+    "base_attempts": 660,
+    "attach_fixed=True": 298
+  },
+  "n_examples": 8600,
+  "leakage_ok": true,
+  "build_seconds": 365.9
+}

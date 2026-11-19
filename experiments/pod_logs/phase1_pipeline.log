@@ -1,0 +1,123 @@
+wrote 8600 predictions -> results/b0_diag/random.jsonl
+test_cross_domain        PCA=0.0625 [0.0333, 0.0958]  acc_orig=0.2583  stuck=0.2  inv_style=0.22  abst=0.2875
+test_id                  PCA=0.036 [0.025, 0.048]  acc_orig=0.215  stuck=0.244  inv_style=0.212  abst=0.262
+test_unseen_template     PCA=0.025 [0.0083, 0.0458]  acc_orig=0.1958  stuck=0.2042  inv_style=0.18  abst=0.2625
+test_unseen_topology     PCA=0.0458 [0.025, 0.0708]  acc_orig=0.2458  stuck=0.2583  inv_style=0.22  abst=0.2958
+wrote 8600 predictions -> results/b0_diag/text_prior.jsonl
+test_cross_domain        PCA=0.0 [0.0, 0.0]  acc_orig=0.0  stuck=1.0  inv_style=1.0  abst=1.0
+test_id                  PCA=0.0 [0.0, 0.0]  acc_orig=0.0  stuck=1.0  inv_style=1.0  abst=1.0
+test_unseen_template     PCA=0.0 [0.0, 0.0]  acc_orig=0.0  stuck=1.0  inv_style=1.0  abst=1.0
+test_unseen_topology     PCA=0.0 [0.0, 0.0]  acc_orig=0.0  stuck=1.0  inv_style=1.0  abst=1.0
+wrote 8600 predictions -> results/b0_diag/proximity.jsonl
+test_cross_domain        PCA=0.0 [0.0, 0.0]  acc_orig=0.15  stuck=1.0  inv_style=1.0  abst=0.4833
+test_id                  PCA=0.0 [0.0, 0.0]  acc_orig=0.285  stuck=1.0  inv_style=1.0  abst=0.524
+test_unseen_template     PCA=0.0 [0.0, 0.0]  acc_orig=0.2208  stuck=1.0  inv_style=1.0  abst=0.5
+test_unseen_topology     PCA=0.0 [0.0, 0.0]  acc_orig=0.2542  stuck=1.0  inv_style=1.0  abst=0.65
+wrote 8600 predictions -> results/b0_diag/cc_tracer.jsonl
+test_cross_domain        PCA=0.5625 [0.4667, 0.6625]  acc_orig=0.7958  stuck=0.1542  inv_style=0.76  abst=0.8875
+test_id                  PCA=0.079 [0.056, 0.104]  acc_orig=0.401  stuck=0.741  inv_style=0.8648  abst=0.868
+test_unseen_template     PCA=0.3917 [0.2832, 0.5125]  acc_orig=0.55  stuck=0.5625  inv_style=0.8467  abst=1.0
+test_unseen_topology     PCA=0.0708 [0.0375, 0.1167]  acc_orig=0.3833  stuck=0.8  inv_style=0.8833  abst=0.875
+2026-11-19T11:54:06+00:00 done A_direct
+2026-11-19T11:56:25+00:00 done P_read
+2026-11-19T12:09:21+00:00 done C_oracle_crop
+2026-11-19T12:17:33+00:00 done D_oracle_ocr
+2026-11-19T12:25:03+00:00 done E_oracle_box
+2026-11-19T12:31:51+00:00 done F_oracle_graph
+2026-11-19T13:07:47+00:00 done B_reasoning
+2026-11-19T13:07:47+00:00 ALL DONE
+{
+  "gate2": {
+    "decision": "INCONCLUSIVE",
+    "inputs": {
+      "PCA_A": 0.241,
+      "PCA_C": 0.259,
+      "read_acc": null,
+      "stuck_A": 0.512,
+      "non_connector_heuristic_PCA": {
+        "text_prior": 0.0,
+        "proximity": 0.0
+      }
+    },
+    "note": "human audit not yet performed; GO is provisional"
+  },
+  "read_accuracy": {},
+  "read_by_kind": {},
+  "taxonomy_test_id": {
+    "A_direct": {
+      "orig": {
+        "n": 500,
+        "correct": 300,
+        "other": 67,
+        "proximity": 114,
+        "crossing": 17,
+        "parse": 2
+      },
+      "cf": {
+        "n": 500,
+        "stuck": 96,
+        "proximity": 100,
+        "correct": 243,
+        "other": 40,
+        "crossing": 20,
+        "parse": 1
+      }
+    },
+    "B_reasoning": {
+      "orig": {
+        "n": 500,
+        "correct": 327,
+        "other": 69,
+        "proximity": 82,
+        "crossing": 9,
+        "parse": 13
+      },
+      "cf": {
+        "n": 500,
+        "stuck": 108,
+        "proximity": 56,
+        "correct": 281,
+        "other": 35,
+        "crossing": 9,
+        "parse": 11
+      }
+    },
+    "C_oracle_crop": {
+      "orig": {
+        "n": 500,
+        "correct": 301,
+        "proximity": 125,
+        "other": 56,
+        "crossing": 14,
+        "parse": 4
+      },
+      "cf": {
+        "n": 500,
+        "stuck": 119,
+        "proximity": 99,
+        "correct": 255,
+        "crossing": 11,
+        "other": 16
+      }
+    },
+    "E_oracle_box": {
+      "orig": {
+        "n": 500,
+        "correct": 301,
+        "other": 69,
+        "proximity": 117,
+        "crossing": 12,
+        "parse": 1
+      },
+      "cf": {
+        "n": 500,
+        "proximity": 106,
+        "stuck": 94,
+        "other": 42,
+        "correct": 249,
+        "crossing": 9
+      }
+    }
+  }
+}
+PIPELINE_DONE
