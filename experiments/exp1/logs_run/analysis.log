@@ -1,0 +1,66 @@
+{
+ "probe": {
+  "selected": {
+   "layer": 18,
+   "wd": 0.001
+  },
+  "test_id": {
+   "pair_acc": 0.4417,
+   "n_pairs": 600,
+   "single_acc": 0.6823,
+   "by_cell": {
+    "entity_only": {
+     "pair_acc": 0.6133,
+     "n": 150
+    },
+    "leader_leader": {
+     "pair_acc": 0.3844,
+     "n": 450
+    }
+   },
+   "pair_acc_ci95": [
+    0.4017,
+    0.4833
+   ]
+  },
+  "test_unseen_topology": {
+   "pair_acc": 0.3133,
+   "n_pairs": 300,
+   "single_acc": 0.5497,
+   "by_cell": {
+    "entity_only": {
+     "pair_acc": 0.5,
+     "n": 76
+    },
+    "leader_leader": {
+     "pair_acc": 0.25,
+     "n": 224
+    }
+   },
+   "pair_acc_ci95": [
+    0.2567,
+    0.37
+   ]
+  },
+  "controls": {
+   "test_id": {
+    "shuffled_labels": 0.0317,
+    "geometry_only": 0.0
+   },
+   "test_unseen_topology": {
+    "shuffled_labels": 0.0267,
+    "geometry_only": 0.0
+   }
+  }
+ },
+ "probe_reading": "inconclusive",
+ "path_reading": "intermediate / see CIs"
+}
+test_id all A 0.1617 path 0.2533 tracer 0.68 n 600
+test_id none A None path None tracer None n 0
+test_id entity_only A 0.2133 path 0.3533 tracer 0.9133 n 150
+test_id leader_leader A 0.1444 path 0.22 tracer 0.6022 n 450
+test_unseen_topology all A 0.0567 path 0.1267 tracer 0.6 n 300
+test_unseen_topology none A None path None tracer None n 0
+test_unseen_topology entity_only A 0.0789 path 0.2105 tracer 0.5 n 76
+test_unseen_topology leader_leader A 0.0491 path 0.0982 tracer 0.6339 n 224

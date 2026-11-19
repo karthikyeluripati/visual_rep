@@ -3,6 +3,13 @@
 **Current decision: NO-GO for Phase-2 training. Gate 2 = REVISE** (`research/gate2_final_report.md`).
 Nothing in this file is authorised to run. It specifies what must be true before training is requested.
 
+**Update 2026-11-19, Experiment 1 done** (`research/exp1_report.md`):
+- path control − binding = +9.2 pp [5.3, 13.0], "intermediate": mainly a path-following deficit, plus ≤ 9 pp binding cost;
+- probe on unseen topology 0.313 [0.257, 0.370], "inconclusive" (test_id 0.442; answers 0.162).
+
+Per the pre-registered rule, the next step is the **M2-vs-M3 pilot (with M1 as reference)**. It needs explicit
+approval. P1 (human audit) is still pending and is required before any GO claim on benchmark validity.
+
 ## 1. Preconditions for requesting Phase-2 approval
 
 | # | precondition | status |

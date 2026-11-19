@@ -1,0 +1,247 @@
+{
+  "pred_file": "experiments/exp1/A_path/predictions.jsonl",
+  "n_examples_scored": 1800,
+  "n_examples_total": 1800,
+  "splits": {
+    "test_id": {
+      "n_queries": 600,
+      "n_groups": 300,
+      "n_flipping_queries": 600,
+      "paired_cf_accuracy": {
+        "value": 0.2533,
+        "ci95": [
+          0.2217,
+          0.2867
+        ]
+      },
+      "acc_orig": {
+        "value": 0.5867,
+        "ci95": [
+          0.5433,
+          0.6283
+        ]
+      },
+      "acc_cf": {
+        "value": 0.4833,
+        "ci95": [
+          0.445,
+          0.52
+        ]
+      },
+      "acc_reroute": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "acc_style": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.535,
+        "ci95": [
+          0.5092,
+          0.56
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.4318,
+        "ci95": [
+          0.3848,
+          0.479
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 0.5133,
+        "ci95": [
+          0.4683,
+          0.555
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.2867,
+        "ci95": [
+          0.2517,
+          0.3217
+        ]
+      },
+      "invariance_style": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "invariance_reroute": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "invariant_correct_style": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "abstention_accuracy": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      }
+    },
+    "test_unseen_topology": {
+      "n_queries": 300,
+      "n_groups": 150,
+      "n_flipping_queries": 300,
+      "paired_cf_accuracy": {
+        "value": 0.1267,
+        "ci95": [
+          0.0933,
+          0.1633
+        ]
+      },
+      "acc_orig": {
+        "value": 0.47,
+        "ci95": [
+          0.41,
+          0.5267
+        ]
+      },
+      "acc_cf": {
+        "value": 0.35,
+        "ci95": [
+          0.3,
+          0.4
+        ]
+      },
+      "acc_reroute": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "acc_style": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "acc_all_examples": {
+        "value": 0.41,
+        "ci95": [
+          0.3767,
+          0.4467
+        ]
+      },
+      "cf_flip_given_orig_correct": {
+        "value": 0.2695,
+        "ci95": [
+          0.2015,
+          0.3418
+        ]
+      },
+      "cf_stuck_rate": {
+        "value": 0.6267,
+        "ci95": [
+          0.5667,
+          0.6833
+        ]
+      },
+      "cf_stuck_on_old_answer": {
+        "value": 0.35,
+        "ci95": [
+          0.2933,
+          0.4033
+        ]
+      },
+      "invariance_style": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "invariance_reroute": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "invariant_correct_style": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "invariant_correct_reroute": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "abstention_accuracy": {
+        "value": null,
+        "ci95": [
+          null,
+          null
+        ]
+      },
+      "false_none_rate": {
+        "value": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "localization": {
+        "pred_annotation_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        },
+        "pred_entity_bbox": {
+          "n": 0,
+          "hit@0.5": null
+        }
+      }
+    }
+  }
+}

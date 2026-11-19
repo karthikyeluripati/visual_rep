@@ -1,0 +1,30 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/visual_rep/src/relbind/build.py", line 182, in process_group
+    raise RuntimeError(f"{gid}: non-semantic pixel differences (cf={bad_cf}, reroute={bad_rr})")
+RuntimeError: train-00084: non-semantic pixel differences (cf=1, reroute=1)
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/visual_rep/src/relbind/build.py", line 286, in <module>
+    main()
+  File "/workspace/visual_rep/src/relbind/build.py", line 240, in main
+    results = pool.map(process_group, jobs, chunksize=1)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+RuntimeError: train-00084: non-semantic pixel differences (cf=1, reroute=1)

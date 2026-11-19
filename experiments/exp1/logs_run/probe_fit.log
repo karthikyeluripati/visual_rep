@@ -1,0 +1,17 @@
+{'layer': 0, 'wd': 0.0001, 'val_pair_acc': 0.25, 'val_single_acc': 0.5531}
+{'layer': 0, 'wd': 0.001, 'val_pair_acc': 0.2778, 'val_single_acc': 0.5428}
+{'layer': 0, 'wd': 0.01, 'val_pair_acc': 0.2722, 'val_single_acc': 0.5582}
+{'layer': 9, 'wd': 0.0001, 'val_pair_acc': 0.2944, 'val_single_acc': 0.5651}
+{'layer': 9, 'wd': 0.001, 'val_pair_acc': 0.2833, 'val_single_acc': 0.5651}
+{'layer': 9, 'wd': 0.01, 'val_pair_acc': 0.2889, 'val_single_acc': 0.5856}
+{'layer': 18, 'wd': 0.0001, 'val_pair_acc': 0.3778, 'val_single_acc': 0.6678}
+{'layer': 18, 'wd': 0.001, 'val_pair_acc': 0.4111, 'val_single_acc': 0.6712}
+{'layer': 18, 'wd': 0.01, 'val_pair_acc': 0.3944, 'val_single_acc': 0.6764}
+{'layer': 27, 'wd': 0.0001, 'val_pair_acc': 0.2056, 'val_single_acc': 0.524}
+{'layer': 27, 'wd': 0.001, 'val_pair_acc': 0.2167, 'val_single_acc': 0.5257}
+{'layer': 27, 'wd': 0.01, 'val_pair_acc': 0.25, 'val_single_acc': 0.5565}
+{'layer': 36, 'wd': 0.0001, 'val_pair_acc': 0.1167, 'val_single_acc': 0.4144}
+{'layer': 36, 'wd': 0.001, 'val_pair_acc': 0.1389, 'val_single_acc': 0.4144}
+{'layer': 36, 'wd': 0.01, 'val_pair_acc': 0.1444, 'val_single_acc': 0.4212}
+test_id {"probe": {"pair_acc": 0.4417, "n_pairs": 600, "single_acc": 0.6823, "by_cell": {"entity_only": {"pair_acc": 0.6133, "n": 150}, "leader_leader": {"pair_acc": 0.3844, "n": 450}}, "pair_acc_ci95": [0.4017, 0.4833]}, "control_shuffled_labels": {"pair_acc": 0.0317, "n_pairs": 600, "single_acc": 0.1973, "by_cell": {"entity_only": {"pair_acc": 0.04, "n": 150}, "leader_leader": {"pair_acc": 0.0289, "n": 
+test_unseen_topology {"probe": {"pair_acc": 0.3133, "n_pairs": 300, "single_acc": 0.5497, "by_cell": {"entity_only": {"pair_acc": 0.5, "n": 76}, "leader_leader": {"pair_acc": 0.25, "n": 224}}, "pair_acc_ci95": [0.2567, 0.37]}, "control_shuffled_labels": {"pair_acc": 0.0267, "n_pairs": 300, "single_acc": 0.1868, "by_cell": {"entity_only": {"pair_acc": 0.0132, "n": 76}, "leader_leader": {"pair_acc": 0.0312, "n": 224}}},
