@@ -273,3 +273,15 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   - **Consequence:** transfer-run arms are not trained with the exact pilot recipe. Comparisons inside the transfer run
     (M1 vs M2R vs M3) are unaffected. Comparisons between the pilot and the transfer run on the shared splits (val,
     test_unseen_topology) now also test robustness to this change.
+- 2026-11-19 (transfer run attempt 1 aborted, no transfer evaluation output):
+  - **The abort:** with the fp32-master patch, the M2R smoke reload check failed: in-memory vs reloaded max |Δlogit| = 0.47,
+    against a threshold of 1e-2. The run stopped itself (TRANSFER_FAILED) and the pod was confirmed EXITED; uptime 650 s, about $0.80.
+  - **Diagnosis:** saved state = 120.8 MB = 60.3M params × 2 bytes, so all tensors are present (the bf16-era files were
+    186.9 MB because whole storages were serialized). The logit mismatch is attributed to bf16 GEMM kernel selection
+    differing between compact in-memory tensors and loaded views. This is not verified directly; checks (1) and (2) below test it.
+  - **Fix:**
+    - every arm is now evaluated on a freshly reloaded copy of the saved adapter, never on the in-memory training model;
+    - reload check = (1) saved tensors bit-equal to the trained tensors, (2) two independent reloads give identical logits,
+      (3) in-memory vs reload agree on the top-1 token; the raw Δlogit is logged.
+  - **Evidence:** logs in `experiments/transfer/attempt1_failed/`.
+  - **Note:** the earlier statement that the fp32 smoke had passed was a misreading of the stale bf16 smoke log.

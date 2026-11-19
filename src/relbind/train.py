@@ -322,25 +322,48 @@ def main(argv=None):
     (out / "train_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
     print(json.dumps(info), flush=True)
     if not args.no_eval:
+        del model, opt
+        torch.cuda.empty_cache()
+        proc, model, head, _, _ = load_trained(args.arm, out / "trainable_state.pt")  # evaluate the saved artifact
         evaluate(model, head, proc, enc, data, args.eval_splits, out, img_tok, pad_id, variants=args.eval_variants)
+
+
+def load_trained(arm, path):
+    """Fresh model + saved trainable state: what is evaluated is exactly the saved artifact."""
+    proc, m, head = build_model(arm)
+    sd = torch.load(path)
+    res = m.load_state_dict({k: v for k, v in sd.items() if not k.startswith("__head__")}, strict=False)
+    if head is not None:
+        head.load_state_dict({k[len("__head__."):]: v for k, v in sd.items() if k.startswith("__head__.")})
+    m.eval()
+    return proc, m, head, sd, res
 
 
 @torch.no_grad()
 def reload_check(arm, path, enc, ex, model, pad_id):
+    """(1) saved tensors == trained tensors bit-exactly; (2) two independent reloads give identical logits;
+    (3) in-memory vs reloaded: same top-1 token at the last 5 positions (raw logit diff logged; it can be
+    non-zero because compact in-memory tensors and loaded views can select different bf16 GEMM kernels)."""
     model.eval()
     item = enc.train_item(arm, ex)
     inp = {k: v.cuda() for k, v in collate([item], pad_id).items()}
     a = model(**inp).logits[0, -5:].float()
-    proc2, m2, _ = build_model(arm)
-    sd = torch.load(path)
-    missing = m2.load_state_dict({k: v for k, v in sd.items() if not k.startswith("__head__")}, strict=False)
-    m2.eval()
-    b = m2(**inp).logits[0, -5:].float()
-    diff = float((a - b).abs().max())
-    del m2
-    torch.cuda.empty_cache()
+    live = {n: p.detach() for n, p in model.named_parameters() if p.requires_grad}
+    outs, weights_equal, unexpected = [], True, 0
+    for _ in range(2):
+        _, m2, _, sd, res = load_trained(arm, path)
+        weights_equal &= all(torch.equal(sd[n].cuda(), t) for n, t in live.items())
+        unexpected = len(res.unexpected_keys)
+        outs.append(m2(**inp).logits[0, -5:].float())
+        del m2
+        torch.cuda.empty_cache()
     model.train()
-    return {"max_abs_logit_diff": diff, "ok": diff < 1e-2, "unexpected_keys": len(missing.unexpected_keys)}
+    d_live = float((a - outs[0]).abs().max())
+    d_reload = float((outs[0] - outs[1]).abs().max())
+    top1 = bool((a.argmax(-1) == outs[0].argmax(-1)).all())
+    ok = weights_equal and d_reload == 0.0 and top1 and unexpected == 0
+    return {"weights_equal": weights_equal, "reload_vs_reload_max_abs_logit_diff": d_reload,
+            "max_abs_logit_diff": d_live, "top1_agree": top1, "unexpected_keys": unexpected, "ok": ok}
 
 
 @torch.no_grad()

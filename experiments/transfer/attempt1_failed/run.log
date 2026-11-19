@@ -1,0 +1,26 @@
+2026-11-19T21:07:19+00:00 tests ok
+2026-11-19T21:07:19+00:00 build strict_v3 and strict_v2 (for identity check of shared splits)
+2026-11-19T21:09:37+00:00 split train identical to strict_v2: yes
+2026-11-19T21:09:37+00:00 split val identical to strict_v2: yes
+2026-11-19T21:09:37+00:00 split test_id identical to strict_v2: yes
+2026-11-19T21:09:37+00:00 split test_unseen_topology identical to strict_v2: yes
+  "errors": [],
+  "warnings": [
+2026-11-19T21:09:37+00:00 smoke: M2R, 4 steps, save->reload check
+smoke 4 {'max_abs_logit_diff': 0.0, 'ok': True, 'unexpected_keys': 0}
+2026-11-19T21:10:13+00:00 train+eval M1
+2026-11-19T21:14:05+00:00 RESTART: pure-bf16 M1 diverged (sft ~12.5 by step 31); relaunching with fp32 master weights + autocast (see protocol)
+2026-11-19T21:14:32+00:00 tests ok
+2026-11-19T21:14:32+00:00 build strict_v3 and strict_v2 (for identity check of shared splits)
+2026-11-19T21:14:32+00:00 split train identical to strict_v2: yes
+2026-11-19T21:14:32+00:00 split val identical to strict_v2: yes
+2026-11-19T21:14:32+00:00 split test_id identical to strict_v2: yes
+2026-11-19T21:14:32+00:00 split test_unseen_topology identical to strict_v2: yes
+  "errors": [],
+  "warnings": [
+2026-11-19T21:14:32+00:00 smoke: M2R, 4 steps, save->reload check
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AssertionError
+smoke 4 {'max_abs_logit_diff': 0.46875, 'ok': False, 'unexpected_keys': 0}
+2026-11-19T21:15:06+00:00 TRANSFER_FAILED
