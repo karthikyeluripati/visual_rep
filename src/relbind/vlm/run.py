@@ -130,7 +130,7 @@ def main(argv=None):
             "python": platform.python_version(), "backend": backend.info(), "max_new_tokens": mnt}
     if n_read[0]:
         info["read_accuracy"] = round(n_read[1] / n_read[0], 4)
-    (out / "run_info.json").write_text(json.dumps(info, indent=2))
+    (out / "run_info.json").write_text(json.dumps(info, indent=2), encoding="utf-8")
     print(json.dumps(info, indent=2))
 
 

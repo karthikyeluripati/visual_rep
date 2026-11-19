@@ -100,15 +100,16 @@ def extract(args):
                              "ent_boxes": {e.id: e.bbox for e in s.entities}, "canvas": s.canvas})
             print(f"[{split}] {min(i + args.batch_size, len(ids))}/{len(ids)}", flush=True)
         np.savez_compressed(out / f"{split}.npz", **feats)
-        (out / f"{split}_meta.json").write_text(json.dumps({"layers": layers, "images": meta}))
+        (out / f"{split}_meta.json").write_text(json.dumps({"layers": layers, "images": meta}), encoding="utf-8")
 
 
 # ----------------------------------------------------------------------------- fit
 
 def _build(split_dir, split, layer_idx, geometry=False):
-    meta = json.loads((split_dir / f"{split}_meta.json").read_text())
+    meta = json.loads((split_dir / f"{split}_meta.json").read_text(encoding="utf-8"))
     F = None if geometry else np.load(split_dir / f"{split}.npz")
-    rows, queries = [], []  # queries: (start, n_cands, gold_index, scene meta, ann id)
+    rows, queries = [], []  # queries: (start ROW offset, n_cands, gold_index, scene meta, ann id)
+    offset = 0
     for m in meta["images"]:
         sid = m["scene_id"]
         if not geometry:
@@ -128,8 +129,9 @@ def _build(split_dir, split, layer_idx, geometry=False):
             else:
                 h = F[f"{sid}|a|{a}"][layer_idx].astype(np.float32)
                 X = np.concatenate([h[None] * E, np.abs(h[None] - E), np.repeat(g[None], len(E), 0)], 1)
-            queries.append((len(rows), len(m["entities"]), m["entities"].index(m["gold"][a]), m, a))
+            queries.append((offset, len(m["entities"]), m["entities"].index(m["gold"][a]), m, a))
             rows.append(X)
+            offset += len(X)
     return np.concatenate(rows, 0), queries
 
 
@@ -197,7 +199,7 @@ def _boot(pairs, B=2000, seed=0):
 
 def fit(args):
     fd = Path(args.feats)
-    meta = json.loads((fd / "train_meta.json").read_text())
+    meta = json.loads((fd / "train_meta.json").read_text(encoding="utf-8"))
     layers = meta["layers"]
     tests = [s for s in args.test_splits]
     res = {"layers": layers, "selection": [], "note": __doc__.split("Pre-registered")[1].strip()}
@@ -233,7 +235,7 @@ def fit(args):
         res["test"][sp] = {"probe": r, "control_shuffled_labels": rs, "control_geometry_only": rg}
         print(sp, json.dumps(res["test"][sp])[:400], flush=True)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-    Path(args.out).write_text(json.dumps(res, indent=1))
+    Path(args.out).write_text(json.dumps(res, indent=1), encoding="utf-8")
 
 
 def main(argv=None):

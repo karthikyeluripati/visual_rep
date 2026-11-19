@@ -186,7 +186,7 @@ def process_group(job):
         imgs[s.scene_id].save(p, optimize=False, compress_level=6)
         hashes[s.scene_id] = sha256_file(p)
         (sd / "scenes" / f"{s.scene_id}.json").write_text(
-            json.dumps({"scene": s.to_dict(), "style": sty.to_dict(), "render_scale": scale}, ensure_ascii=False))
+            json.dumps({"scene": s.to_dict(), "style": sty.to_dict(), "render_scale": scale}, ensure_ascii=False), encoding="utf-8")
         if svg:
             (sd / "svg" / f"{s.scene_id}.svg").write_text(render_svg(s, sty), encoding="utf-8")
     examples = group_examples(split, gid, seed, variants, swapped, imgs, scale)
@@ -204,7 +204,7 @@ def main(argv=None):
     ap.add_argument("--workers", type=int, default=1, help="parallel group workers (results identical to 1)")
     args = ap.parse_args(argv)
 
-    cfg = json.loads(Path(args.config).read_text())
+    cfg = json.loads(Path(args.config).read_text(encoding="utf-8"))
     out = Path(args.out)
     if out.exists() and any(out.iterdir()):
         sys.exit(f"refusing to overwrite non-empty {out}")
@@ -225,8 +225,14 @@ def main(argv=None):
         rng_spec = np.random.default_rng(derive_seed(cfg["seed"], split, "spec"))
         confs = [draw_config(spec, rng_spec) for _ in range(n)]  # same draw order as v0 builds
         cells = spec.get("crossing_cells")
-        jobs = [(split, i, spec, cfg, confs[i], cells[i % len(cells)] if cells else None, str(out), scale, args.svg)
-                for i in range(n)]
+
+        def cell_for(i):
+            if not cells:
+                return None
+            cl = cells[confs[i][0]] if isinstance(cells, dict) else cells  # per-family feasible cells
+            return cl[i % len(cl)]
+
+        jobs = [(split, i, spec, cfg, confs[i], cell_for(i), str(out), scale, args.svg) for i in range(n)]
         examples = []
         if args.workers > 1:
             from multiprocessing import Pool
@@ -251,7 +257,7 @@ def main(argv=None):
         print(f"[{split}] groups={n} examples={len(examples)} ({time.time() - t0:.0f}s)", flush=True)
 
     leak = leakage_report(all_examples, cfg["splits"], image_hashes, dh, seeds, sigs)
-    (out / "leakage_report.json").write_text(json.dumps(leak, indent=2))
+    (out / "leakage_report.json").write_text(json.dumps(leak, indent=2), encoding="utf-8")
     commit = os.environ.get("RELBIND_GIT_COMMIT")
     if not commit:
         try:
@@ -269,7 +275,7 @@ def main(argv=None):
         "examples_sha256": {s: sha256_file(out / s / "examples.jsonl") for s in cfg["splits"]},
         "leakage_ok": leak["ok"], "build_seconds": round(time.time() - t0, 1),
     }
-    (out / "manifest.json").write_text(json.dumps(manifest, indent=2))
+    (out / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print(json.dumps({k: manifest[k] for k in ("stats", "n_examples", "leakage_ok", "build_seconds")}, indent=2))
     if not leak["ok"]:
         print("LEAKAGE ERRORS:", leak["errors"][:10])

@@ -62,7 +62,7 @@ def main(argv=None):
             }
         res["by_split"][sp] = r
     if args.probe and Path(args.probe).exists():
-        pr = json.loads(Path(args.probe).read_text())
+        pr = json.loads(Path(args.probe).read_text(encoding="utf-8"))
         res["probe"] = {"selected": pr["selected"],
                         **{sp: {k: v for k, v in pr["test"][sp]["probe"].items()} for sp in pr["test"]},
                         "controls": {sp: {"shuffled_labels": pr["test"][sp]["control_shuffled_labels"]["pair_acc"],
@@ -78,7 +78,7 @@ def main(argv=None):
                                "failure is path following (binding adds nothing measurable)" if abs(d["diff_pp"]) < 5 else
                                "intermediate / see CIs")
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-    Path(args.out).write_text(json.dumps(res, indent=1))
+    Path(args.out).write_text(json.dumps(res, indent=1), encoding="utf-8")
     print(json.dumps({k: v for k, v in res.items() if k != "by_split"}, indent=1))
     for sp, r in res["by_split"].items():
         for cell, v in r.items():

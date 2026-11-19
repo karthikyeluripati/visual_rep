@@ -2,43 +2,138 @@
   "name": "relbind-strict-v2",
   "seed": 20261121,
   "render_scale": 1.0,
-  "notes": "Decisive Experiment 1. Strict swaps only (arrowhead positions identical in orig/cf; shortcut-proof). Crossing type of the swapped pair is a balanced factor: none / entity_only / leader_leader, assigned round-robin by group index before generation. Same family/template/topology/font rules as prototype. train/val are used ONLY to fit/select the frozen-feature linear probe; the VLM is not trained.",
+  "notes": "Decisive Experiment 1. Strict swaps only (arrowhead positions identical in orig/cf; shortcut-proof). Crossing type of the swapped pair is balanced over the cells that are FEASIBLE under strict swaps (measured 2026-11-19, 150 strict samples: 'none' never occurred; flowchart strict swaps are always leader_leader): schematic alternates entity_only / leader_leader, flowchart is leader_leader. Assigned by group index before generation. train/val are used ONLY to fit/select the frozen-feature linear probe; the VLM is not trained.",
   "splits": {
     "train": {
       "n_groups": 600,
       "strict_only": true,
-      "crossing_cells": ["none", "entity_only", "leader_leader"],
-      "families": ["schematic", "flowchart"],
-      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
-      "topologies": ["straight", "elbow"],
-      "fonts": ["sans", "mono"]
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
     },
     "val": {
       "n_groups": 90,
       "strict_only": true,
-      "crossing_cells": ["none", "entity_only", "leader_leader"],
-      "families": ["schematic", "flowchart"],
-      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
-      "topologies": ["straight", "elbow"],
-      "fonts": ["sans", "mono"]
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
     },
     "test_id": {
       "n_groups": 300,
       "strict_only": true,
-      "crossing_cells": ["none", "entity_only", "leader_leader"],
-      "families": ["schematic", "flowchart"],
-      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
-      "topologies": ["straight", "elbow"],
-      "fonts": ["sans", "mono"]
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "straight",
+        "elbow"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
     },
     "test_unseen_topology": {
       "n_groups": 150,
       "strict_only": true,
-      "crossing_cells": ["none", "entity_only", "leader_leader"],
-      "families": ["schematic", "flowchart"],
-      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
-      "topologies": ["zigzag"],
-      "fonts": ["sans", "mono"]
+      "crossing_cells": {
+        "schematic": [
+          "entity_only",
+          "leader_leader"
+        ],
+        "flowchart": [
+          "leader_leader"
+        ]
+      },
+      "families": [
+        "schematic",
+        "flowchart"
+      ],
+      "templates": {
+        "schematic": [
+          "elevation"
+        ],
+        "flowchart": [
+          "tb"
+        ]
+      },
+      "topologies": [
+        "zigzag"
+      ],
+      "fonts": [
+        "sans",
+        "mono"
+      ]
     }
   }
 }

@@ -12,8 +12,8 @@ W=/workspace
 R=$W/visual_rep
 log() { echo "$(date -Is) $*"; }
 
-log "waiting for '$MARK' in $MARK_LOG"
-until grep -q "$MARK" "$MARK_LOG" 2>/dev/null; do sleep 30; done
+log "waiting for '$MARK' (extended regex) in $MARK_LOG"
+until grep -qE "$MARK" "$MARK_LOG" 2>/dev/null; do sleep 30; done
 log "pipeline done; bundling"
 rm -f $W/BUNDLE_READY $W/PULLED
 cd $W

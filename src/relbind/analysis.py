@@ -131,7 +131,7 @@ def main(argv=None):
     exs = load_examples(data)
     res = {"conditions": {}}
     for cdir in sorted(p for p in diag.iterdir() if (p / "metrics.json").exists()):
-        m = json.loads((cdir / "metrics.json").read_text())
+        m = json.loads((cdir / "metrics.json").read_text(encoding="utf-8"))
         res["conditions"][cdir.name] = {s: {k: r[k] for k in ("paired_cf_accuracy", "acc_orig", "acc_cf", "acc_style",
                                                                "acc_reroute", "cf_stuck_rate", "cf_stuck_on_old_answer",
                                                                "cf_flip_given_orig_correct", "invariance_style",
@@ -139,7 +139,7 @@ def main(argv=None):
                                                                "false_none_rate")}
                                         for s, r in m["splits"].items()}
         res["conditions"][cdir.name]["_strata_test_id"] = m["splits"].get("test_id", {}).get("strata")
-    read_info = json.loads((diag / "P_read" / "run_info.json").read_text()) if (diag / "P_read").exists() else {}
+    read_info = json.loads((diag / "P_read" / "run_info.json").read_text(encoding="utf-8")) if (diag / "P_read").exists() else {}
     probes = load_jsonl(diag / "P_read" / "predictions.jsonl") if (diag / "P_read").exists() else []
     read_by_split = defaultdict(lambda: [0, 0])
     by_kind = defaultdict(lambda: [0, 0])
@@ -165,12 +165,12 @@ def main(argv=None):
     for m in ("text_prior", "proximity"):
         f = Path(args.heuristics) / f"{m}_metrics.json"
         if f.exists():
-            heur[m] = json.loads(f.read_text())["splits"]["test_id"]["paired_cf_accuracy"]["value"]
-    a = json.loads((diag / "A_direct" / "metrics.json").read_text())["splits"]["test_id"]
-    c = json.loads((diag / "C_oracle_crop" / "metrics.json").read_text())["splits"]["test_id"] if (diag / "C_oracle_crop" / "metrics.json").exists() else None
+            heur[m] = json.loads(f.read_text(encoding="utf-8"))["splits"]["test_id"]["paired_cf_accuracy"]["value"]
+    a = json.loads((diag / "A_direct" / "metrics.json").read_text(encoding="utf-8"))["splits"]["test_id"]
+    c = json.loads((diag / "C_oracle_crop" / "metrics.json").read_text(encoding="utf-8"))["splits"]["test_id"] if (diag / "C_oracle_crop" / "metrics.json").exists() else None
     dec, why = gate2(a, c, res["read_accuracy"].get("test_id"), a["cf_stuck_rate"]["value"], heur)
     res["gate2"] = {"decision": dec, "inputs": why, "note": "human audit not yet performed; GO is provisional"}
-    (out / "phase1_summary.json").write_text(json.dumps(res, indent=2, ensure_ascii=False))
+    (out / "phase1_summary.json").write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({"gate2": res["gate2"], "read_accuracy": res["read_accuracy"],
                       "read_by_kind": res["read_accuracy_by_kind"], "taxonomy_test_id": tax}, indent=2))
 

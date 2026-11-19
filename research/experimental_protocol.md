@@ -210,3 +210,13 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   type strongly moderate accuracy. Future test sets will be strict-only with crossing type as a balanced,
   pre-registered factor (see `phase2_go_no_go.md`).
 - 2026-11-19: Gate 2 decision = **REVISE** (`gate2_final_report.md`). Phase-2 training is not authorised.
+- 2026-11-19: PI instruction "do what's necessary" taken as approval for **Decisive Experiment 1 only**
+  (path-following control + frozen-feature linear probe; the VLM is not trained). Phase-2 training remains
+  unapproved.
+- 2026-11-19 (before any Experiment-1 data): the pre-registered "balanced crossing cells incl. none" design
+  is **infeasible** under strict swaps. In 150 strict samples, 'none' never occurred, and flowchart strict swaps
+  were always leader_leader. Swapping the endpoints of two non-crossing leaders almost always creates a crossing
+  in one of the two images, so the shortcut-proof counterfactual is inherently entangled with crossings.
+  `configs/strict_v2.json` therefore balances only the feasible cells per family (schematic: entity_only /
+  leader_leader; flowchart: leader_leader). The decisive comparison (binding vs path control on *identical*
+  geometry) is unaffected. The pre-registered probe thresholds are unchanged.
