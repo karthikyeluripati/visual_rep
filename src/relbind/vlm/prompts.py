@@ -18,7 +18,8 @@ from PIL import Image
 from .. import geometry as G
 from ..schema import Scene
 
-CONDITIONS = ("A_direct", "B_reasoning", "C_oracle_crop", "D_oracle_ocr", "E_oracle_box", "F_oracle_graph", "P_read")
+CONDITIONS = ("A_direct", "B_reasoning", "C_oracle_crop", "D_oracle_ocr", "E_oracle_box", "F_oracle_graph",
+              "F_text_only", "P_read")
 
 FORMAT = ('Reply with a single JSON object on the last line: {"answer": "<answer>"}. '
           "Use exactly the text as printed in the diagram.")
@@ -105,7 +106,10 @@ def build_prompt(condition: str, ex: dict, scene: Scene, img: Image.Image, scale
             return Prompt(crop, f"Transcribe the text in this image exactly. {FORMAT}")
         return Prompt(img, f"What text is written inside the box {_fmt_box(b, scale, W, H)}? {BOX_NOTE} "
                            f"Transcribe it exactly. {FORMAT}")
-    if condition == "F_oracle_graph":
+    if condition in ("F_oracle_graph", "F_text_only"):
         edges = "\n".join(f'- "{scene.annotation(r.annotation).value}" is connected to {r.entity}' for r in scene.relations)
-        return Prompt(img, f"Verified connections in this diagram:\n{edges}\n{q}\n{fmt}")
+        # F_text_only (audit control, added 2026-11-19): identical prompt, blank image of the same size.
+        # If errors persist without the diagram, F errors are not caused by visual-text conflict.
+        im = Image.new("RGB", img.size, (255, 255, 255)) if condition == "F_text_only" else img
+        return Prompt(im, f"Verified connections in this diagram:\n{edges}\n{q}\n{fmt}")
     raise ValueError(condition)

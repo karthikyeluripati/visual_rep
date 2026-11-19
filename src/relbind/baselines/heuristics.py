@@ -201,10 +201,35 @@ def predict_tracer(data: Path, examples):
     return out
 
 
+def _ray_one(args):
+    data, ex = args
+    from .tracer import tracer_map as ray_map
+    s, st, sc = load_scene(data, ex)
+    img = Image.open(data / ex["image"]).convert("RGB")
+    return ex["scene_id"], ray_map(img, s, sc, st.w_entity)
+
+
+def predict_ray_tracer(data: Path, examples, workers: int = 16):
+    from multiprocessing import Pool
+    first = {}
+    for ex in examples:
+        first.setdefault(ex["scene_id"], ex)
+    with Pool(workers) as p:
+        maps = dict(p.map(_ray_one, [(data, ex) for ex in first.values()], chunksize=8))
+    out, cache = [], {}
+    for ex in examples:
+        if ex["scene_id"] not in cache:
+            cache[ex["scene_id"]] = load_scene(data, ex)[0]
+        out.append({"example_id": ex["example_id"],
+                    "prediction": _answer_from_map(cache[ex["scene_id"]], ex, maps[ex["scene_id"]])})
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True)
-    ap.add_argument("--method", required=True, choices=["random", "text_prior", "proximity", "cc_tracer"])
+    ap.add_argument("--method", required=True, choices=["random", "text_prior", "proximity", "cc_tracer", "ray_tracer"])
+    ap.add_argument("--train-data", default=None, help="data dir whose train split feeds text_prior (default: --data)")
     ap.add_argument("--splits", nargs="*", default=None)
     ap.add_argument("--out", required=True)
     args = ap.parse_args(argv)
@@ -213,9 +238,11 @@ def main(argv=None):
     if args.method == "random":
         preds = predict_random(exs)
     elif args.method == "text_prior":
-        preds = predict_text_prior(exs, load_examples(data, ["train"]))
+        preds = predict_text_prior(exs, load_examples(Path(args.train_data or data), ["train"]))
     elif args.method == "proximity":
         preds = predict_proximity(data, exs)
+    elif args.method == "ray_tracer":
+        preds = predict_ray_tracer(data, exs)
     else:
         preds = predict_tracer(data, exs)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)

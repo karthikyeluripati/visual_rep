@@ -183,6 +183,54 @@ def cluster_bootstrap(Q: list[dict], fn, B: int = 2000, seed: int = 0, alpha: fl
     return point, (float(lo), float(hi))
 
 
+def stratified_cluster_bootstrap(Q: list[dict], fn, strata_key=lambda q: q["template"], B: int = 2000,
+                                 seed: int = 0, alpha: float = 0.05):
+    """Cluster bootstrap that resamples groups *within* each stratum (e.g. generation template),
+    keeping every stratum's group count fixed. Groups (base scene + all its variants and queries)
+    remain the resampling unit, so counterfactual pairs are never split."""
+    strata = defaultdict(lambda: defaultdict(list))
+    for q in Q:
+        strata[strata_key(q)][q["group_id"]].append(q)
+    point = fn(Q)
+    rng = np.random.default_rng(seed)
+    vals = []
+    for _ in range(B):
+        sample = []
+        for groups in strata.values():
+            keys = list(groups)
+            for i in rng.integers(0, len(keys), len(keys)):
+                sample += groups[keys[i]]
+        v = fn(sample)
+        if not math.isnan(v):
+            vals.append(v)
+    lo, hi = np.quantile(vals, [alpha / 2, 1 - alpha / 2])
+    return point, (float(lo), float(hi))
+
+
+def design_effect(Q: list[dict], outcome) -> dict:
+    """Within-group correlation of a binary per-query outcome (one-way ANOVA ICC) and the implied
+    design effect relative to treating queries as independent."""
+    groups = defaultdict(list)
+    for q in Q:
+        o = outcome(q)
+        if o is not None:
+            groups[q["group_id"]].append(float(o))
+    gs = [v for v in groups.values() if v]
+    n = sum(len(v) for v in gs)
+    k = len(gs)
+    if k < 2 or n <= k:
+        return {"icc": None, "design_effect": None}
+    grand = sum(sum(v) for v in gs) / n
+    ssb = sum(len(v) * (np.mean(v) - grand) ** 2 for v in gs)
+    ssw = sum(sum((x - np.mean(v)) ** 2 for x in v) for v in gs)
+    msb, msw = ssb / (k - 1), ssw / (n - k)
+    m0 = (n - sum(len(v) ** 2 for v in gs) / n) / (k - 1)
+    icc = (msb - msw) / (msb + (m0 - 1) * msw) if (msb + (m0 - 1) * msw) > 0 else 0.0
+    mbar = n / k
+    return {"icc": round(float(icc), 4), "mean_cluster_size": round(mbar, 2),
+            "design_effect": round(float(1 + (mbar - 1) * icc), 3), "n_groups": k, "n_obs": n}
+
+
 def summarize(Q: list[dict], B: int = 2000) -> dict:
     out = {"n_queries": len(Q), "n_groups": len({q["group_id"] for q in Q}),
            "n_flipping_queries": sum(q["flips"] for q in Q)}
