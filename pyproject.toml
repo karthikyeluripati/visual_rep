@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "relbind"
+version = "0.1.0"
+description = "RelBind: counterfactual annotation-to-entity relational grounding benchmark and experiments"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "pillow>=10.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+# GPU inference stack (Phase 1). Exact pins are recorded per run in experiments/*/env.json.
+vlm = ["torch>=2.6", "transformers>=4.57", "accelerate>=1.0", "qwen-vl-utils>=0.0.14"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+relbind = ["assets/fonts/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

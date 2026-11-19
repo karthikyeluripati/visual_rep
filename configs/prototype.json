@@ -1,0 +1,57 @@
+{
+  "name": "relbind-bench-prototype-v0",
+  "seed": 20261119,
+  "render_scale": 1.0,
+  "notes": "Phase-0 CPU prototype. Split rules frozen before any model is run. circuit is the held-out domain; schematic/plan and flowchart/lr are held-out templates; zigzag is the held-out route topology; serif is the held-out font.",
+  "splits": {
+    "train": {
+      "n_groups": 120,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    },
+    "val": {
+      "n_groups": 30,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_id": {
+      "n_groups": 40,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_unseen_template": {
+      "n_groups": 40,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["plan"], "flowchart": ["lr"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_unseen_topology": {
+      "n_groups": 40,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["zigzag"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_unseen_font": {
+      "n_groups": 20,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["serif"]
+    },
+    "test_cross_domain": {
+      "n_groups": 40,
+      "families": ["circuit"],
+      "templates": {"circuit": ["ladder", "grid"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    }
+  }
+}

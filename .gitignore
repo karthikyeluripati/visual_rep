@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+# generated benchmark data is reproducible from configs/ + commit; only small samples are tracked
+data/prototype/
+data/*/images/
+experiments/*/raw/
+*.safetensors
+*.bin
