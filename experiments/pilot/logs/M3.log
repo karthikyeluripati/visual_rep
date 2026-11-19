@@ -1,0 +1,491 @@
+Loading weights:   0%|          | 0/713 [00:00<?, ?it/s]Loading weights:   1%|▏         | 9/713 [00:00<00:08, 87.14it/s]Loading weights:   4%|▎         | 25/713 [00:01<00:36, 18.74it/s]Loading weights:  60%|█████▉    | 427/713 [00:01<00:00, 447.21it/s]Loading weights:  86%|████████▌ | 612/713 [00:01<00:00, 555.21it/s]Loading weights: 100%|██████████| 713/713 [00:01<00:00, 424.88it/s]
+/workspace/venv/lib/python3.12/site-packages/transformers/modeling_utils.py:3195: FutureWarning: `gradient_checkpointing_enable` is deprecated and will be removed in v6. Use `activation_checkpointing_enable` instead.
+  warnings.warn(
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+{'step': 1, 'loss': 2.5475, 'sft': 1.8556, 'rel': 1.3839, 'pair': 0.0, 'grad_norm': 4.3328, 'grad_abs_head': 200.8494555673636, 'grad_abs_merger': 1347.6719, 'lr': 6.6666209741580884e-06, 'sec': 4.9}
+{'step': 2, 'loss': 2.7093, 'sft': 1.7952, 'rel': 1.8284, 'pair': 0.0, 'grad_norm': 6.3559, 'grad_abs_head': 232.746441216742, 'grad_abs_merger': 509.376, 'lr': 9.999725846827562e-06, 'sec': 9.4}
+{'step': 3, 'loss': 2.3956, 'sft': 1.841, 'rel': 1.1092, 'pair': 0.0, 'grad_norm': 3.5069, 'grad_abs_head': 262.7703626340735, 'grad_abs_merger': 1108.8115, 'lr': 1.3332510883211072e-05, 'sec': 13.9}
+{'step': 20, 'loss': 1.3213, 'sft': 0.5946, 'rel': 1.4534, 'pair': 0.0, 'grad_norm': 5.8073, 'grad_abs_head': 251.7220401885297, 'grad_abs_merger': 583.3779, 'lr': 6.980826633788956e-05, 'sec': 87.5}
+{'step': 40, 'loss': 1.2399, 'sft': 0.3469, 'rel': 1.7861, 'pair': 0.0, 'grad_norm': 7.4897, 'grad_abs_head': 177.24881740448853, 'grad_abs_merger': 552.2446, 'lr': 9.890738003669029e-05, 'sec': 173.7}
+{'step': 60, 'loss': 0.6404, 'sft': 0.3085, 'rel': 0.6637, 'pair': 0.0, 'grad_norm': 5.8895, 'grad_abs_head': 200.78882486803636, 'grad_abs_merger': 964.2275, 'lr': 9.755282581475769e-05, 'sec': 258.4}
+{'step': 80, 'loss': 0.5489, 'sft': 0.3423, 'rel': 0.4132, 'pair': 0.0, 'grad_norm': 3.7362, 'grad_abs_head': 147.6824965776986, 'grad_abs_merger': 1455.1504, 'lr': 9.567727288213005e-05, 'sec': 342.8}
+{'step': 100, 'loss': 1.1288, 'sft': 0.3497, 'rel': 1.5582, 'pair': 0.0, 'grad_norm': 18.0294, 'grad_abs_head': 208.16039304200106, 'grad_abs_merger': 1355.1543, 'lr': 9.330127018922194e-05, 'sec': 429.7}
+{'step': 120, 'loss': 0.2318, 'sft': 0.2313, 'rel': 0.001, 'pair': 0.0, 'grad_norm': 1.8477, 'grad_abs_head': 80.46556799225684, 'grad_abs_merger': 1667.8945, 'lr': 9.045084971874738e-05, 'sec': 517.2}
+{'step': 140, 'loss': 0.2445, 'sft': 0.2312, 'rel': 0.0265, 'pair': 0.0, 'grad_norm': 12.1877, 'grad_abs_head': 186.12162597302637, 'grad_abs_merger': 1226.5215, 'lr': 8.715724127386972e-05, 'sec': 603.7}
+{'step': 160, 'loss': 0.4106, 'sft': 0.3006, 'rel': 0.2201, 'pair': 0.0, 'grad_norm': 17.2339, 'grad_abs_head': 181.43466526183593, 'grad_abs_merger': 1442.9199, 'lr': 8.345653031794292e-05, 'sec': 689.6}
+{'step': 180, 'loss': 0.2963, 'sft': 0.2911, 'rel': 0.0103, 'pair': 0.0, 'grad_norm': 0.9326, 'grad_abs_head': 66.43451538663516, 'grad_abs_merger': 1583.6992, 'lr': 7.938926261462366e-05, 'sec': 776.6}
+{'step': 200, 'loss': 0.2084, 'sft': 0.2083, 'rel': 0.0002, 'pair': 0.0, 'grad_norm': 1.5245, 'grad_abs_head': 0.5721133986061373, 'grad_abs_merger': 1794.6562, 'lr': 7.500000000000001e-05, 'sec': 862.4}
+{'step': 220, 'loss': 0.308, 'sft': 0.2605, 'rel': 0.0949, 'pair': 0.0, 'grad_norm': 6.1209, 'grad_abs_head': 178.8622233932005, 'grad_abs_merger': 1487.0293, 'lr': 7.033683215379002e-05, 'sec': 948.3}
+{'step': 240, 'loss': 0.1231, 'sft': 0.1229, 'rel': 0.0004, 'pair': 0.0, 'grad_norm': 0.6006, 'grad_abs_head': 1.1573023067186696, 'grad_abs_merger': 1080.1475, 'lr': 6.545084971874738e-05, 'sec': 1034.9}
+{'step': 260, 'loss': 0.1557, 'sft': 0.1548, 'rel': 0.0017, 'pair': 0.0, 'grad_norm': 0.9584, 'grad_abs_head': 5.276264123154647, 'grad_abs_merger': 1819.5527, 'lr': 6.0395584540887963e-05, 'sec': 1121.3}
+{'step': 280, 'loss': 0.3034, 'sft': 0.145, 'rel': 0.3167, 'pair': 0.0, 'grad_norm': 4.0076, 'grad_abs_head': 118.17669046586789, 'grad_abs_merger': 1723.7754, 'lr': 5.522642316338268e-05, 'sec': 1207.2}
+{'step': 300, 'loss': 0.2988, 'sft': 0.1638, 'rel': 0.2701, 'pair': 0.0, 'grad_norm': 5.0946, 'grad_abs_head': 163.56361090304878, 'grad_abs_merger': 1399.0137, 'lr': 5e-05, 'sec': 1293.1}
+{'step': 320, 'loss': 0.2759, 'sft': 0.2386, 'rel': 0.0747, 'pair': 0.0, 'grad_norm': 4.1521, 'grad_abs_head': 66.6862074673521, 'grad_abs_merger': 1346.873, 'lr': 4.477357683661734e-05, 'sec': 1379.0}
+{'step': 340, 'loss': 0.2082, 'sft': 0.2079, 'rel': 0.0005, 'pair': 0.0, 'grad_norm': 4.6264, 'grad_abs_head': 93.21024127237014, 'grad_abs_merger': 1852.7812, 'lr': 3.960441545911204e-05, 'sec': 1465.5}
+{'step': 360, 'loss': 0.238, 'sft': 0.2344, 'rel': 0.0074, 'pair': 0.0, 'grad_norm': 1.3253, 'grad_abs_head': 34.446392102867605, 'grad_abs_merger': 1932.7344, 'lr': 3.4549150281252636e-05, 'sec': 1550.3}
+{'step': 380, 'loss': 0.7055, 'sft': 0.2448, 'rel': 0.9214, 'pair': 0.0, 'grad_norm': 18.288, 'grad_abs_head': 104.01932020925724, 'grad_abs_merger': 1563.3613, 'lr': 2.9663167846209998e-05, 'sec': 1636.4}
+{'step': 400, 'loss': 0.1928, 'sft': 0.1926, 'rel': 0.0006, 'pair': 0.0, 'grad_norm': 6.1428, 'grad_abs_head': 118.90285582035618, 'grad_abs_merger': 1759.9961, 'lr': 2.500000000000001e-05, 'sec': 1721.6}
+{'step': 420, 'loss': 0.3676, 'sft': 0.2001, 'rel': 0.335, 'pair': 0.0, 'grad_norm': 6.1669, 'grad_abs_head': 96.94637217691697, 'grad_abs_merger': 1851.7188, 'lr': 2.061073738537635e-05, 'sec': 1809.6}
+{'step': 440, 'loss': 0.4445, 'sft': 0.1073, 'rel': 0.6744, 'pair': 0.0, 'grad_norm': 6.1235, 'grad_abs_head': 149.51406148765025, 'grad_abs_merger': 1547.168, 'lr': 1.6543469682057106e-05, 'sec': 1895.2}
+{'step': 460, 'loss': 0.217, 'sft': 0.217, 'rel': 0.0001, 'pair': 0.0, 'grad_norm': 1.2264, 'grad_abs_head': 0.3116325453534423, 'grad_abs_merger': 2120.5762, 'lr': 1.2842758726130283e-05, 'sec': 1980.4}
+{'step': 480, 'loss': 0.157, 'sft': 0.1555, 'rel': 0.0031, 'pair': 0.0, 'grad_norm': 0.8884, 'grad_abs_head': 26.69392562289272, 'grad_abs_merger': 1995.8105, 'lr': 9.549150281252633e-06, 'sec': 2067.3}
+{'step': 500, 'loss': 0.2085, 'sft': 0.2056, 'rel': 0.0058, 'pair': 0.0, 'grad_norm': 1.5258, 'grad_abs_head': 18.202438296442057, 'grad_abs_merger': 2020.0234, 'lr': 6.698729810778065e-06, 'sec': 2153.2}
+{'step': 520, 'loss': 0.145, 'sft': 0.145, 'rel': 0.0001, 'pair': 0.0, 'grad_norm': 2.4755, 'grad_abs_head': 0.2649206079974651, 'grad_abs_merger': 2052.8633, 'lr': 4.322727117869951e-06, 'sec': 2239.4}
+{'step': 540, 'loss': 0.1838, 'sft': 0.1813, 'rel': 0.0051, 'pair': 0.0, 'grad_norm': 1.3421, 'grad_abs_head': 17.105113399025583, 'grad_abs_merger': 2047.7461, 'lr': 2.4471741852423237e-06, 'sec': 2326.7}
+{'step': 560, 'loss': 0.159, 'sft': 0.1587, 'rel': 0.0006, 'pair': 0.0, 'grad_norm': 1.0344, 'grad_abs_head': 14.827156740700003, 'grad_abs_merger': 2183.7969, 'lr': 1.0926199633097157e-06, 'sec': 2412.8}
+{'step': 580, 'loss': 1.1513, 'sft': 0.1157, 'rel': 2.0713, 'pair': 0.0, 'grad_norm': 31.6198, 'grad_abs_head': 128.55234613057198, 'grad_abs_merger': 1599.1855, 'lr': 2.7390523158633554e-07, 'sec': 2498.7}
+{'step': 600, 'loss': 0.1791, 'sft': 0.1777, 'rel': 0.0028, 'pair': 0.0, 'grad_norm': 1.0616, 'grad_abs_head': 10.325387881028819, 'grad_abs_merger': 2160.2793, 'lr': 0.0, 'sec': 2585.3}
+{"arm": "M3", "steps": 600, "micro_batches": 1200, "accum": 2, "n_trainable_params": 64235009, "lr": 0.0001, "lam": 0.5, "margin": 1.0, "seed": 0, "head_layer": 18, "train_seconds": 2585.7, "state_sha256": "e5f8f7b88dd08c44b49fbab13944ca5cfe6f6714811071bd1de5c14e689b4ecc", "state_bytes": 202587515, "model": "Qwen/Qwen3-VL-4B-Instruct", "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17"}
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 24/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 48/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 72/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 96/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 120/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 144/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 168/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 192/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 216/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 240/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 264/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 288/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 312/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 336/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 360/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 384/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 408/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 432/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 456/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 480/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 504/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 528/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 552/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 576/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 600/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 624/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 648/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 672/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 696/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 720/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 744/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 768/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 792/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 816/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 840/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 864/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 888/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 912/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 936/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 960/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 984/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1008/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1032/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1056/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1080/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1104/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1128/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1152/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1176/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1200/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1224/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1248/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1272/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1296/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1320/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1344/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1368/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1392/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1416/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1440/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1464/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1488/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1512/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1536/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1560/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1584/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1608/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1632/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1656/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1680/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1704/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1728/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1752/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1776/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1800/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1824/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1848/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1872/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1896/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1920/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1944/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1968/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 1992/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2016/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2040/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2064/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2088/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2112/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2136/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2160/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2184/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2208/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2232/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2256/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2280/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2304/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2328/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2352/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2376/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2400/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2424/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2448/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2472/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2496/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2520/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2544/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2568/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2592/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2616/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2640/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2664/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2688/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2712/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2736/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2760/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2784/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2808/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2832/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2856/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2880/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2904/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2928/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2952/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 2976/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3000/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3024/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3048/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3072/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3096/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3120/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3144/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3168/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3192/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3216/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3240/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3264/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3288/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3312/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3336/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3360/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3384/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3408/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3432/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3456/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3480/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3504/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3528/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3552/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3576/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3600/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3624/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3648/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3672/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3696/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3720/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3744/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3768/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3792/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3816/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3840/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3864/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3888/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3912/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3936/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3960/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 3984/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4008/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4032/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4056/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4080/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4104/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4128/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4152/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4176/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4200/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4224/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4248/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4272/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4296/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4320/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4344/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4368/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4392/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4416/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4440/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4464/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4488/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4512/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4536/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4560/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4584/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4608/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4632/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4656/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4680/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4704/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4728/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4752/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4776/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4800/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4824/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4848/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4872/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4896/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4920/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4944/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4968/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 4992/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5016/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5040/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5064/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5088/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5112/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5136/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5160/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5184/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5208/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5232/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5256/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5280/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5304/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5328/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5352/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5376/5400
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+eval 5400/5400
+test_id                  PCA=0.9167 [0.8925, 0.9392]  acc_orig=0.9658  stuck=0.05  inv_style=None  abst=0.9967
+test_unseen_topology     PCA=0.655 [0.605, 0.7033]  acc_orig=0.8333  stuck=0.1867  inv_style=None  abst=0.9567
+val                      PCA=0.9 [0.8528, 0.9417]  acc_orig=0.9417  stuck=0.0806  inv_style=None  abst=0.9944

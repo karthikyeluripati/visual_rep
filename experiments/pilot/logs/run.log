@@ -1,0 +1,24 @@
+2026-11-19T17:30:49+00:00 tests ok
+2026-11-19T17:30:49+00:00 build strict_v2 (same config/seed as Exp 1)
+2026-11-19T17:31:41+00:00 strict_v2 examples identical to Exp-1 build: yes
+2026-11-19T17:31:41+00:00 smoke: M3, 4 steps, save->reload check
+smoke 4 {'max_abs_logit_diff': 0.0, 'ok': True, 'unexpected_keys': 0}
+2026-11-19T17:32:17+00:00 train+eval M1
+2026-11-19T18:21:06+00:00 train+eval M2
+2026-11-19T19:26:58+00:00 train+eval M3
+wrote 10800 predictions -> results/pilot/ray_tracer.jsonl
+2026-11-19T20:38:53+00:00 analysis
+{
+ "M3_minus_M2_pp": 18.5,
+ "ci95_pp": [
+  13.5,
+  23.3
+ ],
+ "mcnemar_p": 6.85e-14,
+ "gap_to_tracer_change_pp(M3 vs M2)": 18.5,
+ "proceed_to_3_seeds": true
+}
+val {'M1': 0.9694, 'M2': 0.8833, 'M3': 0.9, 'tracer': 0.6083} head: {'M3_head': 0.9611}
+test_unseen_topology {'M1': 0.8417, 'M2': 0.47, 'M3': 0.655, 'M0_base': 0.0483, 'tracer': 0.5833} head: {'M3_head': 0.7933}
+test_id {'M1': 0.9692, 'M2': 0.8817, 'M3': 0.9167, 'M0_base': 0.165, 'tracer': 0.6567} head: {'M3_head': 0.9567}
+2026-11-19T20:38:55+00:00 PILOT_DONE

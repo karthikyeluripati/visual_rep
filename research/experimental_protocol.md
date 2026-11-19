@@ -237,3 +237,7 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   (f) micro-batch = one group's orig+cf (or reroute+style) examples, gradient accumulation 2, 1 epoch;
   (g) M1/M2 carry no untrained head and get no post-hoc probe (head metrics are M3 only);
   (h) LoRA adapters are not preserved (local disk full); sha256 recorded. They are regenerable from code, seed and data.
+- 2026-11-19: **Phase-2 pilot completed** (`research/pilot_report.md`). The pre-registered rule is formally met (M3 − M2 = +18.5 pp on
+  test_unseen_topology). However, M1 (answer-only SFT) beats M3 by 18.7 pp, so the rule's implicit assumption M1 ≤ M2 failed.
+  Recommendation: no 3-seed run of this design without PI review. Logging defect found and fixed after the run: train logs recorded
+  rel/pair from the last micro-batch of each accumulation step only; the losses themselves were correct.

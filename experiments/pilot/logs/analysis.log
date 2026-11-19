@@ -1,0 +1,13 @@
+{
+ "M3_minus_M2_pp": 18.5,
+ "ci95_pp": [
+  13.5,
+  23.3
+ ],
+ "mcnemar_p": 6.85e-14,
+ "gap_to_tracer_change_pp(M3 vs M2)": 18.5,
+ "proceed_to_3_seeds": true
+}
+val {'M1': 0.9694, 'M2': 0.8833, 'M3': 0.9, 'tracer': 0.6083} head: {'M3_head': 0.9611}
+test_unseen_topology {'M1': 0.8417, 'M2': 0.47, 'M3': 0.655, 'M0_base': 0.0483, 'tracer': 0.5833} head: {'M3_head': 0.7933}
+test_id {'M1': 0.9692, 'M2': 0.8817, 'M3': 0.9167, 'M0_base': 0.165, 'tracer': 0.6567} head: {'M3_head': 0.9567}

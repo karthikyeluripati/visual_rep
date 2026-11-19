@@ -1,0 +1,2 @@
+2026-11-19T17:30:21+00:00 waiting for 'PILOT_(DONE|FAILED)' (extended regex) in /workspace/logs/run.log
+2026-11-19T20:38:56+00:00 pipeline done; bundling

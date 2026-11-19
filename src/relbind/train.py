@@ -233,6 +233,7 @@ def main(argv=None):
     log = open(out / "train_log.jsonl", "w", encoding="utf-8")
     model.train()
     t0, step = time.time(), 0
+    acc = defaultdict(float)  # per-optimizer-step means over micro-batches (pilot logged only the last micro-batch)
     for bi, batch in enumerate(batches):
         items = [enc.train_item(args.arm, e) for e in batch]
         inp = {k: v.cuda() for k, v in collate(items, pad_id).items()}
@@ -270,6 +271,8 @@ def main(argv=None):
                 l_pair = torch.stack(pair_terms).mean()
             loss = loss_sft + args.lam * (l_rel + l_pair)
         (loss / args.accum).backward()
+        for k, v in (("loss", loss), ("sft", loss_sft), ("rel", l_rel), ("pair", l_pair)):
+            acc[k] += v.item() / args.accum
         if (bi + 1) % args.accum == 0:
             gn = torch.nn.utils.clip_grad_norm_(params, 1.0)
             g_head = sum(p.grad.abs().sum().item() for p in head.parameters() if p.grad is not None) if head else None
@@ -279,8 +282,8 @@ def main(argv=None):
             sched.step()
             opt.zero_grad(set_to_none=True)
             step += 1
-            rec = {"step": step, "loss": round(loss.item(), 4), "sft": round(loss_sft.item(), 4),
-                   "rel": round(l_rel.item(), 4), "pair": round(l_pair.item(), 4), "grad_norm": round(float(gn), 4),
+            rec = {"step": step, "loss": round(acc["loss"], 4), "sft": round(acc["sft"], 4),
+                   "rel": round(acc["rel"], 4), "pair": round(acc["pair"], 4), "grad_norm": round(float(gn), 4),
                    "grad_abs_head": g_head, "grad_abs_merger": round(g_merger, 4), "lr": sched.get_last_lr()[0],
                    "sec": round(time.time() - t0, 1)}
             log.write(json.dumps(rec) + "\n")
