@@ -182,3 +182,13 @@ scale); contamination of the base model with similar public diagrams; prompts tu
 ## 10. Change log
 
 - 2026-11-19: initial version.
+- 2026-11-19 (Phase 1, during the run, before any Gate-2 computation): **P_read probe and oracle
+  conditions D/E amended.** The first P_read run gave boxes in *pixel* coordinates. Inspection of
+  its outputs showed the model transcribing *other* text in the image (e.g. a decision label or a step
+  word instead of the boxed annotation), i.e. it failed to localise the box rather than to read it.
+  Qwen3-VL's native grounding convention is relative 0–1000 coordinates. Changes: (a) all boxes in
+  prompts (D, E, P_read) are now 0–1000 relative; (b) P_read has two modes, `crop` (the padded text
+  region alone at native scale = pure recognition, used for the perception category and the Gate-2
+  Read criterion) and `box` (locate-and-read on the full image, reported). The invalid run is kept as
+  `experiments/phase1_diag/P_read_v0_INVALID_pixelcoords` (read acc 0.539) and is not used.
+  Conditions A, B, C and F contain no coordinates and are unaffected.

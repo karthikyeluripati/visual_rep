@@ -73,8 +73,10 @@ def main(argv=None):
             ann = s.annotation(ex["query_ref"])
             ent = s.entity(ex["answer"])
             for kind, b, gold in (("ann", ann.label.bbox, ann.value), ("ent", ent.label.bbox, ent.id)):
-                probes.append({**ex, "example_id": f"{ex['example_id']}#read_{kind}", "probe_bbox": b,
-                               "answer": gold, "query_type": "read", "candidate_entities": [], "candidate_values": [gold]})
+                for mode in ("crop", "box"):
+                    probes.append({**ex, "example_id": f"{ex['example_id']}#read_{kind}_{mode}", "probe_bbox": b,
+                                   "probe_mode": mode, "answer": gold, "query_type": "read",
+                                   "candidate_entities": [], "candidate_values": [gold]})
         exs = probes
 
     if args.backend == "mock":

@@ -37,8 +37,16 @@ class Prompt:
     crop_box: list[float] | None = None  # canonical coords of the crop, if any (for box conversion)
 
 
-def _fmt_box(b, scale):
-    return "[" + ", ".join(str(int(round(v * scale))) for v in b) + "]"
+def _fmt_box(b, scale, img_w, img_h):
+    """Box in Qwen3-VL's native grounding convention: integers in [0, 1000] relative to width/height.
+    (Amendment 2026-11-19: pixel coordinates were misread by the model; see protocol change log.)"""
+    xs = (b[0] * scale / img_w, b[2] * scale / img_w)
+    ys = (b[1] * scale / img_h, b[3] * scale / img_h)
+    v = [xs[0], ys[0], xs[1], ys[1]]
+    return "[" + ", ".join(str(int(round(max(0.0, min(1.0, t)) * 1000))) for t in v) + "]"
+
+
+BOX_NOTE = "Boxes are [x0, y0, x1, y1] in 0-1000 coordinates relative to the image width and height."
 
 
 def pair_region(group_scenes: list[Scene], ex: dict, pad: float = 30.0) -> list[float]:
@@ -81,19 +89,21 @@ def build_prompt(condition: str, ex: dict, scene: Scene, img: Image.Image, scale
         items += [(p["text"], p["bbox"]) for e in scene.entities for p in e.attrs.get("draw", []) if p["type"] == "text"]
         items += [(p["text"], p["bbox"]) for p in scene.distractors if p["type"] == "text"]
         items.sort(key=lambda t: (t[1][1], t[1][0]))
-        lines = "\n".join(f'- "{t}" at {_fmt_box(b, scale)}' for t, b in items)
-        return Prompt(img, f"Image size: {W}x{H} pixels. All text in the image, with pixel boxes [x0, y0, x1, y1]:\n"
+        lines = "\n".join(f'- "{t}" at {_fmt_box(b, scale, W, H)}' for t, b in items)
+        return Prompt(img, f"All text in the image, with boxes. {BOX_NOTE}\n"
                            f"{lines}\n(The list gives no information about which text is connected to which object.)\n{q}\n{fmt}")
     if condition == "E_oracle_box":
-        anns = "\n".join(f'- annotation "{a.label.text}" at {_fmt_box(a.label.bbox, scale)}' for a in scene.annotations)
-        ents = "\n".join(f"- {e.id} at {_fmt_box(e.bbox, scale)}" for e in scene.entities)
-        return Prompt(img, f"Image size: {W}x{H} pixels. Annotation boxes:\n{anns}\nCandidate target boxes:\n{ents}\n"
+        anns = "\n".join(f'- annotation "{a.label.text}" at {_fmt_box(a.label.bbox, scale, W, H)}' for a in scene.annotations)
+        ents = "\n".join(f"- {e.id} at {_fmt_box(e.bbox, scale, W, H)}" for e in scene.entities)
+        return Prompt(img, f"{BOX_NOTE}\nAnnotation boxes:\n{anns}\nCandidate target boxes:\n{ents}\n"
                            f"(Boxes give no information about which annotation is connected to which target.)\n{q}\n{fmt}")
     if condition == "P_read":
-        # recognition probe: ex carries "probe_bbox" (canonical coords) added by run.py
-        b = ex["probe_bbox"]
-        return Prompt(img, f"Image size: {W}x{H} pixels. What text is written inside the box "
-                           f"{_fmt_box(G.inflate(b, 3), scale)} (pixel coordinates [x0, y0, x1, y1])? "
+        # recognition probes; ex carries "probe_bbox" (canonical coords) and "probe_mode" (added by run.py)
+        b = G.inflate(ex["probe_bbox"], 3)
+        if ex.get("probe_mode") == "crop":  # pure recognition: the text region alone, native scale
+            crop = img.crop(tuple(int(round(v * scale)) for v in b))
+            return Prompt(crop, f"Transcribe the text in this image exactly. {FORMAT}")
+        return Prompt(img, f"What text is written inside the box {_fmt_box(b, scale, W, H)}? {BOX_NOTE} "
                            f"Transcribe it exactly. {FORMAT}")
     if condition == "F_oracle_graph":
         edges = "\n".join(f'- "{scene.annotation(r.annotation).value}" is connected to {r.entity}' for r in scene.relations)

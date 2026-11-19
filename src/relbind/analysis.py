@@ -26,13 +26,21 @@ from .metrics import is_correct, load_examples, load_jsonl, normalize
 CATS = ("parse", "perception", "stuck", "proximity", "crossing", "other")
 
 
-def read_tables(probe_rows):
-    """(group_id, 'ann', annotation value) / (group_id, 'ent', entity id) -> read correctly?"""
+def probe_kind(pid: str) -> tuple[str, str]:
+    """'<ex>#read_ann_crop' -> ('ann', 'crop')."""
+    _, k, m = pid.split("#")[1].split("_")
+    return k, m
+
+
+def read_tables(probe_rows, mode: str = "crop"):
+    """(group_id, 'ann'|'ent', gold text) -> read correctly? Uses the pure-recognition crop probe."""
     t = {}
     for p in probe_rows:
-        base = p["example_id"].split("#")[0]
-        gid = base.split("-a2e-")[0]
-        t[(gid, "ann" if p["example_id"].endswith("read_ann") else "ent", normalize(p["gold"]))] = p["correct"]
+        k, m = probe_kind(p["example_id"])
+        if m != mode:
+            continue
+        gid = p["example_id"].split("#")[0].split("-a2e-")[0]
+        t[(gid, k, normalize(p["gold"]))] = p["correct"]
     return t
 
 
@@ -134,15 +142,18 @@ def main(argv=None):
     read_info = json.loads((diag / "P_read" / "run_info.json").read_text()) if (diag / "P_read").exists() else {}
     probes = load_jsonl(diag / "P_read" / "predictions.jsonl") if (diag / "P_read").exists() else []
     read_by_split = defaultdict(lambda: [0, 0])
+    by_kind = defaultdict(lambda: [0, 0])
     ex_split = {e["example_id"]: e["split"] for e in exs}
     for p in probes:
-        sp = ex_split.get(p["example_id"].split("#")[0])
-        read_by_split[sp][0] += 1
-        read_by_split[sp][1] += p["correct"]
+        k, m = probe_kind(p["example_id"])
+        by_kind[f"{k}_{m}"][0] += 1
+        by_kind[f"{k}_{m}"][1] += p["correct"]
+        if m == "crop":  # Gate-2 recognition measure = pure recognition (crop probe)
+            sp = ex_split.get(p["example_id"].split("#")[0])
+            read_by_split[sp][0] += 1
+            read_by_split[sp][1] += p["correct"]
     res["read_accuracy"] = {s: round(c / n, 4) for s, (n, c) in read_by_split.items()}
-    res["read_accuracy_by_kind"] = {k: round(sum(p["correct"] for p in probes if p["example_id"].endswith(k)) /
-                                             max(1, sum(1 for p in probes if p["example_id"].endswith(k))), 4)
-                                    for k in ("read_ann", "read_ent")}
+    res["read_accuracy_by_kind"] = {k: round(c / n, 4) for k, (n, c) in sorted(by_kind.items())}
     reads = read_tables(probes)
     tax, samples = {}, {}
     for cond in ("A_direct", "B_reasoning", "C_oracle_crop", "E_oracle_box"):
