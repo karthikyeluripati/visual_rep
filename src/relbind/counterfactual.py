@@ -37,10 +37,12 @@ def _reroute_one(scene: Scene, old: Connector, new_target: str, end, rng, tries:
     return None
 
 
-def make_swap(scene: Scene, rng: np.random.Generator, tries: int = 30) -> tuple[Scene, tuple[str, str]]:
+def make_swap(scene: Scene, rng: np.random.Generator, tries: int = 30,
+              strict_only: bool = False) -> tuple[Scene, tuple[str, str]]:
     """Two passes: first with terminator positions held fixed (strict control); if no pair admits a
-    valid strict swap, re-sample attach points on the same two targets (meta.attach_fixed=False)."""
-    for strict in (True, False):
+    valid strict swap, re-sample attach points on the same two targets (meta.attach_fixed=False).
+    strict_only=True (v2 builds) never falls back: only shortcut-proof swaps are produced."""
+    for strict in ((True,) if strict_only else (True, False)):
         try:
             return _make_swap(scene, rng, tries, strict)
         except GenerationError:

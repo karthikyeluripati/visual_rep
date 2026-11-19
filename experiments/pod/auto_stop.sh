@@ -19,7 +19,7 @@ rm -f $W/BUNDLE_READY $W/PULLED
 cd $W
 # small, irreplaceable outputs only; images/scenes are regenerable from config + commit
 tar -czf $W/bundle.tgz visual_rep/experiments visual_rep/results visual_rep/data/validation visual_rep/COMMIT \
-  logs $(ls -d data/*/manifest.json data/*/leakage_report.json data/*/*/examples.jsonl 2>/dev/null)
+  logs $(ls -d data/*/manifest.json data/*/leakage_report.json data/*/*/examples.jsonl data/*/*/path_examples.jsonl 2>/dev/null)
 sha256sum $W/bundle.tgz | cut -d" " -f1 > $W/bundle.sha256
 touch $W/BUNDLE_READY
 log "bundle ready ($(du -h $W/bundle.tgz | cut -f1)); waiting up to ${GRACE_MIN} min for client pull"

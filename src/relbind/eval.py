@@ -16,8 +16,8 @@ from pathlib import Path
 from .metrics import compare, join, load_examples, load_jsonl, localization, query_table, stratified, summarize
 
 
-def evaluate(data, pred_path, splits=None, B=2000, strata=True) -> dict:
-    exs = load_examples(data, splits)
+def evaluate(data, pred_path, splits=None, B=2000, strata=True, examples_name="examples.jsonl") -> dict:
+    exs = load_examples(data, splits, examples_name)
     rows = join(exs, load_jsonl(pred_path))
     by_split = defaultdict(list)
     for r in rows:
@@ -42,8 +42,9 @@ def main(argv=None):
     ap.add_argument("--B", type=int, default=2000)
     ap.add_argument("--no-strata", action="store_true")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--examples-name", default="examples.jsonl")
     args = ap.parse_args(argv)
-    res = evaluate(args.data, args.pred, args.splits, args.B, not args.no_strata)
+    res = evaluate(args.data, args.pred, args.splits, args.B, not args.no_strata, args.examples_name)
     if args.compare:
         exs = load_examples(args.data, args.splits)
         ra, rb = join(exs, load_jsonl(args.pred)), join(exs, load_jsonl(args.compare))

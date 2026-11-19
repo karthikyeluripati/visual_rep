@@ -45,6 +45,7 @@ def main(argv=None):
     ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--max-new-tokens", type=int, default=None)
     ap.add_argument("--ask-boxes", action="store_true")
+    ap.add_argument("--examples-name", default="examples.jsonl", help="e.g. path_examples.jsonl (path-following control)")
     ap.add_argument("--out", required=True)
     args = ap.parse_args(argv)
 
@@ -53,7 +54,7 @@ def main(argv=None):
         sys.exit(f"refusing to overwrite {out}")
     out.mkdir(parents=True)
     data = Path(args.data)
-    exs = load_examples(data, args.splits)
+    exs = load_examples(data, args.splits, args.examples_name)
     if args.variants:
         exs = [e for e in exs if e["variant"] in args.variants]
     if args.max_groups:

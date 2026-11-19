@@ -64,23 +64,46 @@ def dilate_mask(m: np.ndarray, iterations: int) -> np.ndarray:
     return m
 
 
-def build_group(split: str, idx: int, spec: dict, cfg: dict, rng_spec: np.random.Generator, max_tries: int = 80):
-    # the configuration is drawn ONCE per group so that rejection sampling does not shift the
-    # family/template/topology mix toward easy configurations; only the seed is retried.
+def draw_config(spec: dict, rng_spec: np.random.Generator) -> tuple[str, str, str, str]:
+    """Drawn ONCE per group, sequentially, so rejection sampling cannot shift the config mix."""
     fam = str(rng_spec.choice(spec["families"]))
     tpl = str(rng_spec.choice(spec["templates"][fam]))
     topo = str(rng_spec.choice(spec["topologies"]))
     font = str(rng_spec.choice(spec["fonts"]))
+    return fam, tpl, topo, font
+
+
+def pair_cell(base: Scene, cf: Scene, swapped) -> str:
+    """Crossing type of a swap pair (both swapped connectors, both images):
+    leader_leader if a swapped connector crosses another connector in either image, else entity_only
+    if it crosses an entity line, else none."""
+    cc = ce = 0
+    for s in (base, cf):
+        for aid in swapped:
+            f = query_features(s, aid)
+            cc = max(cc, f["cross_connectors"])
+            ce = max(ce, f["cross_entities"])
+    return "leader_leader" if cc else "entity_only" if ce else "none"
+
+
+def build_group(split: str, idx: int, spec: dict, cfg: dict, conf: tuple, cell: str | None = None,
+                max_tries: int | None = None):
+    fam, tpl, topo, font = conf
+    strict_only = bool(spec.get("strict_only", False))
+    max_tries = max_tries or (400 if cell else 80)
     for t in range(max_tries):
         seed = derive_seed(cfg["seed"], split, idx, t)
         gid = f"{split}-{idx:05d}"
         try:
             base, rej = generate_scene(fam, tpl, topo, font, seed, f"{gid}-orig")
             vr = np.random.default_rng(derive_seed(seed, "variants"))
-            cf, swapped = make_swap(base, vr)
+            cf, swapped = make_swap(base, vr, strict_only=strict_only)
+            if cell is not None and pair_cell(base, cf, swapped) != cell:
+                continue
             rr = make_reroute(base, vr, tuple(spec["topologies"]))
         except GenerationError:
             continue
+        base.meta["crossing_cell"] = pair_cell(base, cf, swapped)
         cf.scene_id, rr.scene_id = f"{gid}-cf", f"{gid}-reroute"
         st = base.copy()
         st.scene_id = f"{gid}-style"
@@ -90,9 +113,86 @@ def build_group(split: str, idx: int, spec: dict, cfg: dict, rng_spec: np.random
         base.meta.update({"variant": "orig", "group_id": gid, "split": split, "swapped": list(swapped),
                           "group_tries": t + 1})
         for s in (cf, rr, st):
-            s.meta.update({"group_id": gid, "split": split, "swapped": list(swapped)})
+            s.meta.update({"group_id": gid, "split": split, "swapped": list(swapped),
+                           "crossing_cell": base.meta["crossing_cell"]})
         return gid, seed, [(base, sty0), (cf, sty0), (rr, sty0), (st, sty1)], swapped
-    raise GenerationError(f"{split}/{idx}: could not build group")
+    raise GenerationError(f"{split}/{idx}: could not build group (cell={cell}, conf={conf})")
+
+
+def group_examples(split, gid, seed, variants, swapped, imgs, scale):
+    base, cf = variants[0][0], variants[1][0]
+    a1, a2 = swapped
+    e1, e2 = base.target_of(a1), base.target_of(a2)
+    unannotated = sorted(e.id for e in base.entities if not base.annotations_of(e.id))
+    qs = [("a2e", a1), ("a2e", a2), ("e2a", e1), ("e2a", e2)]
+    if unannotated:
+        qs.append(("e2a", unannotated[int(np.random.default_rng(seed).integers(0, len(unannotated)))]))
+    examples = []
+    for s, sty in variants:
+        variant = s.meta["variant"]
+        for qtype, ref in qs:
+            ref_text = s.annotation(ref).value if qtype == "a2e" else ref
+            ans = answer(s, qtype, ref)
+            qid = f"{gid}-{qtype}-{ref}"
+            ex = {
+                "example_id": f"{qid}-{variant}", "query_id": qid, "group_id": gid,
+                "scene_id": s.scene_id, "variant": variant, "split": split,
+                "image": f"{split}/images/{s.scene_id}.png", "image_size": list(imgs[s.scene_id].size),
+                "render_scale": scale,
+                "family": s.family, "template": s.template, "topology": s.topology, "font": s.font,
+                "style": sty.name, "attach_fixed": cf.meta.get("attach_fixed"),
+                "crossing_cell": base.meta.get("crossing_cell"),
+                "query_type": qtype, "query_ref": ref, "query_text": ref_text,
+                "question": question(s, qtype, ref_text), "answer": ans,
+                "answerable": ans != NONE,
+                "flips_under_cf": qtype == "a2e" or ref in (e1, e2),
+                "candidate_entities": sorted(e.id for e in s.entities),
+                "candidate_values": sorted(a.value for a in s.annotations),
+            }
+            if qtype == "a2e":
+                ex["gt_annotation_bbox"] = s.annotation(ref).label.bbox
+                ex["gt_entity_bbox"] = s.entity(ans).bbox
+                ex["features"] = query_features(s, ref)
+            else:
+                ex["gt_entity_bbox"] = s.entity(ref).bbox
+                aid = s.annotations_of(ref)
+                if aid:
+                    ex["gt_annotation_bbox"] = s.annotation(aid[0]).label.bbox
+                    ex["features"] = query_features(s, aid[0])
+                else:
+                    ex["features"] = {}
+            examples.append(ex)
+    return examples
+
+
+def process_group(job):
+    """Build, render, pixel-check and write one group. Runs in a worker process."""
+    split, i, spec, cfg, conf, cell, out, scale, svg = job
+    sd = Path(out) / split
+    gid, seed, variants, swapped = build_group(split, i, spec, cfg, conf, cell)
+    base = variants[0][0]
+    imgs = {s.scene_id: render_png(s, sty, scale) for s, sty in variants}
+    (cf, _), (rr, _) = variants[1], variants[2]
+    sw_conns = {c.id for c in base.connectors if c.source in swapped}
+    m = changed_mask([base, cf], sw_conns, variants[0][1], scale)
+    bad_cf = pixel_diff_outside_mask(imgs[base.scene_id], imgs[cf.scene_id], m)
+    m2 = changed_mask([base, rr], {c.id for c in base.connectors}, variants[0][1], scale)
+    bad_rr = pixel_diff_outside_mask(imgs[base.scene_id], imgs[rr.scene_id], m2)
+    if bad_cf or bad_rr:
+        raise RuntimeError(f"{gid}: non-semantic pixel differences (cf={bad_cf}, reroute={bad_rr})")
+    hashes = {}
+    for s, sty in variants:
+        p = sd / "images" / f"{s.scene_id}.png"
+        imgs[s.scene_id].save(p, optimize=False, compress_level=6)
+        hashes[s.scene_id] = sha256_file(p)
+        (sd / "scenes" / f"{s.scene_id}.json").write_text(
+            json.dumps({"scene": s.to_dict(), "style": sty.to_dict(), "render_scale": scale}, ensure_ascii=False))
+        if svg:
+            (sd / "svg" / f"{s.scene_id}.svg").write_text(render_svg(s, sty), encoding="utf-8")
+    examples = group_examples(split, gid, seed, variants, swapped, imgs, scale)
+    st = {"attach_fixed": cf.meta.get("attach_fixed"), "attempts": base.meta.get("attempts", 1),
+          "cell": base.meta["crossing_cell"]}
+    return examples, hashes, dhash(imgs[base.scene_id]), relation_signature(base), seed, gid, st
 
 
 def main(argv=None):
@@ -101,6 +201,7 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=None, help="cap groups per split (smoke runs)")
     ap.add_argument("--svg", action="store_true", help="also write SVG copies")
+    ap.add_argument("--workers", type=int, default=1, help="parallel group workers (results identical to 1)")
     args = ap.parse_args(argv)
 
     cfg = json.loads(Path(args.config).read_text())
@@ -122,77 +223,27 @@ def main(argv=None):
         if args.svg:
             (sd / "svg").mkdir()
         rng_spec = np.random.default_rng(derive_seed(cfg["seed"], split, "spec"))
+        confs = [draw_config(spec, rng_spec) for _ in range(n)]  # same draw order as v0 builds
+        cells = spec.get("crossing_cells")
+        jobs = [(split, i, spec, cfg, confs[i], cells[i % len(cells)] if cells else None, str(out), scale, args.svg)
+                for i in range(n)]
         examples = []
-        for i in range(n):
-            gid, seed, variants, swapped = build_group(split, i, spec, cfg, rng_spec)
+        if args.workers > 1:
+            from multiprocessing import Pool
+            with Pool(args.workers) as pool:
+                results = pool.map(process_group, jobs, chunksize=1)
+        else:
+            results = [process_group(j) for j in jobs]
+        for exs_g, hashes, dhv, sig, seed, gid, st in results:  # ordered by group index
             seeds[split].add(seed)
-            base = variants[0][0]
-            imgs = {}
-            for s, sty in variants:
-                imgs[s.scene_id] = render_png(s, sty, scale)
-            # pixel-level control: cf / reroute may differ from base only where connectors changed
-            (cf, _), (rr, _) = variants[1], variants[2]
-            sw_conns = {c.id for c in base.connectors if c.source in swapped}
-            m = changed_mask([base, cf], sw_conns, variants[0][1], scale)
-            bad_cf = pixel_diff_outside_mask(imgs[base.scene_id], imgs[cf.scene_id], m)
-            m2 = changed_mask([base, rr], {c.id for c in base.connectors}, variants[0][1], scale)
-            bad_rr = pixel_diff_outside_mask(imgs[base.scene_id], imgs[rr.scene_id], m2)
-            if bad_cf or bad_rr:
-                raise RuntimeError(f"{gid}: non-semantic pixel differences (cf={bad_cf}, reroute={bad_rr})")
+            image_hashes.update(hashes)
+            dh[f"{gid}-orig"] = dhv
+            sigs[f"{gid}-orig"] = sig
             stats["groups"] += 1
-            stats[f"attach_fixed={cf.meta.get('attach_fixed')}"] += 1
-            stats["base_attempts"] += base.meta.get("attempts", 1)
-
-            for s, sty in variants:
-                p = sd / "images" / f"{s.scene_id}.png"
-                imgs[s.scene_id].save(p, optimize=False, compress_level=6)
-                image_hashes[s.scene_id] = sha256_file(p)
-                (sd / "scenes" / f"{s.scene_id}.json").write_text(
-                    json.dumps({"scene": s.to_dict(), "style": sty.to_dict(), "render_scale": scale}, ensure_ascii=False))
-                if args.svg:
-                    (sd / "svg" / f"{s.scene_id}.svg").write_text(render_svg(s, sty), encoding="utf-8")
-            dh[base.scene_id] = dhash(imgs[base.scene_id])
-            sigs[base.scene_id] = relation_signature(base)
-
-            a1, a2 = swapped
-            e1, e2 = base.target_of(a1), base.target_of(a2)
-            unannotated = sorted(e.id for e in base.entities if not base.annotations_of(e.id))
-            qs = [("a2e", a1), ("a2e", a2), ("e2a", e1), ("e2a", e2)]
-            if unannotated:
-                qs.append(("e2a", unannotated[int(np.random.default_rng(seed).integers(0, len(unannotated)))]))
-            for s, sty in variants:
-                variant = s.meta["variant"]
-                for qtype, ref in qs:
-                    ref_text = s.annotation(ref).value if qtype == "a2e" else ref
-                    ans = answer(s, qtype, ref)
-                    qid = f"{gid}-{qtype}-{ref}"
-                    ex = {
-                        "example_id": f"{qid}-{variant}", "query_id": qid, "group_id": gid,
-                        "scene_id": s.scene_id, "variant": variant, "split": split,
-                        "image": f"{split}/images/{s.scene_id}.png", "image_size": list(imgs[s.scene_id].size),
-                        "render_scale": scale,
-                        "family": s.family, "template": s.template, "topology": s.topology, "font": s.font,
-                        "style": sty.name, "attach_fixed": cf.meta.get("attach_fixed"),
-                        "query_type": qtype, "query_ref": ref, "query_text": ref_text,
-                        "question": question(s, qtype, ref_text), "answer": ans,
-                        "answerable": ans != NONE,
-                        "flips_under_cf": qtype == "a2e" or ref in (e1, e2),
-                        "candidate_entities": sorted(e.id for e in s.entities),
-                        "candidate_values": sorted(a.value for a in s.annotations),
-                    }
-                    if qtype == "a2e":
-                        ex["gt_annotation_bbox"] = s.annotation(ref).label.bbox
-                        ex["gt_entity_bbox"] = s.entity(ans).bbox
-                        ex["features"] = query_features(s, ref)
-                    else:
-                        ex["gt_entity_bbox"] = s.entity(ref).bbox
-                        aid = s.annotations_of(ref)
-                        if aid:
-                            ex["gt_annotation_bbox"] = s.annotation(aid[0]).label.bbox
-                            ex["features"] = query_features(s, aid[0])
-                        else:
-                            ex["features"] = {}
-                    examples.append(ex)
+            stats[f"attach_fixed={st['attach_fixed']}"] += 1
+            stats["base_attempts"] += st["attempts"]
+            stats[f"cell={st['cell']}"] += 1
+            examples += exs_g
         with open(sd / "examples.jsonl", "w", encoding="utf-8") as f:
             for ex in examples:
                 f.write(json.dumps(ex, ensure_ascii=False) + "\n")

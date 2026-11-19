@@ -55,10 +55,10 @@ def load_jsonl(p) -> list[dict]:
         return [json.loads(l) for l in f if l.strip()]
 
 
-def load_examples(data_dir, splits=None) -> list[dict]:
+def load_examples(data_dir, splits=None, name: str = "examples.jsonl") -> list[dict]:
     d = Path(data_dir)
     out = []
-    for f in sorted(d.glob("*/examples.jsonl")):
+    for f in sorted(d.glob(f"*/{name}")):
         if splits and f.parent.name not in splits:
             continue
         out += load_jsonl(f)
