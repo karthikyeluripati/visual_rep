@@ -225,3 +225,15 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   extends 3 output px from a changed stroke, but the allowed-difference mask was dilated by only 2 px. The
   mask dilation is now 3 px, the support of the kernel. Zero tolerance outside the mask is kept. v0/diag_v1
   builds (dilation 2) passed the stricter check and are unaffected.
+- 2026-11-19: **Phase-2 pilot approved by the PI** ("approved carry on"). These deviations from
+  `phase2_experimental_design.md` are fixed before any pilot output:
+  (a) training data = strict_v2 train (600 groups, 12,000 examples) instead of 1,000 groups;
+  (b) M3 head pools layer-18 hidden states (the val-selected probe layer from Exp. 1; the design said last
+      layer, but the probe showed the last layer is least informative);
+  (c) λ = 0.5 and margin m = 1.0 fixed, not tuned on val;
+  (d) pilot evaluation on orig/cf images only (style/reroute invariance not measured in the pilot);
+  (e) the primary endpoint is computed on test_unseen_topology only, because unseen template is not in
+      strict_v2;
+  (f) micro-batch = one group's orig+cf (or reroute+style) examples, gradient accumulation 2, 1 epoch;
+  (g) M1/M2 carry no untrained head and get no post-hoc probe (head metrics are M3 only);
+  (h) LoRA adapters are not preserved (local disk full); sha256 recorded. They are regenerable from code, seed and data.

@@ -8,6 +8,7 @@ set -u
 MARK_LOG=${1:?log file to watch}
 MARK=${2:?marker string}
 GRACE_MIN=${3:-90}
+INCLUDE=${4:-}   # optional explicit bundle contents (paths relative to /workspace), space-separated
 W=/workspace
 R=$W/visual_rep
 log() { echo "$(date -Is) $*"; }
@@ -18,8 +19,12 @@ log "pipeline done; bundling"
 rm -f $W/BUNDLE_READY $W/PULLED
 cd $W
 # small, irreplaceable outputs only; images/scenes are regenerable from config + commit
-tar -czf $W/bundle.tgz visual_rep/experiments visual_rep/results visual_rep/data/validation visual_rep/COMMIT \
-  logs $(ls -d data/*/manifest.json data/*/leakage_report.json data/*/*/examples.jsonl data/*/*/path_examples.jsonl 2>/dev/null)
+if [ -n "$INCLUDE" ]; then
+  tar -czf $W/bundle.tgz --ignore-failed-read $INCLUDE visual_rep/COMMIT
+else
+  tar -czf $W/bundle.tgz visual_rep/experiments visual_rep/results visual_rep/data/validation visual_rep/COMMIT \
+    logs $(ls -d data/*/manifest.json data/*/leakage_report.json data/*/*/examples.jsonl data/*/*/path_examples.jsonl 2>/dev/null)
+fi
 sha256sum $W/bundle.tgz | cut -d" " -f1 > $W/bundle.sha256
 touch $W/BUNDLE_READY
 log "bundle ready ($(du -h $W/bundle.tgz | cut -f1)); waiting up to ${GRACE_MIN} min for client pull"
