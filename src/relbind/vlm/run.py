@@ -24,9 +24,9 @@ from pathlib import Path
 from PIL import Image
 
 from ..baselines.heuristics import load_scene
-from ..metrics import load_examples, load_jsonl
+from ..metrics import is_correct, load_examples, load_jsonl
 from .backends import MockBackend, QwenVLBackend
-from .parse import parse
+from .parse import parse, raw_answer
 from .prompts import CONDITIONS, build_prompt
 
 
@@ -63,6 +63,19 @@ def main(argv=None):
                 keep[g[0]].add(g[1])
         exs = [e for e in exs if e["group_id"] in keep[e["split"]]]
     mnt = args.max_new_tokens or (768 if args.condition == "B_reasoning" else 96)
+    if args.condition == "P_read":
+        # recognition probes on original images: the queried annotation text and the gold target's label
+        probes = []
+        for ex in exs:
+            if ex["variant"] != "orig" or ex["query_type"] != "a2e":
+                continue
+            s, _, _ = load_scene(data, ex)
+            ann = s.annotation(ex["query_ref"])
+            ent = s.entity(ex["answer"])
+            for kind, b, gold in (("ann", ann.label.bbox, ann.value), ("ent", ent.label.bbox, ent.id)):
+                probes.append({**ex, "example_id": f"{ex['example_id']}#read_{kind}", "probe_bbox": b,
+                               "answer": gold, "query_type": "read", "candidate_entities": [], "candidate_values": [gold]})
+        exs = probes
 
     if args.backend == "mock":
         mock = {p["example_id"]: p["prediction"] for p in load_jsonl(args.mock_from)}
@@ -85,7 +98,7 @@ def main(argv=None):
         return res
 
     t0 = time.time()
-    n_tok_in = 0
+    n_read = [0, 0]
     with open(out / "predictions.jsonl", "w", encoding="utf-8") as f:
         for i in range(0, len(exs), args.batch_size):
             chunk = exs[i:i + args.batch_size]
@@ -99,13 +112,21 @@ def main(argv=None):
             texts = backend.generate([(p.image, p.text) for p in prompts], mnt)
             for ex, p, txt in zip(chunk, prompts, texts):
                 _, _, sc = scene_of(ex)
-                parsed = parse(txt, ex, p.image.width, p.image.height, p.crop_box,
-                               scale=1.0 if p.crop_box else sc)
+                if ex["query_type"] == "read":
+                    ans, _ = raw_answer(txt)
+                    parsed = {"prediction": ans, "gold": ex["answer"], "correct": is_correct(ans, ex["answer"])}
+                    n_read[0] += 1
+                    n_read[1] += parsed["correct"]
+                else:
+                    parsed = parse(txt, ex, p.image.width, p.image.height, p.crop_box,
+                                   scale=1.0 if p.crop_box else sc)
                 f.write(json.dumps({"example_id": ex["example_id"], **parsed, "raw_text": txt,
                                     "condition": args.condition}, ensure_ascii=False) + "\n")
             print(f"{min(i + args.batch_size, len(exs))}/{len(exs)} ({time.time() - t0:.0f}s)", flush=True)
     info = {"argv": sys.argv, "args": vars(args), "n_examples": len(exs), "seconds": round(time.time() - t0, 1),
             "python": platform.python_version(), "backend": backend.info(), "max_new_tokens": mnt}
+    if n_read[0]:
+        info["read_accuracy"] = round(n_read[1] / n_read[0], 4)
     (out / "run_info.json").write_text(json.dumps(info, indent=2))
     print(json.dumps(info, indent=2))
 

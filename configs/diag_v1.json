@@ -1,0 +1,36 @@
+{
+  "name": "relbind-diag-v1",
+  "seed": 20261120,
+  "render_scale": 1.0,
+  "notes": "Phase-1 diagnostic set (inference only). Same split rules as prototype test_id / OOD splits; fresh seed. test_id is the Gate-2 primary split (250 groups). The OOD splits are descriptive only for the base model and are NOT the final Phase-2 test sets, which will be regenerated from a held seed.",
+  "splits": {
+    "test_id": {
+      "n_groups": 250,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_unseen_template": {
+      "n_groups": 60,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["plan"], "flowchart": ["lr"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_unseen_topology": {
+      "n_groups": 60,
+      "families": ["schematic", "flowchart"],
+      "templates": {"schematic": ["elevation"], "flowchart": ["tb"]},
+      "topologies": ["zigzag"],
+      "fonts": ["sans", "mono"]
+    },
+    "test_cross_domain": {
+      "n_groups": 60,
+      "families": ["circuit"],
+      "templates": {"circuit": ["ladder", "grid"]},
+      "topologies": ["straight", "elbow"],
+      "fonts": ["sans", "mono"]
+    }
+  }
+}

@@ -18,7 +18,7 @@ from PIL import Image
 from .. import geometry as G
 from ..schema import Scene
 
-CONDITIONS = ("A_direct", "B_reasoning", "C_oracle_crop", "D_oracle_ocr", "E_oracle_box", "F_oracle_graph")
+CONDITIONS = ("A_direct", "B_reasoning", "C_oracle_crop", "D_oracle_ocr", "E_oracle_box", "F_oracle_graph", "P_read")
 
 FORMAT = ('Reply with a single JSON object on the last line: {"answer": "<answer>"}. '
           "Use exactly the text as printed in the diagram.")
@@ -89,6 +89,12 @@ def build_prompt(condition: str, ex: dict, scene: Scene, img: Image.Image, scale
         ents = "\n".join(f"- {e.id} at {_fmt_box(e.bbox, scale)}" for e in scene.entities)
         return Prompt(img, f"Image size: {W}x{H} pixels. Annotation boxes:\n{anns}\nCandidate target boxes:\n{ents}\n"
                            f"(Boxes give no information about which annotation is connected to which target.)\n{q}\n{fmt}")
+    if condition == "P_read":
+        # recognition probe: ex carries "probe_bbox" (canonical coords) added by run.py
+        b = ex["probe_bbox"]
+        return Prompt(img, f"Image size: {W}x{H} pixels. What text is written inside the box "
+                           f"{_fmt_box(G.inflate(b, 3), scale)} (pixel coordinates [x0, y0, x1, y1])? "
+                           f"Transcribe it exactly. {FORMAT}")
     if condition == "F_oracle_graph":
         edges = "\n".join(f'- "{scene.annotation(r.annotation).value}" is connected to {r.entity}' for r in scene.relations)
         return Prompt(img, f"Verified connections in this diagram:\n{edges}\n{q}\n{fmt}")

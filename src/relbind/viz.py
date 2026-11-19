@@ -46,9 +46,10 @@ def overlay(img: Image.Image, scene, ex: dict, scale: float, pred: str | None = 
             pass
     f = get_font("sans", 16)
     txt = f"[{ex['variant']}] {ex['question']}\nGOLD: {ex['answer']}" + (f"   PRED: {pred}" if pred is not None else "")
-    d.rectangle([0, im.height - 44, im.width, im.height], fill=(255, 255, 255))
-    d.multiline_text((6, im.height - 42), txt, font=f, fill=(0, 0, 0))
-    return im
+    framed = Image.new("RGB", (im.width, im.height + 48), (255, 255, 255))  # caption below, never over content
+    framed.paste(im, (0, 0))
+    ImageDraw.Draw(framed).multiline_text((6, im.height + 4), txt, font=f, fill=(0, 0, 0))
+    return framed
 
 
 def panels(data: Path, split: str, n: int, out: Path, pred_file: str | None = None, qtype: str = "a2e"):
@@ -64,13 +65,17 @@ def panels(data: Path, split: str, n: int, out: Path, pred_file: str | None = No
                 continue
             s, _, sc = load_scene(data, ex)
             img = Image.open(data / ex["image"])
-            row.append(overlay(img, s, ex, sc, preds.get(ex["example_id"])).resize((512, 360)))
+            o = overlay(img, s, ex, sc, preds.get(ex["example_id"]))
+            row.append(o.resize((640, int(o.height * 640 / o.width))))
         rows.append(row)
-    W = 512 * max(len(r) for r in rows)
-    sheet = Image.new("RGB", (W, 360 * len(rows)), (255, 255, 255))
-    for i, r in enumerate(rows):
+    W = 640 * max(len(r) for r in rows)
+    hs = [max(im.height for im in r) for r in rows]
+    sheet = Image.new("RGB", (W, sum(hs)), (255, 255, 255))
+    y = 0
+    for r, h in zip(rows, hs):
         for j, im in enumerate(r):
-            sheet.paste(im, (512 * j, 360 * i))
+            sheet.paste(im, (640 * j, y))
+        y += h
     out.parent.mkdir(parents=True, exist_ok=True)
     sheet.save(out)
     print(f"wrote {out}")
