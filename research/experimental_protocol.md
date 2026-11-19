@@ -220,3 +220,8 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   `configs/strict_v2.json` therefore balances only the feasible cells per family (schematic: entity_only /
   leader_leader; flowchart: leader_leader). The decisive comparison (binding vs path control on *identical*
   geometry) is unaffected. The pre-registered probe thresholds are unchanged.
+- 2026-11-19 (strict_v2 build, before any Experiment-1 data): the zero-tolerance pixel check failed on one
+  group (train-00084) by exactly 1 pixel in both cf and reroute. Cause: Lanczos (a=3) downsampling ringing
+  extends 3 output px from a changed stroke, but the allowed-difference mask was dilated by only 2 px. The
+  mask dilation is now 3 px, the support of the kernel. Zero tolerance outside the mask is kept. v0/diag_v1
+  builds (dilation 2) passed the stricter check and are unaffected.

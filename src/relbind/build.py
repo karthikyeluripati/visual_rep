@@ -39,7 +39,10 @@ def sha256_file(p: Path) -> str:
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 
-def changed_mask(scenes: list[Scene], conn_ids: set[str], style: Style, scale: float, dilate: int = 2) -> np.ndarray:
+def changed_mask(scenes: list[Scene], conn_ids: set[str], style: Style, scale: float, dilate: int = 3) -> np.ndarray:
+    # dilate=3 = support of the Lanczos (a=3) downsampling kernel in output pixels: ringing from a changed
+    # stroke can reach 3 px, and is clipped at the white background in the connector-only render
+    # (v0/v1 builds used 2 and passed; strict_v2 hit a 1-px ringing difference; see protocol change log).
     """Pixels that the given connectors (from any of `scenes`) may legitimately touch."""
     W, H = scenes[0].canvas
     m = np.zeros((int(round(H * scale)), int(round(W * scale))), dtype=bool)
@@ -179,7 +182,9 @@ def process_group(job):
     m2 = changed_mask([base, rr], {c.id for c in base.connectors}, variants[0][1], scale)
     bad_rr = pixel_diff_outside_mask(imgs[base.scene_id], imgs[rr.scene_id], m2)
     if bad_cf or bad_rr:
-        raise RuntimeError(f"{gid}: non-semantic pixel differences (cf={bad_cf}, reroute={bad_rr})")
+        a0 = np.asarray(imgs[base.scene_id], dtype=np.int16)
+        mx = int(np.abs(a0 - np.asarray(imgs[cf.scene_id], dtype=np.int16)).max(-1)[~m].max()) if bad_cf else 0
+        raise RuntimeError(f"{gid}: non-semantic pixel differences (cf={bad_cf}, reroute={bad_rr}, max_cf_delta={mx})")
     hashes = {}
     for s, sty in variants:
         p = sd / "images" / f"{s.scene_id}.png"
