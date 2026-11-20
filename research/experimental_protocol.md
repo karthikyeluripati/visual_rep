@@ -328,3 +328,4 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     ray tracer on pooled leader-leader pair accuracy AND all are below fine-tuned M1 on pooled pair accuracy.
   - **References for fine-tuned M1:** test_id = pilot M1 (strict_v2 test_id is byte-identical); held-out splits = transfer M1.
   - **API models:** not included (they need keys and send benchmark images to outside providers); this needs a separate PI decision.
+  - Amendment, before launch: Qwen3-VL-32B is dropped (about 66 GB of weights against a 50 GB container disk). The sweep has 8 models.
