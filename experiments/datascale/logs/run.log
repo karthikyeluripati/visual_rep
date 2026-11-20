@@ -1,0 +1,23 @@
+2026-11-20T10:10:32+00:00 tests ok
+strict_v3 identical to transfer-run build: True
+2026-11-20T10:11:55+00:00 strict_v3 identical to transfer-run build
+2026-11-20T10:11:55+00:00 train+eval M1_noCF_s0 (--drop-variants cf)
+2026-11-20T10:50:59+00:00 train+eval M1_noStyle_s0 (--drop-variants style)
+2026-11-20T11:30:37+00:00 train+eval M1_n150_s0 (--n-groups 150)
+2026-11-20T11:49:42+00:00 train+eval M1_n50_s0 (--n-groups 50)
+2026-11-20T12:01:58+00:00 train+eval M1_n600_s1 (--seed 1)
+2026-11-20T12:50:54+00:00 train+eval M1_n600_s2 (--seed 2)
+2026-11-20T13:40:16+00:00 analysis
+  },
+  "target": 0.8076,
+  "n_star": 600
+ }
+}
+M1_n600_s0 {'val': 0.9833, 'test_unseen_topology': 0.815, 'test_unseen_template': 0.8567, 'test_unseen_family': 0.9, 'pooled_unseen': 0.8572}
+M1_n600_s1 {'val': 0.9639, 'test_unseen_topology': 0.8617, 'test_unseen_template': 0.7967, 'test_unseen_family': 0.8783, 'pooled_unseen': 0.8456}
+M1_n600_s2 {'val': 0.9833, 'test_unseen_topology': 0.8583, 'test_unseen_template': 0.845, 'test_unseen_family': 0.9067, 'pooled_unseen': 0.87}
+M1_n150_s0 {'val': 0.85, 'test_unseen_topology': 0.645, 'test_unseen_template': 0.7017, 'test_unseen_family': 0.8017, 'pooled_unseen': 0.7161}
+M1_n50_s0 {'val': 0.55, 'test_unseen_topology': 0.4, 'test_unseen_template': 0.4817, 'test_unseen_family': 0.585, 'pooled_unseen': 0.4889}
+M1_noCF_s0 {'val': 0.9472, 'test_unseen_topology': 0.7533, 'test_unseen_template': 0.805, 'test_unseen_family': 0.8317, 'pooled_unseen': 0.7967}
+M1_noStyle_s0 {'val': 0.9639, 'test_unseen_topology': 0.825, 'test_unseen_template': 0.8383, 'test_unseen_family': 0.8333, 'pooled_unseen': 0.8322}
+2026-11-20T13:40:18+00:00 DATASCALE_DONE

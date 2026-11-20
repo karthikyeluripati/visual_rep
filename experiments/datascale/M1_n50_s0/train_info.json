@@ -1,0 +1,20 @@
+{
+  "arm": "M1",
+  "steps": 50,
+  "micro_batches": 100,
+  "accum": 2,
+  "n_trainable_params": 60301824,
+  "lr": 0.0001,
+  "lam": 0.5,
+  "margin": 1.0,
+  "seed": 0,
+  "n_groups": 50,
+  "drop_variants": [],
+  "n_train_examples": 1000,
+  "head_layer": 18,
+  "train_seconds": 202.1,
+  "state_sha256": "e55e7ac3e96008bface1e5fecfaa4588c262ccbb18057a76c1fa80a3fdf1ca12",
+  "state_bytes": 186853603,
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17"
+}

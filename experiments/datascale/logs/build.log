@@ -1,0 +1,19 @@
+[train] groups=600 examples=12000 (26s)
+[val] groups=90 examples=1800 (31s)
+[test_id] groups=300 examples=6000 (45s)
+[test_unseen_topology] groups=150 examples=3000 (51s)
+[test_unseen_template] groups=150 examples=3000 (66s)
+[test_unseen_family] groups=150 examples=3000 (82s)
+{
+  "stats": {
+    "groups": 1440,
+    "attach_fixed=True": 1440,
+    "base_attempts": 2006,
+    "cell=entity_only": 304,
+    "cell=leader_leader": 1025,
+    "cell=none": 111
+  },
+  "n_examples": 28800,
+  "leakage_ok": true,
+  "build_seconds": 82.3
+}

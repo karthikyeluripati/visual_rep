@@ -329,3 +329,8 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   - **References for fine-tuned M1:** test_id = pilot M1 (strict_v2 test_id is byte-identical); held-out splits = transfer M1.
   - **API models:** not included (they need keys and send benchmark images to outside providers); this needs a separate PI decision.
   - Amendment, before launch: Qwen3-VL-32B is dropped (about 66 GB of weights against a 50 GB container disk). The sweep has 8 models.
+- 2026-11-20 — **Data-scale run completed** (`research/datascale_report.md`, commit 884e539).
+  - **Q1:** `cf_pairs_matter`, noStyle − noCF = +3.6 pp [1.6, 5.5] pooled unseen. Single seed per arm; the gain is mostly on
+    unseen topology.
+  - **Q2:** n* = 600, and the curve is not saturated.
+  - **Q3:** M1 pooled unseen = 0.858 ± 0.012 over 3 seeds.
