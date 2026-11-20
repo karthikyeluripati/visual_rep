@@ -350,3 +350,9 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   - **Two low-validity runs:** Idefics3 and SmolVLM2 give a legal candidate only 34–38% of the time. They are reported separately.
   - **Revisions:** not recorded at run time; resolved post hoc via the HF API (unambiguous, since every model's last
     modification predates the run). The backend now records them.
+- 2026-11-20 — **Robustness checks** (under the PI's "meet the targets" approval; about $14). Pre-registered in
+  `src/relbind/robustness_analysis.py`:
+  - **R1, cf-pair replication:** noCF and noStyle at seeds 1 and 2 (seed 0 from the data-scale run). `replicated` iff the mean of
+    the per-seed (noStyle − noCF) differences on pooled unseen is ≥ 3 pp AND every per-seed difference is > 0.
+  - **R2, prompt sensitivity:** the B_reasoning prompt for the 3 best zero-shot models (Qwen3-VL-8B, Qwen3-VL-4B, InternVL3-8B)
+    on 100 groups per sweep split. `prompt_robust` iff all 3 stay below the tracer on the same leader-leader pairs.
