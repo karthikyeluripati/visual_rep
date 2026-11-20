@@ -1,45 +1,49 @@
-# Paper outline (conditional on evidence)
+# Paper outline: target NeurIPS 2027 Evaluations & Datasets track (revised 2026-11-20)
 
-Working title: **Do Vision-Language Models Bind Annotations by Connectivity or by Prior?
-Counterfactual Relational Grounding in Diagrams.**
-(Original working title "RelBind: Learning Counterfactual Relational Grounding in VLMs" is kept
-only if Gate 3 passes.)
+**Working title:** *Following the Line: Strict Counterfactual Evaluation of Connector Binding in Vision-Language Models*
 
-Every claim below is tagged with the gate that must pass before it can appear in the paper.
+The method track (relational head, contrastive grounding, RL) was **stopped** by the pre-registered transfer rule
+(`research/transfer_report.md`). The previous outline is in git history (before commit 2c498f5).
+Every claim is tagged with its evidence: ✅ done, ⏳ running, ❌ pending a PI action.
 
 ## Contributions
 
-- **C1 (benchmark, Gate 1 ✓ partial, audit pending).** RelBind-Bench: procedurally generated
-  annotation→entity binding with *connectivity-swap* pairs that are pixel-identical outside the swapped
-  connectors, plus style and reroute negative controls, across 3 diagram families and held-out
-  template, topology, font and domain splits. PCA is immune to position/text shortcuts by construction.
-- **C4 (diagnosis, Gate 2).** Decomposition of failures into perception, proximity capture,
-  stuck/partner capture, crossing switches and other association errors, under oracle crop, OCR,
-  box and graph conditions.
-- **C2 (training study, Gate 3).** Data vs. objective: unpaired relation SFT vs. counterfactually paired
-  SFT vs. paired SFT + pairwise counterfactual-negative margin, at matched data and compute.
-  Framed as *discriminative grounding post-training*, not a new representation architecture.
-- **C3 (RL, Gate 5).** Only if it beats the best SFT and inference-time crop+verify at matched compute.
-  Otherwise it is removed.
+- **C1, benchmark.** RelBind-Bench uses strict counterfactual twins: connector paths are swapped while arrowheads stay
+  fixed, and the images are pixel-identical outside a 3-px mask. It adds reroute and style controls, crossing-balanced
+  cells, held-out topology/template/family splits, a leakage audit and a reproducible build. ✅
+  The human audit is ❌.
+- **C2, diagnosis.**
+  - Zero-shot VLMs fail: Qwen3-VL-4B gets 0.17 pair accuracy against the tracer's 0.66, with a stuck rate of 0.51. ✅
+  - Recognition is not the bottleneck: annotations are read 95% of the time, yet relational accuracy given recognition is 0.54. ✅
+  - The failure is concentrated on crossings: 0.77 → 0.15. ✅
+  - The oracle graph closes most of the gap. ✅
+  - The failure holds across 8 open VLMs. ⏳ (sweep)
+- **C3, learnability.**
+  - 600 groups of answer-only SFT reach 0.97 in-distribution, 0.82 on unseen topology, 0.86 on unseen templates and
+    0.90 on an unseen family. ✅
+  - The counterfactual-pair contribution and the data-efficiency curve. ⏳
+  - Seed variance. ⏳
+- **C4, negative result.** Explicit relational supervision hurts: relation-SFT, rationale-first coordinates and a
+  contrastive relational head are all worse than answer-only SFT on every split, by 9–51 pp. ✅
+- **C5, external validity.** A real patent-drawing set with real-image strict counterfactuals (label-patch swaps). ❌ (labels)
 
 ## Sections
 
-1. Introduction: the motivating failure (text read correctly, attached to the wrong entity);
-   what is new relative to Knossos/Ariadne, Trace-Without-Tracking, Enginuity and SaCLIP.
-2. Related work: diagram topology extraction; path following; grounded/counterfactual RL
-   (ViGoRL, FGRPO, CofactGVR, DeFacto, VC-OPD); diagram evidence grounding (DRAGON, RefChartQA, RD-Bench).
-3. RelBind-Bench: generation, verification rules, counterfactual construction, pixel checks,
-   splits and leakage audit, human audit, real-world set.
-4. Diagnostic study (Phase 1): conditions A–F, P_read, heuristics; error taxonomy; strata
-   (crossings, length, proximity rank).
-5. Training study (Phase 2, if Gate 2 passes).
-6. Limitations: synthetic generator, selection bias of rejection sampling, single base model family,
-   real-world set size.
+1. **Introduction.** A model reads the label correctly but attaches it to the wrong part. Why strict counterfactuals
+   are needed: they defeat arrowhead and layout priors.
+2. **Related work.** Diagram topology and path following; counterfactual and minimal-pair VLM benchmarks; chart and
+   diagram QA grounding; data-centric fixes versus objective-centric fixes.
+3. **RelBind-Bench.** Generation; verifier; strict swap construction and pixel check; splits; leakage; human audit;
+   datasheet.
+4. **Zero-shot diagnosis.** The multi-model sweep; conditions A–F and P_read; error taxonomy; crossing strata;
+   tracer baselines; frozen-feature probe (Exp. 1).
+5. **Learnability.** Answer-only SFT and transfer; counterfactual-pair ablation; data-efficiency curve; seeds.
+6. **What does not help.** Relation-SFT, rationale-first and the relational head (a pre-registered negative result).
+7. **Real drawings.** Patent set, labeller agreement, zero-shot versus fine-tuned results.
+8. **Limitations.** Single generator and style system; rejection-sampling selection bias; fine-tuning on one base
+   model; real-set size; markers as an added visual element.
 
-## Figures and tables (planned)
+## Reproducibility appendix
 
-- Fig 1: an orig/cf pair with the model's answer stuck on the old target.
-- Table 1: diagnostic conditions × splits (PCA, acc_orig, stuck, invariance) with 95% CIs.
-- Fig 2: PCA vs. number of crossings and connector length.
-- Table 2: error taxonomy.
-- Table 3: training arms on held-out splits (paired differences, McNemar, 3 seeds).
+Pre-registration and the full protocol change log, including the errors and retractions. Also: build hashes, adapter
+sha256 values, pinned versions and the cost ledger.
