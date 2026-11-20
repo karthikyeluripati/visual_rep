@@ -356,3 +356,8 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     the per-seed (noStyle − noCF) differences on pooled unseen is ≥ 3 pp AND every per-seed difference is > 0.
   - **R2, prompt sensitivity:** the B_reasoning prompt for the 3 best zero-shot models (Qwen3-VL-8B, Qwen3-VL-4B, InternVL3-8B)
     on 100 groups per sweep split. `prompt_robust` iff all 3 stay below the tracer on the same leader-leader pairs.
+- 2026-11-20 — **Robustness checks completed** (commit 412667d; about $17.50, uptime about 4 h).
+  - **R1, `cf_pairs_matter_replicated = true`:** noStyle − noCF on pooled unseen is +3.6 / +1.8 / +6.2 pp at seeds 0/1/2,
+    mean +3.9 pp, all > 0. noCF = 0.791 ± 0.012; noStyle = 0.829 ± 0.010.
+  - **R2, `prompt_robust = true`:** with the B_reasoning prompt, Qwen3-VL-8B scores 0.191, Qwen3-VL-4B 0.177 and InternVL3-8B 0.100
+    pooled (leader-leader 0.149 / 0.130 / 0.069), against the tracer's 0.689 on the same pairs. Reasoning does not help.

@@ -1,0 +1,111 @@
+{
+ "R1": {
+  "pooled_unseen": {
+   "M1_noCF_s0": 0.7967,
+   "M1_noStyle_s0": 0.8322,
+   "M1_noCF_s1": 0.8,
+   "M1_noStyle_s1": 0.8178,
+   "M1_noCF_s2": 0.7767,
+   "M1_noStyle_s2": 0.8383
+  },
+  "d_pp_by_seed": {
+   "0": 3.6,
+   "1": 1.8,
+   "2": 6.2
+  },
+  "mean_d_pp": 3.9,
+  "cf_pairs_matter_replicated": true
+ },
+ "R2": {
+  "models": {
+   "B_OpenGVLab_InternVL3-8B-hf": {
+    "pooled": {
+     "num": 120,
+     "den": 1200,
+     "value": 0.1,
+     "ci95": [
+      0.0825,
+      0.1183
+     ]
+    },
+    "leader_leader": {
+     "num": 57,
+     "den": 824,
+     "value": 0.0692,
+     "ci95": [
+      0.0522,
+      0.0862
+     ]
+    },
+    "tracer_same_pairs_leader_leader": {
+     "num": 568,
+     "den": 824,
+     "value": 0.6893,
+     "ci95": [
+      0.6299,
+      0.7476
+     ]
+    }
+   },
+   "B_Qwen_Qwen3-VL-4B-Instruct": {
+    "pooled": {
+     "num": 212,
+     "den": 1200,
+     "value": 0.1767,
+     "ci95": [
+      0.1525,
+      0.2
+     ]
+    },
+    "leader_leader": {
+     "num": 107,
+     "den": 824,
+     "value": 0.1299,
+     "ci95": [
+      0.1044,
+      0.1578
+     ]
+    },
+    "tracer_same_pairs_leader_leader": {
+     "num": 568,
+     "den": 824,
+     "value": 0.6893,
+     "ci95": [
+      0.6299,
+      0.7476
+     ]
+    }
+   },
+   "B_Qwen_Qwen3-VL-8B-Instruct": {
+    "pooled": {
+     "num": 229,
+     "den": 1200,
+     "value": 0.1908,
+     "ci95": [
+      0.165,
+      0.2175
+     ]
+    },
+    "leader_leader": {
+     "num": 123,
+     "den": 824,
+     "value": 0.1493,
+     "ci95": [
+      0.1226,
+      0.176
+     ]
+    },
+    "tracer_same_pairs_leader_leader": {
+     "num": 568,
+     "den": 824,
+     "value": 0.6893,
+     "ci95": [
+      0.6299,
+      0.7476
+     ]
+    }
+   }
+  },
+  "prompt_robust": true
+ }
+}

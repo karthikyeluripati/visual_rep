@@ -1,0 +1,66 @@
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "test_unseen_template",
+    "test_unseen_family",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "B_reasoning",
+    "--backend",
+    "qwen",
+    "--model",
+    "Qwen/Qwen3-VL-8B-Instruct",
+    "--batch-size",
+    "32",
+    "--max-groups",
+    "100",
+    "--out",
+    "experiments/robust/B_Qwen_Qwen3-VL-8B-Instruct"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id",
+      "test_unseen_template",
+      "test_unseen_family"
+    ],
+    "condition": "B_reasoning",
+    "backend": "qwen",
+    "model": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": 100,
+    "batch_size": 32,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "experiments/robust/B_Qwen_Qwen3-VL-8B-Instruct"
+  },
+  "n_examples": 3000,
+  "seconds": 1541.7,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "revision": null,
+    "resolved_commit": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 768
+}
