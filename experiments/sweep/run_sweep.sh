@@ -13,7 +13,7 @@ mkdir -p $O/logs $R
 nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv > $O/logs/gpu.txt
 df -h /workspace > $O/logs/disk.txt
 [ -f $D/manifest.json ] || RELBIND_GIT_COMMIT=$(cat COMMIT) $PY -m relbind.build --config configs/strict_v3.json --out $D --workers 24 > $O/logs/build.log 2>&1
-$PY -c "import json;a=json.load(open('$D/manifest.json'))['examples_sha256'];b=json.load(open('experiments/datascale/ref/strict_v3_manifest.json'))['examples_sha256'];assert a==b;print('strict_v3 identical')" || { log "build differs"; echo "$(date -Is) SWEEP_FAILED"; exit 1; }
+$PY -c "import json;a=json.load(open('$D/manifest.json'))['examples_sha256'];b=json.load(open('experiments/sweep/ref/strict_v3_manifest.json'))['examples_sha256'];assert a==b;print('strict_v3 identical')" || { log "build differs"; echo "$(date -Is) SWEEP_FAILED"; exit 1; }
 SPL=$($PY -c "import json;print(' '.join(json.load(open('configs/sweep_models.json'))['splits']))")
 $PY -c "import json;[print(m['id'],m['bs'],m.get('revision','')) for m in json.load(open('configs/sweep_models.json'))['models']]" | while read MID BS REV; do
   TAG=$(echo $MID | tr '/' '_')
@@ -35,6 +35,6 @@ done
 $PY -m relbind.baselines.heuristics --data $D --splits $SPL --method ray_tracer --out $R/ray_tracer.jsonl
 log "analysis"
 $PY -m relbind.sweep_analysis --data $D --sweep $O --tracer $R/ray_tracer.jsonl \
-    --ref M1_finetuned=experiments/datascale/ref/M1_n600_s0_predictions.jsonl M1_finetuned=experiments/sweep/ref/M1_pilot_predictions.jsonl --out $R/sweep_analysis.json > $O/logs/analysis.log 2>&1
+    --ref M1_finetuned=experiments/sweep/ref/M1_n600_s0_predictions.jsonl M1_finetuned=experiments/sweep/ref/M1_pilot_predictions.jsonl --out $R/sweep_analysis.json > $O/logs/analysis.log 2>&1
 tail -25 $O/logs/analysis.log
 log "SWEEP_DONE"
