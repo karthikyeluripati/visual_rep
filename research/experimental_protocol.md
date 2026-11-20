@@ -318,3 +318,13 @@ scale); contamination of the base model with similar public diagrams; prompts tu
       M1_n600.
     - Q2 (data efficiency): n* = the smallest n reaching the n600 seed mean minus 5 pp.
     - Q3 (seeds): mean, sd and range across the 3 seeds.
+- 2026-11-20 — **Zero-shot multi-model sweep approved by the PI** ("carry on then, meet the targets"). Target venue: NeurIPS 2027
+  Evaluations & Datasets track. Pre-registered before any sweep output exists.
+  - **Models:** the 9 HF-native VLMs in `configs/sweep_models.json` (2B–32B: Qwen3-VL 2B/4B/8B/32B, Qwen2.5-VL-7B,
+    InternVL3-8B-hf, LLaVA-OneVision-7B, SmolVLM2-2.2B, Gemma-3-12B). Revisions are resolved and recorded at download time.
+    A model that fails its 2-group smoke test is logged and skipped. A gated model with no token counts as a skip, not a result.
+  - **Setup:** A_direct prompt, orig+cf, on strict_v3 test_id, test_unseen_template and test_unseen_family.
+  - **H_general** (`src/relbind/sweep_analysis.py`): "zero-shot failure is general" iff ≥ 75% of evaluated models are below the
+    ray tracer on pooled leader-leader pair accuracy AND all are below fine-tuned M1 on pooled pair accuracy.
+  - **References for fine-tuned M1:** test_id = pilot M1 (strict_v2 test_id is byte-identical); held-out splits = transfer M1.
+  - **API models:** not included (they need keys and send benchmark images to outside providers); this needs a separate PI decision.

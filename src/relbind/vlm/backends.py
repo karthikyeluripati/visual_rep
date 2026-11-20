@@ -2,7 +2,8 @@
 
 mock : deterministic, CPU-only stand-in that answers from a heuristic baseline and emits text in the
        same format as a real model. Used to smoke-test the whole harness before any GPU time.
-qwen : Hugging Face transformers Qwen3-VL (e.g. Qwen/Qwen3-VL-4B-Instruct), greedy decoding, batched.
+qwen : any Hugging Face transformers image-text-to-text model with a chat template (Qwen3-VL, InternVL-hf,
+       LLaVA-OneVision-hf, Gemma-3, SmolVLM2, ...), greedy decoding, batched, left padding.
        Requires `pip install -e .[vlm]`; exact versions and model revision are logged per run.
 """
 from __future__ import annotations
@@ -56,11 +57,17 @@ class QwenVLBackend:
         if max_pixels is not None:
             kw["max_pixels"] = max_pixels
         self.processor = AutoProcessor.from_pretrained(model_id, revision=revision, **kw)
-        self.processor.tokenizer.padding_side = "left"
+        tok = getattr(self.processor, "tokenizer", None)
+        if tok is not None:
+            tok.padding_side = "left"
+            if tok.pad_token is None:
+                tok.pad_token = tok.eos_token
+        if hasattr(self.processor, "padding_side"):
+            self.processor.padding_side = "left"
         self.model = AutoModelForImageTextToText.from_pretrained(
             model_id, revision=revision, dtype=getattr(torch, dtype), attn_implementation=attn, device_map="cuda")
         self.model.eval()
-        self._info = {"backend": "qwen", "model_id": model_id, "revision": revision,
+        self._info = {"backend": "hf", "model_id": model_id, "revision": revision,
                       "resolved_commit": getattr(self.model.config, "_commit_hash", None),
                       "transformers": transformers.__version__, "torch": torch.__version__,
                       "dtype": dtype, "attn": attn, "max_pixels": max_pixels,
