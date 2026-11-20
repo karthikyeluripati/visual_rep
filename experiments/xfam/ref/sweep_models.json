@@ -1,0 +1,51 @@
+{
+  "notes": "Zero-shot multi-model sweep (target: NeurIPS 2027 E&D). HF-native models only (no trust_remote_code). Revisions resolved at download time and recorded in each run_info.json. Order: small/fast first. A model that fails its 2-group smoke is logged and skipped. Qwen3-VL-32B removed before launch: ~66 GB of weights exceed the pod's 50 GB container disk (41 GB free). Amendment 2026-11-20 (after attempt 1, before these models ran): attempt 1 evaluated the 4 Qwen models; InternVL3 and LLaVA-OV failed on disk (hf xet chunk cache not cleaned), SmolVLM2 on a missing dependency (num2words), Gemma-3 is gated (no HF token; remains a skip). Added two non-gated non-Qwen models (Idefics3-8B, Pixtral-12B) to keep family diversity.",
+  "splits": [
+    "test_id",
+    "test_unseen_template",
+    "test_unseen_family"
+  ],
+  "models": [
+    {
+      "id": "Qwen/Qwen3-VL-2B-Instruct",
+      "bs": 32
+    },
+    {
+      "id": "Qwen/Qwen3-VL-4B-Instruct",
+      "bs": 32,
+      "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17"
+    },
+    {
+      "id": "Qwen/Qwen3-VL-8B-Instruct",
+      "bs": 24
+    },
+    {
+      "id": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "bs": 24
+    },
+    {
+      "id": "OpenGVLab/InternVL3-8B-hf",
+      "bs": 16
+    },
+    {
+      "id": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "bs": 16
+    },
+    {
+      "id": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+      "bs": 16
+    },
+    {
+      "id": "google/gemma-3-12b-it",
+      "bs": 12
+    },
+    {
+      "id": "HuggingFaceM4/Idefics3-8B-Llama3",
+      "bs": 8
+    },
+    {
+      "id": "mistral-community/pixtral-12b",
+      "bs": 8
+    }
+  ]
+}

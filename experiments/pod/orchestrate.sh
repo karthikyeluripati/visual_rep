@@ -20,6 +20,10 @@ for i in $(seq 1 20); do $SSH true 2>/dev/null && break; sleep 15; done
 tar --force-local --exclude=__pycache__ -czf orch_src.tgz src tests configs pyproject.toml experiments/pod \
   "$(dirname "$RUN")" experiments/exp1 results/exp1 data/builds/strict_v2
 scp -q -o StrictHostKeyChecking=accept-new -P "$PORT" orch_src.tgz root@"$HOST":/workspace/ && rm orch_src.tgz
+# HF token (gated models): streamed via stdin into a 0600 file; never on a command line, never bundled
+if grep -q '^HF_TOKEN=' .env 2>/dev/null; then
+  grep '^HF_TOKEN=' .env | head -1 | cut -d= -f2- | tr -d '\r\n' | $SSH 'umask 077; cat > /workspace/.hf_token' && log "hf token placed"
+fi
 COMMIT=$(git rev-parse HEAD)
 $SSH "mkdir -p /workspace/visual_rep /workspace/logs && cd /workspace/visual_rep && tar --no-same-owner -xzf /workspace/orch_src.tgz && echo $COMMIT > COMMIT && \
   bash experiments/pod/setup_pod.sh > /workspace/logs/setup.log 2>&1; tail -3 /workspace/logs/setup.log; \

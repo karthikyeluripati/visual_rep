@@ -38,6 +38,18 @@ MODEL = "Qwen/Qwen3-VL-4B-Instruct"
 REV = "ebb281ec70b05090aa6165b016eac8ec08e71b17"
 HEAD_LAYER = 18  # chosen on val by the Exp-1 probe (amendment logged before any pilot output)
 CELL = 32
+PER_IMAGE_KEYS = ("pixel_values", "image_grid_thw", "image_sizes", "num_patches", "pixel_attention_mask")
+PROJECTOR_KEYS = ("visual.merger.", "multi_modal_projector.")  # Qwen3-VL merger | InternVL/LLaVA-hf projector
+
+
+def set_model(model_id, revision):
+    """Select the base model (default: the pilot's Qwen3-VL-4B). Called once from main()."""
+    global MODEL, REV
+    MODEL, REV = model_id, revision
+
+
+def is_projector(name):
+    return any(k in name for k in PROJECTOR_KEYS) and "lora" not in name
 
 
 # ----------------------------------------------------------------------------- targets
@@ -97,7 +109,7 @@ class Encoder:
         n = enc["input_ids"].shape[1]
         item = {"labels": torch.tensor([[-100] * n + tgt])}
         for k, v in enc.items():
-            if k in ("pixel_values", "image_grid_thw"):
+            if k in PER_IMAGE_KEYS:
                 item[k] = v
             elif torch.is_tensor(v) and v.dim() == 2 and v.shape[1] == n:  # per-token keys
                 fill = 1 if k == "attention_mask" else 0
@@ -116,7 +128,7 @@ def collate(items, pad_id, side="right"):
         if k.startswith("_"):
             continue
         vs = [it[k] for it in items]
-        if k in ("pixel_values", "image_grid_thw"):
+        if k in PER_IMAGE_KEYS:
             out[k] = torch.cat(vs, 0)
         elif torch.is_tensor(vs[0]) and vs[0].dim() == 2:
             fill = pad_id if k == "input_ids" else (-100 if k == "labels" else 0)
@@ -172,7 +184,7 @@ def build_model(arm):
                      target_modules=r".*language_model.*\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)")
     model = get_peft_model(model, cfg)
     for n, p in model.named_parameters():
-        if "visual.merger." in n and "lora" not in n:
+        if is_projector(n):
             p.requires_grad = True
     head = None
     if arm == "M3":
@@ -206,7 +218,12 @@ def main(argv=None):
     ap.add_argument("--check-reload", action="store_true")
     ap.add_argument("--no-eval", action="store_true")
     ap.add_argument("--eval-variants", nargs="+", default=["orig", "cf"])
+    ap.add_argument("--model", default=MODEL, help="base model (default: pilot Qwen3-VL-4B); M1 only for non-Qwen")
+    ap.add_argument("--revision", default=None)
     args = ap.parse_args(argv)
+    if args.model != MODEL:
+        assert args.arm == "M1", "non-default base models are supported for the answer-only arm only"
+        set_model(args.model, args.revision)
     torch.manual_seed(args.seed)
     random.seed(args.seed)
     data, out = Path(args.data), Path(args.out)
@@ -286,7 +303,7 @@ def main(argv=None):
             gn = torch.nn.utils.clip_grad_norm_(params, 1.0)
             g_head = sum(p.grad.abs().sum().item() for p in head.parameters() if p.grad is not None) if head else None
             g_merger = sum(p.grad.abs().sum().item() for n, p in model.named_parameters()
-                           if "visual.merger." in n and p.grad is not None)
+                           if is_projector(n) and p.grad is not None)
             opt.step()
             sched.step()
             opt.zero_grad(set_to_none=True)

@@ -361,3 +361,12 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     mean +3.9 pp, all > 0. noCF = 0.791 ± 0.012; noStyle = 0.829 ± 0.010.
   - **R2, `prompt_robust = true`:** with the B_reasoning prompt, Qwen3-VL-8B scores 0.191, Qwen3-VL-4B 0.177 and InternVL3-8B 0.100
     pooled (leader-leader 0.149 / 0.130 / 0.069), against the tracer's 0.689 on the same pairs. Reasoning does not help.
+- 2026-11-20 — **Cross-family learnability run** (under "meet the targets"; about $10–14). Pre-registered in `src/relbind/xfam_analysis.py`:
+  - **What runs:** M1 answer-only SFT with the pilot recipe (LoRA r16 on the language model plus the vision-language projector),
+    on InternVL3-8B-hf at revision 259a3b6, the same revision as the sweep.
+  - **Rule:** `transfers_across_families` iff the fine-tuned model's pooled pair accuracy on unseen template + unseen family
+    ≥ its own zero-shot base + 40 pp, with CI lower bound > 0.
+  - **Code:** the projector is selected by architecture (Qwen `visual.merger.`, InternVL `multi_modal_projector.`).
+    No other recipe change.
+  - **Also:** Gemma-3-12B zero-shot, run only if the PI's HF token has licence access. The token is placed on the pod as a
+    0600 file and redacted from logs.
