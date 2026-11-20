@@ -34,12 +34,7 @@ FORMAT = 'Reply with a single JSON object on the last line: {"answer": "<letter>
 
 
 def _font(size):
-    for p in ("assets/fonts/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf"):
-        try:
-            return ImageFont.truetype(p, size)
-        except OSError:
-            continue
-    return ImageFont.load_default()
+    return ImageFont.truetype(str(Path(__file__).parent / "assets" / "fonts" / "DejaVuSans.ttf"), size)  # vendored
 
 
 def draw_markers(img, pts, letters, r):
