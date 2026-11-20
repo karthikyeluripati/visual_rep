@@ -1,0 +1,12 @@
+2026-11-20T01:21:50+00:00 tests ok
+2026-11-20T01:21:50+00:00 build strict_v3 and strict_v2 (for identity check of shared splits)
+2026-11-20T01:24:05+00:00 split train identical to strict_v2: yes
+2026-11-20T01:24:05+00:00 split val identical to strict_v2: yes
+2026-11-20T01:24:05+00:00 split test_id identical to strict_v2: yes
+2026-11-20T01:24:05+00:00 split test_unseen_topology identical to strict_v2: yes
+  "errors": [],
+  "warnings": [
+2026-11-20T01:24:05+00:00 smoke: M2R, 4 steps, save->reload check
+smoke 4 {'weights_equal': True, 'reload_vs_reload_max_abs_logit_diff': 0.0, 'max_abs_logit_diff': 0.515625, 'top1_agree': True, 'unexpected_keys': 0, 'ok': True}
+2026-11-20T01:24:48+00:00 train+eval M1
+2026-11-20T01:27:23+00:00 TRANSFER_FAILED

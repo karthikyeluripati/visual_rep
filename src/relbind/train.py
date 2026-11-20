@@ -226,11 +226,6 @@ def main(argv=None):
     if args.max_steps:
         steps_total = min(steps_total, args.max_steps)
         batches = batches[: steps_total * args.accum]
-    # fp32 master weights for every trainable tensor (pure-bf16 AdamW diverged in the transfer run, 2026-11-19);
-    # compute stays bf16 via autocast; weights are cast back to bf16 before saving/eval (= pilot eval path).
-    for p in model.parameters():
-        if p.requires_grad:
-            p.data = p.data.float()
     params = [p for p in model.parameters() if p.requires_grad] + (list(head.parameters()) if head else [])
     n_train = sum(p.numel() for p in params)
     opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.0)
@@ -242,11 +237,11 @@ def main(argv=None):
     t0, step = time.time(), 0
     recent = []
     acc = defaultdict(float)  # per-optimizer-step means over micro-batches (pilot logged only the last micro-batch)
+    acc_micro = []
     for bi, batch in enumerate(batches):
         items = [enc.train_item(args.arm, e) for e in batch]
         inp = {k: v.cuda() for k, v in collate(items, pad_id).items()}
-        with torch.autocast("cuda", dtype=torch.bfloat16):
-            outp = model(**inp, output_hidden_states=(head is not None))
+        outp = model(**inp, output_hidden_states=(head is not None))
         loss_sft = outp.loss
         loss = loss_sft
         l_rel = l_pair = torch.zeros((), device="cuda")
@@ -282,6 +277,7 @@ def main(argv=None):
         (loss / args.accum).backward()
         for k, v in (("loss", loss), ("sft", loss_sft), ("rel", l_rel), ("pair", l_pair)):
             acc[k] += v.item() / args.accum
+        acc_micro.append(round(loss_sft.item(), 4))
         if (bi + 1) % args.accum == 0:
             gn = torch.nn.utils.clip_grad_norm_(params, 1.0)
             g_head = sum(p.grad.abs().sum().item() for p in head.parameters() if p.grad is not None) if head else None
@@ -294,7 +290,9 @@ def main(argv=None):
             rec = {"step": step, "loss": round(acc["loss"], 4), "sft": round(acc["sft"], 4),
                    "rel": round(acc["rel"], 4), "pair": round(acc["pair"], 4), "grad_norm": round(float(gn), 4),
                    "grad_abs_head": g_head, "grad_abs_merger": round(g_merger, 4), "lr": sched.get_last_lr()[0],
-                   "sec": round(time.time() - t0, 1)}
+                   "sec": round(time.time() - t0, 1), "sft_micro": list(acc_micro)}
+            acc.clear()  # reset every optimizer step (missing in transfer attempts 1-2: logged values were running sums)
+            acc_micro.clear()
             log.write(json.dumps(rec) + "\n")
             log.flush()
             if step % 20 == 0 or step <= 3:
@@ -307,10 +305,7 @@ def main(argv=None):
         if step >= steps_total:
             break
     log.close()
-    for p in model.parameters():
-        if p.requires_grad:
-            p.data = p.data.to(torch.bfloat16)
-    sd = trainable_state(model, head)
+    sd =trainable_state(model, head)
     torch.save(sd, out / "trainable_state.pt")
     sha = hashlib.sha256((out / "trainable_state.pt").read_bytes()).hexdigest()
     info = {"arm": args.arm, "steps": step, "micro_batches": len(batches[: step * args.accum]), "accum": args.accum,

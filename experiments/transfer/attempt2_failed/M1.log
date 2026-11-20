@@ -1,0 +1,17 @@
+Loading weights:   0%|          | 0/713 [00:00<?, ?it/s]Loading weights:   1%|          | 7/713 [00:00<00:21, 33.25it/s]Loading weights:   2%|▏         | 11/713 [00:00<00:30, 23.08it/s]Loading weights:  19%|█▉        | 136/713 [00:00<00:02, 278.22it/s]Loading weights:  29%|██▉       | 205/713 [00:01<00:02, 233.62it/s]Loading weights:  47%|████▋     | 332/713 [00:01<00:00, 411.66it/s]Loading weights:  55%|█████▌    | 395/713 [00:01<00:00, 329.72it/s]Loading weights:  65%|██████▍   | 462/713 [00:01<00:00, 387.35it/s]Loading weights:  75%|███████▌  | 536/713 [00:01<00:00, 455.19it/s]Loading weights:  90%|█████████ | 644/713 [00:01<00:00, 588.00it/s]Loading weights: 100%|██████████| 713/713 [00:01<00:00, 395.01it/s]
+/workspace/venv/lib/python3.12/site-packages/transformers/modeling_utils.py:3195: FutureWarning: `gradient_checkpointing_enable` is deprecated and will be removed in v6. Use `activation_checkpointing_enable` instead.
+  warnings.warn(
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+{'step': 1, 'loss': 0.6956, 'sft': 0.6956, 'rel': 0.0, 'pair': 0.0, 'grad_norm': 11.2962, 'grad_abs_head': None, 'grad_abs_merger': 2430.7115, 'lr': 6.6666209741580884e-06, 'sec': 4.3}
+{'step': 2, 'loss': 2.5622, 'sft': 2.5622, 'rel': 0.0, 'pair': 0.0, 'grad_norm': 9.9417, 'grad_abs_head': None, 'grad_abs_merger': 2111.1083, 'lr': 9.999725846827562e-06, 'sec': 8.0}
+{'step': 3, 'loss': 3.1369, 'sft': 3.1369, 'rel': 0.0, 'pair': 0.0, 'grad_norm': 8.8861, 'grad_abs_head': None, 'grad_abs_merger': 2445.307, 'lr': 1.3332510883211072e-05, 'sec': 11.5}
+{'step': 20, 'loss': 9.7546, 'sft': 9.7546, 'rel': 0.0, 'pair': 0.0, 'grad_norm': 0.4721, 'grad_abs_head': None, 'grad_abs_merger': 1224.8249, 'lr': 6.980826633788956e-05, 'sec': 72.1}
+{'step': 40, 'loss': 11.6585, 'sft': 11.6585, 'rel': 0.0, 'pair': 0.0, 'grad_norm': 0.9447, 'grad_abs_head': None, 'grad_abs_merger': 2330.8751, 'lr': 9.890738003669029e-05, 'sec': 144.4}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/visual_rep/src/relbind/train.py", line 410, in <module>
+    main()
+  File "/workspace/visual_rep/src/relbind/train.py", line 306, in main
+    raise RuntimeError(f"diverged: mean sft over last 20 steps > 4.0 at step {step}")
+RuntimeError: diverged: mean sft over last 20 steps > 4.0 at step 40

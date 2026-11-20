@@ -285,3 +285,18 @@ scale); contamination of the base model with similar public diagrams; prompts tu
       (3) in-memory vs reload agree on the top-1 token; the raw Δlogit is logged.
   - **Evidence:** logs in `experiments/transfer/attempt1_failed/`.
   - **Note:** the earlier statement that the fp32 smoke had passed was a misreading of the stale bf16 smoke log.
+- 2026-11-20 — **CORRECTION: the transfer-run "divergence" never happened.** The per-step logging added after the pilot never
+  reset its accumulator, because a scripted edit silently failed to match. So the logged `loss`/`sft` were running sums over steps.
+  - **Evidence:** the differences between consecutive logged values in attempt 2 are all positive, with mean 0.29 per step over steps 1–40
+    (pilot: 0.34). The step-by-step pattern tracks the pilot.
+  - **Consequences:**
+    - the two entries above that report M1 diverging under pure bf16 are **retracted**;
+    - attempt 1 was killed by hand on that misreading;
+    - attempt 2 was killed by the divergence guard, which was reading the running sum.
+  - **Actions:**
+    - the fp32-master-weight and autocast change is **reverted**, so training is again exactly the pilot recipe;
+    - the accumulator is reset every step, and per-micro-batch sft is logged (`sft_micro`);
+    - the divergence guard is kept, now on true per-step means;
+    - evaluation of the reloaded saved artifact and the strict reload check are kept.
+  - **Logs:** `experiments/transfer/attempt2_failed/`.
+  - **Cost of the mistake:** about $1.45 of GPU (attempts 1–2), plus several hours of GPU-availability waiting.
