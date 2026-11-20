@@ -300,3 +300,8 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     - evaluation of the reloaded saved artifact and the strict reload check are kept.
   - **Logs:** `experiments/transfer/attempt2_failed/`.
   - **Cost of the mistake:** about $1.45 of GPU (attempts 1–2), plus several hours of GPU-availability waiting.
+- 2026-11-20 — **Transfer run completed** (`research/transfer_report.md`, commit 381b902).
+  - **Pre-registered outcome:** `drop_or_reframe_method_claim`. M1 drops from val by 12.7 pp on unseen template and 8.3 pp on
+    unseen family; neither M3 nor M2R beats M1 on any split.
+  - **Recommendation:** stop the relational-method / RL track, and reframe the work as a diagnostic and data result.
+    Any further GPU spend needs PI approval.

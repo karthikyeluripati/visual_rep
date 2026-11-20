@@ -1,0 +1,21 @@
+{
+ "test_unseen_template": {
+  "M1_val": 0.9833,
+  "M1_split": 0.8567,
+  "drop_pp": 12.7,
+  "verdict": "transfers",
+  "method_helps": []
+ },
+ "test_unseen_family": {
+  "M1_val": 0.9833,
+  "M1_split": 0.9,
+  "drop_pp": 8.3,
+  "verdict": "transfers",
+  "method_helps": []
+ },
+ "recommendation": "drop_or_reframe_method_claim"
+}
+val {'M1': 0.9833, 'M2R': 0.8111, 'M3': 0.8972, 'tracer': 0.6083} head: {'M3_head': 0.9389}
+test_unseen_topology {'M1': 0.815, 'M2R': 0.4717, 'M3': 0.5983, 'M0_base': 0.0483, 'tracer': 0.5833} head: {'M3_head': 0.7533}
+test_unseen_template {'M1': 0.8567, 'M2R': 0.345, 'M3': 0.575, 'M0_base': 0.1967, 'tracer': 0.6567} head: {'M3_head': 0.5633}
+test_unseen_family {'M1': 0.9, 'M2R': 0.6167, 'M3': 0.7667, 'M0_base': 0.2467, 'tracer': 0.9667} head: {'M3_head': 0.9333}

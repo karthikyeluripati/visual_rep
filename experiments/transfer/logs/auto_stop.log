@@ -1,0 +1,2 @@
+2026-11-20T01:34:42+00:00 waiting for 'TRANSFER_(DONE|FAILED)' (extended regex) in /workspace/logs/run.log
+2026-11-20T04:49:17+00:00 pipeline done; bundling

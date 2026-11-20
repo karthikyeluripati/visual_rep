@@ -1,0 +1,17 @@
+{
+  "arm": "M2R",
+  "steps": 600,
+  "micro_batches": 1200,
+  "accum": 2,
+  "n_trainable_params": 60301824,
+  "lr": 0.0001,
+  "lam": 0.5,
+  "margin": 1.0,
+  "seed": 0,
+  "head_layer": 18,
+  "train_seconds": 2567.1,
+  "state_sha256": "90aef3b28c5f4097436b866aaa6e774846b4cb2f4b36f23233ba1f9e228d6f5c",
+  "state_bytes": 186853603,
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17"
+}

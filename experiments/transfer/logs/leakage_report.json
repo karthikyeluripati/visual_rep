@@ -1,0 +1,10 @@
+{
+  "errors": [],
+  "warnings": [
+    "7 cross-split base-image pairs with dHash distance <= 4"
+  ],
+  "near_duplicate_pairs": 7,
+  "min_cross_split_dhash_distance": 3,
+  "shared_relation_signatures": 0,
+  "ok": true
+}

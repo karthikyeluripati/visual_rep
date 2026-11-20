@@ -1,0 +1,25 @@
+{
+  "arm": "M2R",
+  "steps": 4,
+  "micro_batches": 8,
+  "accum": 2,
+  "n_trainable_params": 60301824,
+  "lr": 0.0001,
+  "lam": 0.5,
+  "margin": 1.0,
+  "seed": 0,
+  "head_layer": 18,
+  "train_seconds": 18.9,
+  "state_sha256": "32df898f62a2a2937b5bfb24ac084e600b8a7c4170ffda1387e7ddf04c9b37ff",
+  "state_bytes": 186853603,
+  "model": "Qwen/Qwen3-VL-4B-Instruct",
+  "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+  "reload_check": {
+    "weights_equal": true,
+    "reload_vs_reload_max_abs_logit_diff": 0.0,
+    "max_abs_logit_diff": 0.0,
+    "top1_agree": true,
+    "unexpected_keys": 0,
+    "ok": true
+  }
+}
