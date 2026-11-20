@@ -42,6 +42,15 @@ class MockBackend:
         return {"backend": "mock"}
 
 
+def _hub_sha(model_id, revision):
+    """transformers 5 no longer sets config._commit_hash; ask the hub (sweep attempt 1-2 lost this field)."""
+    try:
+        from huggingface_hub import HfApi
+        return HfApi().model_info(model_id, revision=revision).sha
+    except Exception as e:  # offline etc. -> record why
+        return f"unresolved: {type(e).__name__}"
+
+
 class QwenVLBackend:
     name = "qwen"
 
@@ -68,7 +77,7 @@ class QwenVLBackend:
             model_id, revision=revision, dtype=getattr(torch, dtype), attn_implementation=attn, device_map="cuda")
         self.model.eval()
         self._info = {"backend": "hf", "model_id": model_id, "revision": revision,
-                      "resolved_commit": getattr(self.model.config, "_commit_hash", None),
+                      "resolved_commit": getattr(self.model.config, "_commit_hash", None) or _hub_sha(model_id, revision),
                       "transformers": transformers.__version__, "torch": torch.__version__,
                       "dtype": dtype, "attn": attn, "max_pixels": max_pixels,
                       "gpu": torch.cuda.get_device_name(0)}

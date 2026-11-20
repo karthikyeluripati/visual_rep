@@ -1,0 +1,77 @@
+/workspace/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:21<00:21, 21.37s/it]Fetching 2 files: 100%|██████████| 2/2 [00:23<00:00, 10.23s/it]Fetching 2 files: 100%|██████████| 2/2 [00:23<00:00, 11.90s/it]
+Loading weights:   0%|          | 0/657 [00:00<?, ?it/s]Loading weights:   5%|▌         | 33/657 [00:00<00:02, 305.22it/s]Loading weights:  10%|▉         | 64/657 [00:00<00:02, 214.75it/s]Loading weights:  13%|█▎        | 87/657 [00:00<00:04, 127.27it/s]Loading weights:  16%|█▌        | 103/657 [00:00<00:04, 132.08it/s]Loading weights:  18%|█▊        | 119/657 [00:00<00:04, 110.46it/s]Loading weights:  20%|██        | 132/657 [00:01<00:05, 98.10it/s] Loading weights:  22%|██▏       | 143/657 [00:01<00:05, 97.39it/s]Loading weights:  24%|██▎       | 156/657 [00:01<00:04, 103.31it/s]Loading weights:  25%|██▌       | 167/657 [00:01<00:05, 85.78it/s] Loading weights:  27%|██▋       | 177/657 [00:01<00:05, 86.76it/s]Loading weights:  30%|██▉       | 194/657 [00:01<00:05, 90.22it/s]Loading weights:  31%|███       | 204/657 [00:01<00:05, 90.55it/s]Loading weights:  47%|████▋     | 309/657 [00:01<00:01, 317.21it/s]Loading weights:  64%|██████▍   | 420/657 [00:02<00:00, 516.08it/s]Loading weights:  77%|███████▋  | 509/657 [00:02<00:00, 613.65it/s]Loading weights:  95%|█████████▍| 621/657 [00:02<00:00, 750.91it/s]Loading weights: 100%|██████████| 657/657 [00:02<00:00, 283.72it/s]
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+4/20 (1s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+8/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+12/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+16/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+20/20 (4s)
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--model",
+    "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+    "--batch-size",
+    "4",
+    "--max-groups",
+    "2",
+    "--out",
+    "/tmp/smoke_HuggingFaceTB_SmolVLM2-2.2B-Instruct"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": 2,
+    "batch_size": 4,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "/tmp/smoke_HuggingFaceTB_SmolVLM2-2.2B-Instruct"
+  },
+  "n_examples": 20,
+  "seconds": 4.1,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "HuggingFaceTB/SmolVLM2-2.2B-Instruct",
+    "revision": null,
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}

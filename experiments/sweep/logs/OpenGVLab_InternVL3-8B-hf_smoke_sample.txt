@@ -1,0 +1,3 @@
+{"example_id": "test_id-00000-a2e-a0-orig", "prediction": "S1", "raw_answer": "S1", "parsed_json": true, "raw_text": "Based on the flowchart, the branch labeled \"> 5\" leads to step S1.\n\nThus, the final answer is {\"answer\": \"S1\"}.", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a2-orig", "prediction": "auth?", "raw_answer": "auth?", "parsed_json": true, "raw_text": "According to the flowchart, the branch labeled \"x ≥ 0\" leads to the \"auth?\" decision diamond.\n\nThus, the final answer is {\"answer\": \"auth?\"}.", "condition": "A_direct"}
+{"example_id": "test_id-00000-

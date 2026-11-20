@@ -1,0 +1,4 @@
+{"example_id": "test_id-00000-a2e-a0-orig", "prediction": "S1", "raw_answer": "S1", "parsed_json": true, "raw_text": "{\"answer\": \"S1\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-a2e-a2-orig", "prediction": "S6", "raw_answer": "S6", "parsed_json": true, "raw_text": "{\"answer\": \"S6\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S2-orig", "prediction": "seen", "raw_answer": "seen", "parsed_json": true, "raw_text": "{\"answer\": \"seen\"}", "condition": "A_direct"}
+{"example_id": "test_id-00000-e2a-S1-orig", "prediction": "seen", "raw_answer": "seen", "parsed_

@@ -345,3 +345,8 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   - **Amendment, before they ran:** Idefics3-8B and Pixtral-12B added (non-gated, non-Qwen) for family diversity.
     The 4 completed models are not rerun. H_general is evaluated on all successfully evaluated models.
     Attempt-1 logs and analysis: `experiments/sweep/logs_attempt1/`, `results/sweep/attempt1/`.
+- 2026-11-20 — **Sweep completed** (`research/sweep_report.md`). 9 models evaluated.
+  - **H_general holds:** 9/9 are below the tracer on leader-leader pairs, and 9/9 are below fine-tuned M1.
+  - **Two low-validity runs:** Idefics3 and SmolVLM2 give a legal candidate only 34–38% of the time. They are reported separately.
+  - **Revisions:** not recorded at run time; resolved post hoc via the HF API (unambiguous, since every model's last
+    modification predates the run). The backend now records them.

@@ -1,0 +1,2 @@
+2026-11-20T14:36:42+00:00 waiting for 'SWEEP_(DONE|FAILED)' (extended regex) in /workspace/logs/run.log
+2026-11-20T17:04:45+00:00 pipeline done; bundling

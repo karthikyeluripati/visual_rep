@@ -1,0 +1,78 @@
+/workspace/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [01:07<03:22, 67.52s/it]Fetching 4 files:  50%|█████     | 2/4 [02:13<02:13, 66.88s/it]Fetching 4 files:  75%|███████▌  | 3/4 [02:14<00:36, 36.75s/it]Fetching 4 files: 100%|██████████| 4/4 [02:15<00:00, 22.37s/it]Fetching 4 files: 100%|██████████| 4/4 [02:15<00:00, 33.80s/it]
+Loading weights:   0%|          | 0/781 [00:00<?, ?it/s]Loading weights:   0%|          | 2/781 [00:00<01:27,  8.95it/s]Loading weights:   2%|▏         | 14/781 [00:00<00:16, 47.70it/s]Loading weights:   4%|▎         | 28/781 [00:00<00:10, 73.81it/s]Loading weights:   5%|▍         | 39/781 [00:00<00:09, 79.06it/s]Loading weights:   7%|▋         | 54/781 [00:00<00:07, 95.81it/s]Loading weights:   8%|▊         | 66/781 [00:00<00:07, 100.17it/s]Loading weights:  10%|▉         | 77/781 [00:00<00:07, 96.24it/s] Loading weights:  11%|█▏        | 89/781 [00:01<00:07, 96.86it/s]Loading weights:  13%|█▎        | 102/781 [00:01<00:06, 98.54it/s]Loading weights:  15%|█▍        | 114/781 [00:01<00:06, 97.40it/s]Loading weights:  16%|█▌        | 126/781 [00:01<00:06, 97.75it/s]Loading weights:  18%|█▊        | 137/781 [00:01<00:06, 97.09it/s]Loading weights:  19%|█▉        | 149/781 [00:01<00:06, 96.77it/s]Loading weights:  21%|██        | 162/781 [00:01<00:06, 99.03it/s]Loading weights:  22%|██▏       | 174/781 [00:01<00:06, 98.01it/s]Loading weights:  24%|██▍       | 186/781 [00:02<00:06, 98.06it/s]Loading weights:  25%|██▌       | 198/781 [00:02<00:05, 97.40it/s]Loading weights:  27%|██▋       | 210/781 [00:02<00:05, 97.54it/s]Loading weights:  28%|██▊       | 222/781 [00:02<00:05, 98.78it/s]Loading weights:  31%|███       | 244/781 [00:02<00:04, 120.57it/s]Loading weights:  33%|███▎      | 256/781 [00:02<00:04, 115.47it/s]Loading weights:  34%|███▍      | 268/781 [00:02<00:04, 109.76it/s]Loading weights:  36%|███▌      | 280/781 [00:02<00:04, 106.17it/s]Loading weights:  37%|███▋      | 291/781 [00:03<00:05, 84.95it/s] Loading weights:  39%|███▉      | 306/781 [00:03<00:05, 94.80it/s]Loading weights:  41%|████      | 317/781 [00:03<00:04, 93.65it/s]Loading weights:  42%|████▏     | 330/781 [00:03<00:05, 78.03it/s]Loading weights:  48%|████▊     | 371/781 [00:03<00:02, 147.17it/s]Loading weights:  54%|█████▎    | 419/781 [00:03<00:01, 218.02it/s]Loading weights:  66%|██████▌   | 515/781 [00:03<00:00, 397.00it/s]Loading weights:  82%|████████▏ | 642/781 [00:03<00:00, 620.74it/s]Loading weights:  96%|█████████▌| 748/781 [00:04<00:00, 738.11it/s]Loading weights: 100%|██████████| 781/781 [00:04<00:00, 189.21it/s]
+[transformers] The tied weights mapping and config for this model specifies to tie model.language_model.embed_tokens.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+4/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+8/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+12/20 (4s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+16/20 (5s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+20/20 (6s)
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--model",
+    "OpenGVLab/InternVL3-8B-hf",
+    "--batch-size",
+    "4",
+    "--max-groups",
+    "2",
+    "--out",
+    "/tmp/smoke_OpenGVLab_InternVL3-8B-hf"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "OpenGVLab/InternVL3-8B-hf",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": 2,
+    "batch_size": 4,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "/tmp/smoke_OpenGVLab_InternVL3-8B-hf"
+  },
+  "n_examples": 20,
+  "seconds": 6.3,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "OpenGVLab/InternVL3-8B-hf",
+    "revision": null,
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}

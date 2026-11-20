@@ -1,0 +1,78 @@
+/workspace/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [02:25<12:07, 145.41s/it]Fetching 6 files:  33%|███▎      | 2/6 [06:24<13:21, 200.33s/it]Fetching 6 files:  50%|█████     | 3/6 [06:42<05:52, 117.40s/it]Fetching 6 files:  67%|██████▋   | 4/6 [06:45<02:24, 72.09s/it] Fetching 6 files:  83%|████████▎ | 5/6 [06:47<00:46, 46.73s/it]Fetching 6 files: 100%|██████████| 6/6 [06:47<00:00, 30.96s/it]Fetching 6 files: 100%|██████████| 6/6 [06:47<00:00, 67.95s/it]
+Loading weights:   0%|          | 0/585 [00:00<?, ?it/s]Loading weights:   0%|          | 1/585 [00:00<01:23,  7.03it/s]Loading weights:   0%|          | 2/585 [00:00<01:44,  5.57it/s]Loading weights:   2%|▏         | 13/585 [00:00<00:15, 36.94it/s]Loading weights:   4%|▍         | 22/585 [00:00<00:10, 51.58it/s]Loading weights:   5%|▍         | 29/585 [00:00<00:09, 56.98it/s]Loading weights:   6%|▌         | 36/585 [00:00<00:09, 56.72it/s]Loading weights:   7%|▋         | 43/585 [00:00<00:09, 55.88it/s]Loading weights:   9%|▊         | 50/585 [00:01<00:09, 59.25it/s]Loading weights:  10%|▉         | 58/585 [00:01<00:08, 64.30it/s]Loading weights:  11%|█         | 65/585 [00:01<00:07, 65.28it/s]Loading weights:  12%|█▏        | 72/585 [00:01<00:08, 61.70it/s]Loading weights:  14%|█▎        | 79/585 [00:01<00:08, 59.61it/s]Loading weights:  15%|█▍        | 86/585 [00:01<00:08, 62.06it/s]Loading weights:  16%|█▌        | 94/585 [00:01<00:07, 66.46it/s]Loading weights:  17%|█▋        | 101/585 [00:01<00:07, 66.99it/s]Loading weights:  18%|█▊        | 108/585 [00:01<00:07, 63.28it/s]Loading weights:  20%|█▉        | 115/585 [00:02<00:07, 60.20it/s]Loading weights:  21%|██        | 122/585 [00:02<00:07, 62.31it/s]Loading weights:  22%|██▏       | 130/585 [00:02<00:06, 66.74it/s]Loading weights:  23%|██▎       | 137/585 [00:02<00:06, 67.37it/s]Loading weights:  25%|██▍       | 144/585 [00:02<00:06, 64.43it/s]Loading weights:  26%|██▌       | 151/585 [00:02<00:07, 61.25it/s]Loading weights:  27%|██▋       | 158/585 [00:02<00:06, 63.33it/s]Loading weights:  28%|██▊       | 166/585 [00:02<00:06, 67.39it/s]Loading weights:  30%|██▉       | 173/585 [00:02<00:06, 67.14it/s]Loading weights:  31%|███       | 180/585 [00:03<00:06, 63.30it/s]Loading weights:  32%|███▏      | 187/585 [00:03<00:06, 60.28it/s]Loading weights:  33%|███▎      | 194/585 [00:03<00:06, 56.54it/s]Loading weights:  35%|███▍      | 203/585 [00:03<00:05, 64.70it/s]Loading weights:  36%|███▌      | 211/585 [00:03<00:05, 68.07it/s]Loading weights:  37%|███▋      | 218/585 [00:03<00:05, 67.69it/s]Loading weights:  38%|███▊      | 225/585 [00:03<00:05, 64.17it/s]Loading weights:  40%|███▉      | 232/585 [00:03<00:05, 60.90it/s]Loading weights:  41%|████      | 239/585 [00:03<00:05, 63.27it/s]Loading weights:  42%|████▏     | 247/585 [00:04<00:05, 67.55it/s]Loading weights:  44%|████▍     | 256/585 [00:04<00:06, 52.80it/s]Loading weights:  47%|████▋     | 274/585 [00:04<00:03, 80.34it/s]Loading weights:  49%|████▊     | 284/585 [00:04<00:04, 73.51it/s]Loading weights:  50%|█████     | 293/585 [00:04<00:04, 70.99it/s]Loading weights:  51%|█████▏    | 301/585 [00:04<00:03, 73.05it/s]Loading weights:  53%|█████▎    | 310/585 [00:04<00:03, 70.78it/s]Loading weights:  54%|█████▍    | 318/585 [00:05<00:03, 72.56it/s]Loading weights:  56%|█████▌    | 326/585 [00:05<00:03, 67.35it/s]Loading weights:  57%|█████▋    | 333/585 [00:05<00:04, 62.43it/s]Loading weights:  58%|█████▊    | 340/585 [00:05<00:04, 60.12it/s]Loading weights:  59%|█████▉    | 348/585 [00:05<00:03, 59.58it/s]Loading weights:  61%|██████    | 356/585 [00:05<00:03, 63.88it/s]Loading weights:  65%|██████▍   | 378/585 [00:05<00:01, 103.79it/s]Loading weights:  76%|███████▌  | 443/585 [00:05<00:00, 250.20it/s]Loading weights:  88%|████████▊ | 515/585 [00:06<00:00, 379.22it/s]Loading weights: 100%|██████████| 585/585 [00:06<00:00, 95.93it/s] 
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+4/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+8/20 (5s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+12/20 (7s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+16/20 (8s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+20/20 (9s)
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--model",
+    "mistral-community/pixtral-12b",
+    "--batch-size",
+    "4",
+    "--max-groups",
+    "2",
+    "--out",
+    "/tmp/smoke_mistral-community_pixtral-12b"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "mistral-community/pixtral-12b",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": 2,
+    "batch_size": 4,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "/tmp/smoke_mistral-community_pixtral-12b"
+  },
+  "n_examples": 20,
+  "seconds": 9.3,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "mistral-community/pixtral-12b",
+    "revision": null,
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}

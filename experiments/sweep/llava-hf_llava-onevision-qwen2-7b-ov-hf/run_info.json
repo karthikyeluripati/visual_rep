@@ -1,0 +1,64 @@
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "test_unseen_template",
+    "test_unseen_family",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--model",
+    "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+    "--batch-size",
+    "16",
+    "--out",
+    "experiments/sweep/llava-hf_llava-onevision-qwen2-7b-ov-hf"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id",
+      "test_unseen_template",
+      "test_unseen_family"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": null,
+    "batch_size": 16,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "experiments/sweep/llava-hf_llava-onevision-qwen2-7b-ov-hf"
+  },
+  "n_examples": 6000,
+  "seconds": 1917.4,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+    "revision": null,
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}
