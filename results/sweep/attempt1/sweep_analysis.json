@@ -1,0 +1,418 @@
+{
+ "models": {
+  "Qwen_Qwen2.5-VL-7B-Instruct": {
+   "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+   "resolved_commit": null,
+   "seconds": 836.8,
+   "n": 6000,
+   "unparsed_rate": 0.0
+  },
+  "Qwen_Qwen3-VL-2B-Instruct": {
+   "model_id": "Qwen/Qwen3-VL-2B-Instruct",
+   "resolved_commit": null,
+   "seconds": 366.7,
+   "n": 6000,
+   "unparsed_rate": 0.0345
+  },
+  "Qwen_Qwen3-VL-4B-Instruct": {
+   "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+   "resolved_commit": null,
+   "seconds": 444.0,
+   "n": 6000,
+   "unparsed_rate": 0.0
+  },
+  "Qwen_Qwen3-VL-8B-Instruct": {
+   "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+   "resolved_commit": null,
+   "seconds": 536.7,
+   "n": 6000,
+   "unparsed_rate": 0.0
+  }
+ },
+ "accuracy": {
+  "Qwen_Qwen2.5-VL-7B-Instruct": {
+   "test_id": {
+    "num": 72,
+    "den": 1200,
+    "value": 0.06,
+    "ci95": [
+     0.0458,
+     0.0758
+    ]
+   },
+   "test_unseen_template": {
+    "num": 64,
+    "den": 600,
+    "value": 0.1067,
+    "ci95": [
+     0.08,
+     0.1334
+    ]
+   },
+   "test_unseen_family": {
+    "num": 82,
+    "den": 600,
+    "value": 0.1367,
+    "ci95": [
+     0.1033,
+     0.1733
+    ]
+   },
+   "pooled": {
+    "num": 218,
+    "den": 2400,
+    "value": 0.0908,
+    "ci95": [
+     0.0775,
+     0.1042
+    ]
+   },
+   "pooled_leader_leader": {
+    "num": 111,
+    "den": 1656,
+    "value": 0.067,
+    "ci95": [
+     0.0537,
+     0.0803
+    ]
+   },
+   "stuck_rate_a2e_pooled": 0.745
+  },
+  "Qwen_Qwen3-VL-2B-Instruct": {
+   "test_id": {
+    "num": 102,
+    "den": 1200,
+    "value": 0.085,
+    "ci95": [
+     0.0708,
+     0.1008
+    ]
+   },
+   "test_unseen_template": {
+    "num": 61,
+    "den": 600,
+    "value": 0.1017,
+    "ci95": [
+     0.0783,
+     0.1267
+    ]
+   },
+   "test_unseen_family": {
+    "num": 79,
+    "den": 600,
+    "value": 0.1317,
+    "ci95": [
+     0.1,
+     0.165
+    ]
+   },
+   "pooled": {
+    "num": 242,
+    "den": 2400,
+    "value": 0.1008,
+    "ci95": [
+     0.0875,
+     0.1142
+    ]
+   },
+   "pooled_leader_leader": {
+    "num": 122,
+    "den": 1656,
+    "value": 0.0737,
+    "ci95": [
+     0.0616,
+     0.0864
+    ]
+   },
+   "stuck_rate_a2e_pooled": 0.69
+  },
+  "Qwen_Qwen3-VL-4B-Instruct": {
+   "test_id": {
+    "num": 198,
+    "den": 1200,
+    "value": 0.165,
+    "ci95": [
+     0.1408,
+     0.19
+    ]
+   },
+   "test_unseen_template": {
+    "num": 119,
+    "den": 600,
+    "value": 0.1983,
+    "ci95": [
+     0.16,
+     0.24
+    ]
+   },
+   "test_unseen_family": {
+    "num": 148,
+    "den": 600,
+    "value": 0.2467,
+    "ci95": [
+     0.2017,
+     0.2933
+    ]
+   },
+   "pooled": {
+    "num": 465,
+    "den": 2400,
+    "value": 0.1938,
+    "ci95": [
+     0.1746,
+     0.2133
+    ]
+   },
+   "pooled_leader_leader": {
+    "num": 238,
+    "den": 1656,
+    "value": 0.1437,
+    "ci95": [
+     0.125,
+     0.1612
+    ]
+   },
+   "stuck_rate_a2e_pooled": 0.5958
+  },
+  "Qwen_Qwen3-VL-8B-Instruct": {
+   "test_id": {
+    "num": 214,
+    "den": 1200,
+    "value": 0.1783,
+    "ci95": [
+     0.1525,
+     0.205
+    ]
+   },
+   "test_unseen_template": {
+    "num": 138,
+    "den": 600,
+    "value": 0.23,
+    "ci95": [
+     0.1933,
+     0.2683
+    ]
+   },
+   "test_unseen_family": {
+    "num": 117,
+    "den": 600,
+    "value": 0.195,
+    "ci95": [
+     0.155,
+     0.235
+    ]
+   },
+   "pooled": {
+    "num": 469,
+    "den": 2400,
+    "value": 0.1954,
+    "ci95": [
+     0.1758,
+     0.2154
+    ]
+   },
+   "pooled_leader_leader": {
+    "num": 253,
+    "den": 1656,
+    "value": 0.1528,
+    "ci95": [
+     0.1341,
+     0.1715
+    ]
+   },
+   "stuck_rate_a2e_pooled": 0.5975
+  },
+  "M1_finetuned": {
+   "test_id": {
+    "num": 1163,
+    "den": 1200,
+    "value": 0.9692,
+    "ci95": [
+     0.9525,
+     0.9833
+    ]
+   },
+   "test_unseen_template": {
+    "num": 514,
+    "den": 600,
+    "value": 0.8567,
+    "ci95": [
+     0.8117,
+     0.8983
+    ]
+   },
+   "test_unseen_family": {
+    "num": 540,
+    "den": 600,
+    "value": 0.9,
+    "ci95": [
+     0.8667,
+     0.93
+    ]
+   },
+   "pooled": {
+    "num": 2217,
+    "den": 2400,
+    "value": 0.9237,
+    "ci95": [
+     0.9083,
+     0.9396
+    ]
+   },
+   "pooled_leader_leader": {
+    "num": 1506,
+    "den": 1656,
+    "value": 0.9094,
+    "ci95": [
+     0.8871,
+     0.93
+    ]
+   },
+   "stuck_rate_a2e_pooled": 0.0342
+  },
+  "tracer": {
+   "test_id": {
+    "num": 788,
+    "den": 1200,
+    "value": 0.6567,
+    "ci95": [
+     0.6075,
+     0.705
+    ]
+   },
+   "test_unseen_template": {
+    "num": 394,
+    "den": 600,
+    "value": 0.6567,
+    "ci95": [
+     0.5867,
+     0.7283
+    ]
+   },
+   "test_unseen_family": {
+    "num": 580,
+    "den": 600,
+    "value": 0.9667,
+    "ci95": [
+     0.9433,
+     0.9883
+    ]
+   },
+   "pooled": {
+    "num": 1762,
+    "den": 2400,
+    "value": 0.7342,
+    "ci95": [
+     0.7025,
+     0.7658
+    ]
+   },
+   "pooled_leader_leader": {
+    "num": 1069,
+    "den": 1656,
+    "value": 0.6455,
+    "ci95": [
+     0.6027,
+     0.686
+    ]
+   },
+   "stuck_rate_a2e_pooled": 0.145
+  }
+ },
+ "comparisons": {
+  "Qwen_Qwen2.5-VL-7B-Instruct - tracer": {
+   "diff_pp": -64.3,
+   "ci95_pp": [
+    -67.8,
+    -61.0
+   ],
+   "discordant_a_only": 40,
+   "discordant_b_only": 1584,
+   "mcnemar_p": 0.0,
+   "n": 2400
+  },
+  "Qwen_Qwen2.5-VL-7B-Instruct - M1_finetuned": {
+   "diff_pp": -83.3,
+   "ci95_pp": [
+    -85.2,
+    -81.3
+   ],
+   "discordant_a_only": 18,
+   "discordant_b_only": 2017,
+   "mcnemar_p": 0.0,
+   "n": 2400
+  },
+  "Qwen_Qwen3-VL-2B-Instruct - tracer": {
+   "diff_pp": -63.3,
+   "ci95_pp": [
+    -66.5,
+    -60.1
+   ],
+   "discordant_a_only": 34,
+   "discordant_b_only": 1554,
+   "mcnemar_p": 0.0,
+   "n": 2400
+  },
+  "Qwen_Qwen3-VL-2B-Instruct - M1_finetuned": {
+   "diff_pp": -82.3,
+   "ci95_pp": [
+    -84.1,
+    -80.3
+   ],
+   "discordant_a_only": 8,
+   "discordant_b_only": 1983,
+   "mcnemar_p": 0.0,
+   "n": 2400
+  },
+  "Qwen_Qwen3-VL-4B-Instruct - tracer": {
+   "diff_pp": -54.0,
+   "ci95_pp": [
+    -57.7,
+    -50.6
+   ],
+   "discordant_a_only": 98,
+   "discordant_b_only": 1395,
+   "mcnemar_p": 3.67e-294,
+   "n": 2400
+  },
+  "Qwen_Qwen3-VL-4B-Instruct - M1_finetuned": {
+   "diff_pp": -73.0,
+   "ci95_pp": [
+    -75.4,
+    -70.7
+   ],
+   "discordant_a_only": 13,
+   "discordant_b_only": 1765,
+   "mcnemar_p": 0.0,
+   "n": 2400
+  },
+  "Qwen_Qwen3-VL-8B-Instruct - tracer": {
+   "diff_pp": -53.9,
+   "ci95_pp": [
+    -57.6,
+    -50.2
+   ],
+   "discordant_a_only": 117,
+   "discordant_b_only": 1410,
+   "mcnemar_p": 3.94e-282,
+   "n": 2400
+  },
+  "Qwen_Qwen3-VL-8B-Instruct - M1_finetuned": {
+   "diff_pp": -72.8,
+   "ci95_pp": [
+    -75.1,
+    -70.5
+   ],
+   "discordant_a_only": 11,
+   "discordant_b_only": 1759,
+   "mcnemar_p": 0.0,
+   "n": 2400
+  }
+ },
+ "H_general": {
+  "n_models": 4,
+  "below_tracer_leader_leader": 4,
+  "below_M1_finetuned_pooled": 4,
+  "holds": true
+ }
+}

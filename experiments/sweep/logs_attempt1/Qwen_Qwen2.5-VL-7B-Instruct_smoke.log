@@ -1,0 +1,77 @@
+/workspace/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  20%|██        | 1/5 [00:10<00:40, 10.05s/it]Fetching 5 files:  40%|████      | 2/5 [00:28<00:44, 14.78s/it]Fetching 5 files:  60%|██████    | 3/5 [00:41<00:27, 13.98s/it]Fetching 5 files:  80%|████████  | 4/5 [00:49<00:11, 11.67s/it]Fetching 5 files: 100%|██████████| 5/5 [00:53<00:00,  8.82s/it]Fetching 5 files: 100%|██████████| 5/5 [00:53<00:00, 10.62s/it]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<02:55,  4.16it/s]Loading weights:   2%|▏         | 16/729 [00:00<00:12, 55.13it/s]Loading weights:   5%|▍         | 34/729 [00:00<00:07, 95.46it/s]Loading weights:   6%|▋         | 47/729 [00:00<00:06, 101.99it/s]Loading weights:   8%|▊         | 59/729 [00:00<00:06, 104.31it/s]Loading weights:  10%|▉         | 71/729 [00:00<00:06, 105.14it/s]Loading weights:  11%|█▏        | 83/729 [00:00<00:06, 104.32it/s]Loading weights:  13%|█▎        | 94/729 [00:01<00:06, 104.38it/s]Loading weights:  14%|█▍        | 105/729 [00:01<00:06, 103.53it/s]Loading weights:  16%|█▌        | 116/729 [00:01<00:06, 101.55it/s]Loading weights:  17%|█▋        | 127/729 [00:01<00:06, 98.70it/s] Loading weights:  19%|█▉        | 138/729 [00:01<00:06, 95.94it/s]Loading weights:  20%|██        | 149/729 [00:01<00:06, 93.78it/s]Loading weights:  22%|██▏       | 162/729 [00:01<00:05, 96.85it/s]Loading weights:  24%|██▎       | 172/729 [00:01<00:05, 95.15it/s]Loading weights:  25%|██▌       | 183/729 [00:01<00:05, 93.29it/s]Loading weights:  27%|██▋       | 198/729 [00:02<00:05, 102.54it/s]Loading weights:  29%|██▉       | 210/729 [00:02<00:05, 102.38it/s]Loading weights:  30%|███       | 222/729 [00:02<00:04, 101.65it/s]Loading weights:  32%|███▏      | 234/729 [00:02<00:04, 102.33it/s]Loading weights:  34%|███▎      | 246/729 [00:02<00:04, 102.02it/s]Loading weights:  35%|███▌      | 258/729 [00:02<00:04, 101.68it/s]Loading weights:  37%|███▋      | 270/729 [00:02<00:04, 100.50it/s]Loading weights:  39%|███▊      | 281/729 [00:02<00:04, 95.92it/s] Loading weights:  40%|████      | 294/729 [00:03<00:04, 99.70it/s]Loading weights:  42%|████▏     | 304/729 [00:03<00:05, 71.90it/s]Loading weights:  60%|██████    | 439/729 [00:03<00:00, 342.06it/s]Loading weights:  72%|███████▏  | 522/729 [00:03<00:00, 453.72it/s]Loading weights:  83%|████████▎ | 605/729 [00:03<00:00, 545.83it/s]Loading weights:  94%|█████████▍| 688/729 [00:03<00:00, 617.41it/s]Loading weights: 100%|██████████| 729/729 [00:03<00:00, 193.49it/s]
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+4/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+8/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+12/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+16/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+20/20 (4s)
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--model",
+    "Qwen/Qwen2.5-VL-7B-Instruct",
+    "--batch-size",
+    "4",
+    "--max-groups",
+    "2",
+    "--out",
+    "/tmp/smoke_Qwen_Qwen2.5-VL-7B-Instruct"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": 2,
+    "batch_size": 4,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "/tmp/smoke_Qwen_Qwen2.5-VL-7B-Instruct"
+  },
+  "n_examples": 20,
+  "seconds": 4.1,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "revision": null,
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}

@@ -1,0 +1,12 @@
+{
+ "n_models": 4,
+ "below_tracer_leader_leader": 4,
+ "below_M1_finetuned_pooled": 4,
+ "holds": true
+}
+Qwen_Qwen2.5-VL-7B-Instruct                   pooled=0.091 LL=0.067 stuck=0.745 test_id=0.060 test_unseen_template=0.107 test_unseen_family=0.137
+Qwen_Qwen3-VL-2B-Instruct                     pooled=0.101 LL=0.074 stuck=0.69 test_id=0.085 test_unseen_template=0.102 test_unseen_family=0.132
+Qwen_Qwen3-VL-4B-Instruct                     pooled=0.194 LL=0.144 stuck=0.5958 test_id=0.165 test_unseen_template=0.198 test_unseen_family=0.247
+Qwen_Qwen3-VL-8B-Instruct                     pooled=0.195 LL=0.153 stuck=0.5975 test_id=0.178 test_unseen_template=0.230 test_unseen_family=0.195
+M1_finetuned                                  pooled=0.924 LL=0.909 stuck=0.0342 test_id=0.969 test_unseen_template=0.857 test_unseen_family=0.900
+tracer                                        pooled=0.734 LL=0.645 stuck=0.145 test_id=0.657 test_unseen_template=0.657 test_unseen_family=0.967

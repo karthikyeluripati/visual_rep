@@ -4,7 +4,7 @@
 set -uo pipefail
 cd /workspace/visual_rep
 PY=/workspace/venv/bin/python
-export HF_HOME=/workspace/hf HF_HUB_ENABLE_HF_TRANSFER=1
+export HF_HOME=/workspace/hf HF_HUB_ENABLE_HF_TRANSFER=1 HF_HUB_DISABLE_XET=1
 D=/workspace/data/strict_v3
 O=experiments/sweep
 R=results/sweep
@@ -30,7 +30,9 @@ $PY -c "import json;[print(m['id'],m['bs'],m.get('revision','')) for m in json.l
     $PY -m relbind.vlm.run --data $D --splits $SPL --variants orig cf --condition A_direct --backend qwen \
         --model $MID $RA --batch-size $BS --out $O/$TAG > $O/logs/$TAG.log 2>&1 < /dev/null && log "done $MID" || log "FAILED $MID"
   fi
-  rm -rf $HF_HOME/hub/models--$(echo $MID | sed 's#/#--#')   # free container disk
+  # free container disk: weights AND any download chunk caches (attempt 1 ran out of disk via hf/xet)
+  rm -rf $HF_HOME/hub/models--$(echo $MID | sed 's#/#--#') $HF_HOME/xet $HF_HOME/hub/.locks /tmp/smoke_$TAG
+  log "disk free: $(df -h /workspace | tail -1 | awk '{print $4}')"
 done
 $PY -m relbind.baselines.heuristics --data $D --splits $SPL --method ray_tracer --out $R/ray_tracer.jsonl
 log "analysis"

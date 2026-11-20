@@ -334,3 +334,14 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     unseen topology.
   - **Q2:** n* = 600, and the curve is not saturated.
   - **Q3:** M1 pooled unseen = 0.858 ± 0.012 over 3 seeds.
+- 2026-11-20 — **Sweep attempt 1 was partial.** Evaluated: Qwen3-VL-2B/4B/8B and Qwen2.5-VL-7B (outputs preserved).
+  - **Skipped:**
+    - InternVL3-8B and LLaVA-OV-7B: disk full from the hf xet chunk cache, which my cleanup missed;
+    - SmolVLM2: missing the `num2words` dependency;
+    - Gemma-3-12B: gated; no HF token.
+  - **Fix:**
+    - xet disabled, and the xet cache, locks and smoke outputs cleaned after each model;
+    - `num2words` added to the pod setup.
+  - **Amendment, before they ran:** Idefics3-8B and Pixtral-12B added (non-gated, non-Qwen) for family diversity.
+    The 4 completed models are not rerun. H_general is evaluated on all successfully evaluated models.
+    Attempt-1 logs and analysis: `experiments/sweep/logs_attempt1/`, `results/sweep/attempt1/`.

@@ -1,0 +1,76 @@
+/workspace/venv/lib/python3.12/site-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/625 [00:00<?, ?it/s]Loading weights:   5%|▌         | 32/625 [00:00<00:02, 268.65it/s]Loading weights:  21%|██        | 132/625 [00:00<00:00, 606.33it/s]Loading weights:  31%|███       | 193/625 [00:00<00:00, 607.50it/s]Loading weights:  41%|████      | 254/625 [00:00<00:00, 553.51it/s]Loading weights:  50%|████▉     | 310/625 [00:00<00:00, 496.60it/s]Loading weights:  64%|██████▍   | 402/625 [00:00<00:00, 617.33it/s]Loading weights:  77%|███████▋  | 480/625 [00:00<00:00, 660.96it/s]Loading weights:  94%|█████████▎| 585/625 [00:00<00:00, 773.11it/s]Loading weights: 100%|██████████| 625/625 [00:00<00:00, 637.69it/s]
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+4/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+8/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+12/20 (2s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+16/20 (3s)
+[transformers] Kwargs passed to `processor.__call__` have to be in `processor_kwargs` dict, not in `**kwargs`
+20/20 (3s)
+{
+  "argv": [
+    "/workspace/visual_rep/src/relbind/vlm/run.py",
+    "--data",
+    "/workspace/data/strict_v3",
+    "--splits",
+    "test_id",
+    "--variants",
+    "orig",
+    "cf",
+    "--condition",
+    "A_direct",
+    "--backend",
+    "qwen",
+    "--model",
+    "Qwen/Qwen3-VL-2B-Instruct",
+    "--batch-size",
+    "4",
+    "--max-groups",
+    "2",
+    "--out",
+    "/tmp/smoke_Qwen_Qwen3-VL-2B-Instruct"
+  ],
+  "args": {
+    "data": "/workspace/data/strict_v3",
+    "splits": [
+      "test_id"
+    ],
+    "condition": "A_direct",
+    "backend": "qwen",
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": null,
+    "max_pixels": null,
+    "mock_from": null,
+    "variants": [
+      "orig",
+      "cf"
+    ],
+    "max_groups": 2,
+    "batch_size": 4,
+    "max_new_tokens": null,
+    "ask_boxes": false,
+    "examples_name": "examples.jsonl",
+    "out": "/tmp/smoke_Qwen_Qwen3-VL-2B-Instruct"
+  },
+  "n_examples": 20,
+  "seconds": 2.9,
+  "python": "3.12.3",
+  "backend": {
+    "backend": "hf",
+    "model_id": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": null,
+    "resolved_commit": null,
+    "transformers": "5.23.0",
+    "torch": "2.8.0+cu129",
+    "dtype": "bfloat16",
+    "attn": "sdpa",
+    "max_pixels": null,
+    "gpu": "NVIDIA H100 80GB HBM3"
+  },
+  "max_new_tokens": 96
+}
