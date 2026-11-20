@@ -305,3 +305,16 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     unseen family; neither M3 nor M2R beats M1 on any split.
   - **Recommendation:** stop the relational-method / RL track, and reframe the work as a diagnostic and data result.
     Any further GPU spend needs PI approval.
+- 2026-11-20 — **Data-scale / cf-pair ablation / seed run approved by the PI** ("carry on"). Pre-registered before any output exists.
+  - **Arms:** M1 (answer-only, pilot recipe) on strict_v3 train.
+    - `noCF`: drop cf variants.
+    - `noStyle`: drop style variants. Same example count and steps as noCF. The only difference is whether each group's
+      near-duplicate partner flips the answer (cf) or not (style).
+    - `n150`, `n50`: the first N groups of the seed-0 shuffled order.
+    - `n600` seeds 1 and 2. Seed 0 is the transfer-run M1, whose build hash must match.
+  - **Eval:** orig/cf on val plus the three unseen splits.
+  - **Rules:** `src/relbind/datascale_analysis.py` (docstring).
+    - Q1 (cf pairs): noStyle − noCF on pooled unseen must be ≥ 3 pp, CI excluding 0, AND larger than the seed-to-seed range of
+      M1_n600.
+    - Q2 (data efficiency): n* = the smallest n reaching the n600 seed mean minus 5 pp.
+    - Q3 (seeds): mean, sd and range across the 3 seeds.

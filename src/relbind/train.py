@@ -201,6 +201,8 @@ def main(argv=None):
     ap.add_argument("--lam", type=float, default=0.5)
     ap.add_argument("--margin", type=float, default=1.0)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--n-groups", type=int, default=None, help="train on the first N groups of the seed-shuffled order")
+    ap.add_argument("--drop-variants", nargs="*", default=[], choices=["orig", "cf", "reroute", "style"])
     ap.add_argument("--check-reload", action="store_true")
     ap.add_argument("--no-eval", action="store_true")
     ap.add_argument("--eval-variants", nargs="+", default=["orig", "cf"])
@@ -215,13 +217,15 @@ def main(argv=None):
     img_tok = getattr(model.config, "image_token_id", None) or proc.tokenizer.convert_tokens_to_ids("<|image_pad|>")
 
     # paired micro-batches: per group, [orig+cf examples] and [reroute+style examples]; group order shuffled
-    exs = load_examples(data, [args.train_split])
+    exs = [e for e in load_examples(data, [args.train_split]) if e["variant"] not in args.drop_variants]
     by_g = defaultdict(lambda: defaultdict(list))
     for e in exs:
         by_g[e["group_id"]][("oc" if e["variant"] in ("orig", "cf") else "rs")].append(e)
     gids = sorted(by_g)
     random.Random(args.seed).shuffle(gids)
-    batches = [by_g[g][k] for g in gids for k in ("oc", "rs")]
+    if args.n_groups:
+        gids = gids[: args.n_groups]
+    batches = [by_g[g][k] for g in gids for k in ("oc", "rs") if by_g[g][k]]
     steps_total = math.ceil(len(batches) / args.accum)
     if args.max_steps:
         steps_total = min(steps_total, args.max_steps)
@@ -310,6 +314,7 @@ def main(argv=None):
     sha = hashlib.sha256((out / "trainable_state.pt").read_bytes()).hexdigest()
     info = {"arm": args.arm, "steps": step, "micro_batches": len(batches[: step * args.accum]), "accum": args.accum,
             "n_trainable_params": n_train, "lr": args.lr, "lam": args.lam, "margin": args.margin, "seed": args.seed,
+            "n_groups": len(gids), "drop_variants": args.drop_variants, "n_train_examples": sum(len(b) for b in batches),
             "head_layer": HEAD_LAYER, "train_seconds": round(time.time() - t0, 1), "state_sha256": sha,
             "state_bytes": (out / "trainable_state.pt").stat().st_size, "model": MODEL, "revision": REV}
     if args.check_reload:
