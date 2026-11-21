@@ -1,0 +1,33 @@
+2026-11-20T21:58:30+00:00 tests ok
+strict_v3 identical
+2026-11-20T22:00:11+00:00 smoke: InternVL3-8B M1, 4 steps, reload check
+smoke 4 67910656 {'weights_equal': True, 'reload_vs_reload_max_abs_logit_diff': 0.0, 'max_abs_logit_diff': 0.0, 'top1_agree': True, 'unexpected_keys': 0, 'ok': True}
+2026-11-20T22:02:47+00:00 train+eval InternVL3-8B M1 seed 0
+   ]
+  },
+  "base": {
+   "num": 119,
+   "den": 1200,
+   "value": 0.0992,
+   "ci95": [
+    0.08,
+    0.12
+   ]
+  },
+  "ft_minus_base": {
+   "diff_pp": 51.7,
+   "ci95_pp": [
+    47.9,
+    55.4
+   ],
+   "discordant_a_only": 646,
+   "discordant_b_only": 26,
+   "mcnemar_p": 5.25e-156,
+   "n": 1200
+  }
+ },
+ "transfers_across_families": true
+}
+2026-11-21T00:10:35+00:00 Gemma-3-12B zero-shot (only if the token has access)
+2026-11-21T00:10:40+00:00 SKIP gemma: Access to model google/gemma-3-12b-it is restricted and you are not in the authorized list. Visit https://huggingface.co/google/gemma-3-12b-it to ask for access
+2026-11-21T00:10:40+00:00 XFAM_DONE

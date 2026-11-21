@@ -1,0 +1,20 @@
+{
+  "arm": "M1",
+  "steps": 600,
+  "micro_batches": 1200,
+  "accum": 2,
+  "n_trainable_params": 67910656,
+  "lr": 0.0001,
+  "lam": 0.5,
+  "margin": 1.0,
+  "seed": 0,
+  "n_groups": 600,
+  "drop_variants": [],
+  "n_train_examples": 12000,
+  "head_layer": 18,
+  "train_seconds": 6340.6,
+  "state_sha256": "5db8914393593a517c9ce0c7be1ced77e615c5682522e67b252d21c5971d46f8",
+  "state_bytes": 216709635,
+  "model": "OpenGVLab/InternVL3-8B-hf",
+  "revision": "259a3b64a14623c0ec91a045cb43f7c5af5fa6af"
+}

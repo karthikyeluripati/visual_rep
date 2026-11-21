@@ -1,0 +1,100 @@
+{
+ "splits": {
+  "test_unseen_template": {
+   "ft": {
+    "num": 281,
+    "den": 600,
+    "value": 0.4683,
+    "ci95": [
+     0.4217,
+     0.515
+    ]
+   },
+   "base": {
+    "num": 47,
+    "den": 600,
+    "value": 0.0783,
+    "ci95": [
+     0.055,
+     0.1033
+    ]
+   }
+  },
+  "test_unseen_family": {
+   "ft": {
+    "num": 458,
+    "den": 600,
+    "value": 0.7633,
+    "ci95": [
+     0.7217,
+     0.8033
+    ]
+   },
+   "base": {
+    "num": 72,
+    "den": 600,
+    "value": 0.12,
+    "ci95": [
+     0.09,
+     0.1533
+    ]
+   }
+  },
+  "val": {
+   "ft": {
+    "num": 315,
+    "den": 360,
+    "value": 0.875,
+    "ci95": [
+     0.8278,
+     0.9167
+    ]
+   },
+   "base": null
+  },
+  "test_unseen_topology": {
+   "ft": {
+    "num": 391,
+    "den": 600,
+    "value": 0.6517,
+    "ci95": [
+     0.595,
+     0.7067
+    ]
+   },
+   "base": null
+  }
+ },
+ "pooled_heldout": {
+  "ft": {
+   "num": 739,
+   "den": 1200,
+   "value": 0.6158,
+   "ci95": [
+    0.58,
+    0.6517
+   ]
+  },
+  "base": {
+   "num": 119,
+   "den": 1200,
+   "value": 0.0992,
+   "ci95": [
+    0.08,
+    0.12
+   ]
+  },
+  "ft_minus_base": {
+   "diff_pp": 51.7,
+   "ci95_pp": [
+    47.9,
+    55.4
+   ],
+   "discordant_a_only": 646,
+   "discordant_b_only": 26,
+   "mcnemar_p": 5.25e-156,
+   "n": 1200
+  }
+ },
+ "transfers_across_families": true
+}

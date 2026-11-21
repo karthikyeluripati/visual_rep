@@ -1,0 +1,4 @@
+{"step": 1, "loss": 1.9472, "sft": 1.9472, "rel": 0.0, "pair": 0.0, "grad_norm": 18.9181, "grad_abs_head": null, "grad_abs_merger": 1998.5156, "lr": 8.535533905932738e-05, "sec": 11.5, "sft_micro": [1.9687, 1.9257]}
+{"step": 2, "loss": 1.2415, "sft": 1.2415, "rel": 0.0, "pair": 0.0, "grad_norm": 15.0794, "grad_abs_head": null, "grad_abs_merger": 2258.7646, "lr": 5e-05, "sec": 22.4, "sft_micro": [1.0428, 1.4403]}
+{"step": 3, "loss": 0.1691, "sft": 0.1691, "rel": 0.0, "pair": 0.0, "grad_norm": 3.2254, "grad_abs_head": null, "grad_abs_merger": 3099.1738, "lr": 1.4644660940672627e-05, "sec": 33.7, "sft_micro": [0.3042, 0.0341]}
+{"step": 4, "loss": 0.3469, "sft": 0.3469, "rel": 0.0, "pair": 0.0, "grad_norm": 4.8046, "grad_abs_head": null, "grad_abs_merger": 3059.1309, "lr": 0.0, "sec": 45.2, "sft_micro": [0.3111, 0.3827]}

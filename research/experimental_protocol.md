@@ -370,3 +370,7 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     No other recipe change.
   - **Also:** Gemma-3-12B zero-shot, run only if the PI's HF token has licence access. The token is placed on the pod as a
     0600 file and redacted from logs.
+- 2026-11-21 — **Cross-family run completed** (`research/xfam_report.md`).
+  - **Outcome:** `transfers_across_families = true`, +51.7 pp [47.9, 55.4] (InternVL3-8B 0.099 → 0.616 on held-out template + family).
+  - **Transfer is base-model dependent:** InternVL scores 0.468 on unseen templates, against Qwen's 0.833.
+  - **Gemma-3:** skipped (the account is not yet authorized for the gated model).

@@ -1,0 +1,28 @@
+{
+  "arm": "M1",
+  "steps": 4,
+  "micro_batches": 8,
+  "accum": 2,
+  "n_trainable_params": 67910656,
+  "lr": 0.0001,
+  "lam": 0.5,
+  "margin": 1.0,
+  "seed": 0,
+  "n_groups": 600,
+  "drop_variants": [],
+  "n_train_examples": 80,
+  "head_layer": 18,
+  "train_seconds": 45.7,
+  "state_sha256": "07e492f34db3fac23ddeb73b737483f6731d75ec4036292ec028dfb34017e587",
+  "state_bytes": 216709635,
+  "model": "OpenGVLab/InternVL3-8B-hf",
+  "revision": "259a3b64a14623c0ec91a045cb43f7c5af5fa6af",
+  "reload_check": {
+    "weights_equal": true,
+    "reload_vs_reload_max_abs_logit_diff": 0.0,
+    "max_abs_logit_diff": 0.0,
+    "top1_agree": true,
+    "unexpected_keys": 0,
+    "ok": true
+  }
+}
