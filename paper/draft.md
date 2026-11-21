@@ -139,7 +139,11 @@ Pooled over test_id, unseen template and unseen family (600 pairs per model):
   - pooled 0.858 ± 0.012.
 - The untrained model scores 0.05–0.25 on the same splits.
 - Results hold on leader-leader crossings: 0.82 on unseen templates and 0.88 on circuits.
-- **[PLANNED] Second base model family** (InternVL3-8B).
+- **Second base model family** (InternVL3-8B, 1 seed; `research/xfam_report.md`).
+  - The same recipe lifts it from 0.099 to 0.616 pooled on held-out template + family (+51.7 pp [47.9, 55.4]).
+    The pre-registered rule is passed.
+  - Transfer depends on the base model: 0.468 on unseen templates, against 0.833 for Qwen3-VL-4B.
+  - So the claim is **learnable, with base-model-dependent transfer**.
 
 ### 5.2 Ablations: what drives the fix
 
