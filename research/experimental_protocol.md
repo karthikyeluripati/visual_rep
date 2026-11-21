@@ -374,3 +374,13 @@ scale); contamination of the base model with similar public diagrams; prompts tu
   - **Outcome:** `transfers_across_families = true`, +51.7 pp [47.9, 55.4] (InternVL3-8B 0.099 → 0.616 on held-out template + family).
   - **Transfer is base-model dependent:** InternVL scores 0.468 on unseen templates, against Qwen's 0.833.
   - **Gemma-3:** skipped (the account is not yet authorized for the gated model).
+- 2026-11-21 — **Human audit moved to the released benchmark (strict_v3).**
+  - **Why:** the earlier kit (`audit_diag_v1`) audits a superseded build. It is kept, but it is not the paper's validation.
+  - **New kit:** `relbind.viz audit3`, seed 20261121. 20 flipping pairs per test split (4 splits), round-robin over crossing
+    cells, both twins shown, plus 20 style/reroute controls: 180 items in total.
+  - **Pass criterion:** unchanged and pre-registered in `relbind.validation.score2`: each reviewer ≥ 98% accurate and ≤ 2%
+    flagged ambiguous, and ≥ 95% of pairs fully correct by both reviewers.
+  - **Platform finding:** a local Windows build differs from the Linux build at the sub-pixel level (label boxes about 0.25 px),
+    even with identical Pillow and numpy pins. Likely cause: the text layout engine. So the kit is built on the Linux pod,
+    and the datasheet now states that byte-reproducibility holds on Linux x86-64.
+  - **Answer keys** are now gitignored by pattern.

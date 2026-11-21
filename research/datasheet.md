@@ -45,7 +45,7 @@ Format: Gebru et al., "Datasheets for Datasets". Items marked **[PI]** need a de
 - **Rejection sampling** with a fixed per-group config draw, so rejection cannot shift the config mix.
   This adds a selection bias toward layouts where strict swaps are feasible (documented in the paper's limitations).
 - **Reproducibility.** The exact build is reproducible from git commit and config. The manifest records per-split
-  example sha256 values, config sha256 and library versions. A rebuild on a fresh machine was verified byte-identical (2026-11-19 and 2026-11-20).
+  example sha256 values, config sha256 and library versions. A rebuild on a fresh Linux x86-64 machine was verified byte-identical (2026-11-19, 2026-11-20). A Windows build differs at the sub-pixel level (text layout engine), so the released images are the Linux build.
 
 ## Preprocessing and uses
 

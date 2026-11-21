@@ -174,9 +174,72 @@ def audit_package(data: Path, out: Path, n_pairs: int = 70, n_extra: int = 30, s
     print(f"wrote {len(items)} items ({(len(items) - n_extra_used) // 2} orig/cf pairs + {n_extra_used} extra) -> {out}; key -> {keydir}")
 
 
+def audit_strict(data: Path, out: Path, splits: list[str], pairs_per_split: int = 20, n_extra: int = 20,
+                 seed: int = 20261121):
+    """Two-reviewer blind package for the released benchmark (strict_v3 test splits).
+    Per split: pairs_per_split flipping queries shown on BOTH orig and cf, stratified round-robin over crossing cells
+    (so rare cells such as 'none' are represented), plus n_extra style/reroute control items spread over splits.
+    Same sheet/key format as audit_package, so `relbind.validation score2` scores it unchanged."""
+    import random
+
+    rnd = random.Random(seed)
+    items, pool = [], []
+    for sp in splits:
+        es = load_examples(data, [sp])
+        by_q = defaultdict(dict)
+        for e in es:
+            if e["variant"] in ("orig", "cf") and e["flips_under_cf"]:
+                by_q[e["query_id"]][e["variant"]] = e
+        cells = defaultdict(list)
+        for q in sorted(by_q):
+            if {"orig", "cf"} <= by_q[q].keys():
+                cells[by_q[q]["orig"]["crossing_cell"]].append(q)
+        for c in cells.values():
+            rnd.shuffle(c)
+        chosen, order = [], sorted(cells)
+        while len(chosen) < pairs_per_split and any(cells.values()):
+            for c in order:
+                if cells[c] and len(chosen) < pairs_per_split:
+                    chosen.append(cells[c].pop())
+        for q in chosen:
+            items += [by_q[q]["orig"], by_q[q]["cf"]]
+        pool += [e for e in es if e["variant"] in ("style", "reroute")]
+    rnd.shuffle(pool)
+    items += pool[:n_extra]
+    out.mkdir(parents=True, exist_ok=False)
+    (out / "images").mkdir()
+    key = []
+    for i, e in enumerate(items):
+        name = f"item_{i:03d}.png"
+        Image.open(data / e["image"]).save(out / "images" / name)
+        key.append({"item": i, "image": f"images/{name}", "question": e["question"], "example_id": e["example_id"],
+                    "query_id": e["query_id"], "answer": e["answer"], "split": e["split"], "variant": e["variant"],
+                    "family": e["family"], "template": e["template"], "crossing_cell": e.get("crossing_cell"),
+                    "answerable": e["answerable"]})
+    for reviewer in ("A", "B"):
+        order = list(range(len(items)))
+        random.Random(f"{seed}-{reviewer}").shuffle(order)
+        with open(out / f"sheet_reviewer_{reviewer}.csv", "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["item", "image", "question", "reviewer_answer", "unambiguous(y/n)", "notes"])
+            for i in order:
+                w.writerow([i, key[i]["image"], key[i]["question"], "", "", ""])
+    (out / "README_REVIEWERS.md").write_text(REVIEWER_README.format(n=len(items)), encoding="utf-8")
+    keydir = out.parent / (out.name + "_ANSWER_KEY_DO_NOT_SHARE")
+    keydir.mkdir(exist_ok=False)
+    (keydir / "answer_key.json").write_text(json.dumps(key, indent=1, ensure_ascii=False), encoding="utf-8")
+    print(f"wrote {len(items)} items -> {out}; key -> {keydir}")
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
+    a3 = sub.add_parser("audit3", help="two-reviewer package over chosen test splits, crossing-stratified")
+    a3.add_argument("--data", required=True)
+    a3.add_argument("--splits", nargs="+", required=True)
+    a3.add_argument("--pairs-per-split", type=int, default=20)
+    a3.add_argument("--extra", type=int, default=20)
+    a3.add_argument("--out", required=True)
     p = sub.add_parser("panels")
     p.add_argument("--data", required=True)
     p.add_argument("--split", required=True)
@@ -196,6 +259,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == "panels":
         panels(Path(args.data), args.split, args.n, Path(args.out), args.pred, args.qtype)
+    elif args.cmd == "audit3":
+        audit_strict(Path(args.data), Path(args.out), args.splits, args.pairs_per_split, args.extra)
     elif args.cmd == "audit2":
         audit_package(Path(args.data), Path(args.out), args.pairs, args.extra)
     else:
