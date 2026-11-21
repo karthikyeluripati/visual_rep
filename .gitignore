@@ -16,3 +16,4 @@ pod_results/
 
 # blind-audit answer keys must never be committed
 *_ANSWER_KEY_DO_NOT_SHARE/
+audit_handoff/

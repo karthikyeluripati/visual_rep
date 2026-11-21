@@ -384,3 +384,8 @@ scale); contamination of the base model with similar public diagrams; prompts tu
     even with identical Pillow and numpy pins. Likely cause: the text layout engine. So the kit is built on the Linux pod,
     and the datasheet now states that byte-reproducibility holds on Linux x86-64.
   - **Answer keys** are now gitignored by pattern.
+  - **Kit built** (2026-11-21, commit 18963f2, on the Linux pod). 180 items; all 180 images hash-identical to the released
+    strict_v3 images.
+  - **Answer key:** SHA-256 af1f35e4cbfe4ce24f46961a428dc329b0c3bc5da5d0fc46f005ab07f122ba56. It is not in git; it lives at
+    `pod_results/20261121_155926/visual_rep/data/validation/audit_strict_v3_ANSWER_KEY_DO_NOT_SHARE/`.
+  - **Scoring**, once both sheets are back: `python -m relbind.validation score2 --key <key> --sheet-a <A.csv> --sheet-b <B.csv>`.
