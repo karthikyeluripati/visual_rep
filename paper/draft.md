@@ -19,7 +19,9 @@ prompting does not help.
 
 The failure is not perceptual: models read the labels 95% of the time. Nor is it architectural. Answer-only fine-tuning of
 a 4B model on 600 strict pairs reaches 0.858 ± 0.012 (3 seeds) on held-out topologies, templates and an unseen diagram
-family. At matched data, the counterfactual pairing contributes +3.9 pp. In contrast, explicit relational supervision
+family. A second architecture (InternVL3-8B) also learns the task (0.10 → 0.62), but transfers less to unseen templates,
+so how far the fix generalizes depends on the base model. At matched data, the counterfactual pairing contributes +3.9 pp.
+In contrast, explicit relational supervision
 (coordinate rationales, a contrastive relational head) *hurts* by 9–51 pp, a pre-registered negative result.
 **[PENDING: real patent-drawing results; human audit.]**
 
