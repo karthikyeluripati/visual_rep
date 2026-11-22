@@ -79,7 +79,7 @@ The novelty audit is in `research/novelty_audit.md`.
 - Crossing type is balanced over the cells that are feasible under strict swaps: leader-leader 1,025, entity-only 304, none 111.
 - The leakage audit reports 0 errors and 7 near-duplicate warnings. A rebuild is byte-identical.
 - The datasheet is in `research/datasheet.md`.
-- **[PENDING] Human audit:** two blind reviewers, 172 items.
+- **[PENDING] Human audit:** two blind reviewers, 180 items (strict_v3 kit, crossing-stratified).
 
 ### Metric
 
@@ -176,7 +176,8 @@ All differences are p < 1e−7. The pre-registered transfer rule returned "drop 
 
 - One generator and style system.
 - Rejection sampling introduces a selection bias toward layouts where strict swaps are feasible.
-- Fine-tuning has been tested on one base model so far.
+- Fine-tuning has been tested on two base models (Qwen3-VL-4B, 3 seeds; InternVL3-8B, 1 seed), and transfer differs between them.
+- No comparison yet against the Knossos/Ariadne structured-SFT recipe (the closest prior fix).
 - Open models only, up to 12B.
 - On real drawings, the markers are an added visual element.
 - Transparency: the protocol log records every deviation, including two aborted runs caused by our own logging bug,
@@ -187,4 +188,4 @@ All differences are p < 1e−7. The pre-registered transfer rule returned "drop 
 - Pre-registration and the change log: `research/experimental_protocol.md`.
 - Build hashes are in the manifests, and adapter sha256 values are in the logs.
 - Versions are pinned, and model revisions are recorded.
-- Total compute: about $121 of H100 time.
+- Total compute: about $130 of H100 time (summed from the per-run logs).

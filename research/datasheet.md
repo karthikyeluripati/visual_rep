@@ -33,8 +33,9 @@ Format: Gebru et al., "Datasheets for Datasets". Items marked **[PI]** need a de
   strict swaps): leader_leader 1,025, entity_only 304, none 111.
 - **Labels.** Ground truth comes from the generator's scene graph. It is verified by a geometric verifier and a pixel check.
   There is no human labelling.
-- **Human validation.** A blind 2-reviewer audit kit (172 items, diag_v1) is prepared. **It is not yet completed, so the
-  benchmark is not claimed to be human-validated.**
+- **Human validation.** A blind 2-reviewer audit kit for strict_v3 is prepared: 180 items, crossing-stratified pairs
+  over the test splits plus controls, images hash-identical to the release (`data/validation/audit_strict_v3/`).
+  It supersedes the earlier diag_v1 kit. **It is not yet completed, so the benchmark is not claimed to be human-validated.**
 - **Leakage.** Groups never straddle splits. There are no identical images across splits and no shared relation signatures.
   7 cross-split base-image pairs have dHash distance ≤ 4 (reported in the leakage report; too few to affect results).
 - **Personal or sensitive data.** None. All content is synthetic: procedural shapes, labels and values.
